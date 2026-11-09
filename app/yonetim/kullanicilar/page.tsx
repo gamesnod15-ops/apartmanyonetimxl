@@ -328,7 +328,7 @@ export default function AdminUsersPage() {
               </span>
             </div>
 
-            <div className="grid gap-3 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
               {blocks.map((blockName) => {
                 const blockApartments = filteredApartments.filter(
                   (apartment) => apartment.block === blockName

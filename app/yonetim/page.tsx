@@ -233,7 +233,7 @@ export default function AdminDashboard() {
         ))}
       </section>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Card>
           <SectionHeader
             title="Aidat Tahsilat Durumu"
@@ -320,7 +320,7 @@ export default function AdminDashboard() {
         </Card>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <section>
           <SectionHeader
             title="Son Arıza Kayıtları"
@@ -434,7 +434,7 @@ export default function AdminDashboard() {
         </section>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <section>
           <SectionHeader
             title="Bekleyen Kargolar"

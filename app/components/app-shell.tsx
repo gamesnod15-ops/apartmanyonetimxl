@@ -215,8 +215,8 @@ export function AppShell({
       </aside>
 
       <div className="md:pl-72">
-        <header className="sticky top-0 z-30 border-b border-slate-200 bg-white">
-          <div className="flex h-16 w-full items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
+        <header className="safe-top sticky top-0 z-30 border-b border-slate-200 bg-white">
+          <div className="flex h-14 w-full items-center justify-between gap-3 px-4 md:h-16 md:px-6 lg:px-8">
             <div className="flex items-center gap-3">
               <span
                 className={cn(
@@ -239,7 +239,7 @@ export function AppShell({
             </div>
 
             <div className="flex items-center gap-1.5">
-              <div className="relative">
+              <div className="relative hidden md:block">
                 <button
                   type="button"
                   onClick={() => {
@@ -335,12 +335,25 @@ export function AppShell({
                     href={item.href}
                     aria-label={item.label}
                     title={item.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700"
+                    className="hidden h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700 md:flex"
                   >
                     <Icon className="h-5 w-5" />
                   </Link>
                 );
               })}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setProfileOpen(false);
+                  setBellOpen(false);
+                  setMenuOpen(true);
+                }}
+                aria-label="Menü"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700 md:hidden"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
 
               <div className="relative">
                 <button
@@ -411,12 +424,17 @@ export function AppShell({
         </header>
 
         <main className="w-full px-4 pb-safe pt-4 md:px-6 md:pb-10 md:pt-6 lg:px-8">
-          {children}
+          <div key={pathname} className="animate-fade-up">
+            {children}
+          </div>
         </main>
       </div>
 
-      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-safe backdrop-blur md:hidden">
-        <div className="grid grid-cols-5">
+      <nav
+        className="fixed inset-x-2 z-40 mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white/95 p-1 shadow-2xl shadow-slate-900/10 backdrop-blur-xl sm:inset-x-3 sm:rounded-3xl sm:p-1.5 md:hidden"
+        style={{ bottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
+      >
+        <div className="grid grid-cols-4 gap-0.5">
           {bottomNav.map((item) => {
             const active = isActive(pathname, item, root);
             const Icon = item.icon;
@@ -424,28 +442,23 @@ export function AppShell({
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex flex-col items-center gap-1 py-2.5 text-[10px] font-semibold transition",
+                  "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:py-2 min-[360px]:text-[10px] sm:rounded-2xl",
                   active
                     ? admin
-                      ? "text-red-600"
-                      : "text-blue-600"
+                      ? "bg-red-50 text-red-600"
+                      : "bg-blue-50 text-blue-700"
                     : "text-slate-400"
                 )}
               >
-                <Icon className="h-5 w-5" />
-                <span className="truncate px-0.5">{item.label}</span>
+                <Icon className={cn("h-[18px] w-[18px] min-[360px]:h-5 min-[360px]:w-5", active && "stroke-[2.4]")} />
+                <span className="max-w-full truncate px-0.5">
+                  {item.label.split(" ")[0]}
+                </span>
               </Link>
             );
           })}
-          <button
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            className="flex flex-col items-center gap-1 py-2.5 text-[10px] font-semibold text-slate-400"
-          >
-            <Menu className="h-5 w-5" />
-            Menü
-          </button>
         </div>
       </nav>
 
@@ -457,38 +470,69 @@ export function AppShell({
             onClick={() => setMenuOpen(false)}
             className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
           />
-          <div className="absolute inset-x-0 bottom-0 rounded-t-3xl bg-white p-5 pb-safe animate-slide-up">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
+          <div className="absolute inset-x-0 bottom-0 max-h-[92dvh] overflow-y-auto rounded-t-3xl bg-white p-4 pb-[calc(1.5rem+env(safe-area-inset-bottom))] animate-slide-up sm:rounded-t-[2rem] sm:p-5">
+            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-slate-200" />
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex min-w-0 items-center gap-3">
                 <Avatar name={user.name} color={user.avatarColor} />
-                <div>
-                  <p className="text-sm font-bold text-slate-900">{user.name}</p>
-                  <p className="text-[11px] text-slate-500">
-                    {user.title ?? `Daire ${user.apartmentId}`}
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-bold text-slate-900">
+                    {user.name}
                   </p>
+                  <p className="truncate text-[11px] text-slate-500">{user.email}</p>
                 </div>
               </div>
+              <Link
+                href={settingsHref}
+                onClick={() => setMenuOpen(false)}
+                aria-label="Ayarlar"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 transition hover:bg-slate-200"
+              >
+                <Settings className="h-4 w-4" />
+              </Link>
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl p-2 text-slate-400 hover:bg-slate-100"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-400 transition hover:bg-slate-200"
                 aria-label="Kapat"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
 
+            <p className="mb-2 mt-5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+              Tüm Sayfalar
+            </p>
             <div className="grid grid-cols-3 gap-2">
-              {extraNav.map((item) => {
+              {[...extraNav, ...quickNav].map((item) => {
                 const Icon = item.icon;
+                const active = isActive(pathname, item, root);
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex flex-col items-center gap-2 rounded-2xl bg-slate-50 p-3 text-center text-[11px] font-semibold text-slate-600 ring-1 ring-slate-100 transition hover:bg-white hover:shadow-sm"
+                    className={cn(
+                      "flex min-h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-xl p-2 text-center text-[10px] font-semibold ring-1 transition active:scale-95 min-[360px]:gap-2 min-[360px]:p-3 min-[360px]:text-[11px] sm:rounded-2xl",
+                      active
+                        ? admin
+                          ? "bg-red-50 text-red-700 ring-red-100"
+                          : "bg-blue-50 text-blue-700 ring-blue-100"
+                        : "bg-slate-50 text-slate-600 ring-slate-100"
+                    )}
                   >
-                    <Icon className={cn("h-5 w-5", admin ? "text-red-500" : "text-blue-600")} />
+                    <Icon
+                      className={cn(
+                        "h-5 w-5",
+                        active
+                          ? admin
+                            ? "text-red-600"
+                            : "text-blue-600"
+                          : admin
+                            ? "text-red-500"
+                            : "text-blue-600"
+                      )}
+                    />
                     {item.label}
                   </Link>
                 );

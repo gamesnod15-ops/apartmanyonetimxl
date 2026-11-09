@@ -44,6 +44,10 @@ a {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
 .pb-safe {
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
