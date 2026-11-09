@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { StoreProvider } from "@/app/lib/store";
 import { PWARegister } from "@/app/components/pwa-register";
+import { AutoInstallPrompt } from "@/app/components/auto-install-prompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-dvh bg-slate-100 text-slate-900">
         <StoreProvider>
           <PWARegister />
+          <AutoInstallPrompt />
           {children}
         </StoreProvider>
       </body>

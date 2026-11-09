@@ -34,7 +34,6 @@ import {
 } from "@/app/lib/selectors";
 import type { Role } from "@/app/lib/types";
 import { Avatar, cn } from "./ui";
-import { InstallButton } from "./install-button";
 
 interface NavItem {
   href: string;
@@ -208,10 +207,6 @@ export function AppShell({
             );
           })}
         </nav>
-
-        <div className="border-t border-white/10 px-4 py-4">
-          <InstallButton tone={admin ? "red" : "blue"} />
-        </div>
       </aside>
 
       <div className="md:pl-72">
@@ -539,8 +534,7 @@ export function AppShell({
               })}
             </div>
 
-            <div className="mt-4 space-y-2">
-              <InstallButton tone={admin ? "red" : "blue"} />
+            <div className="mt-4">
               <button
                 type="button"
                 onClick={() => {
