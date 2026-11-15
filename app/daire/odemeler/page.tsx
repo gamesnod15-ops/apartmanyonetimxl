@@ -105,7 +105,7 @@ export default function DairePaymentsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 p-6 text-white shadow-lg shadow-emerald-600/20">
+      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 p-6 text-white shadow-xl shadow-emerald-600/20">
         <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
         <p className="text-xs font-medium text-emerald-100">Toplam Bekleyen</p>
         <p className="mt-1 text-3xl font-bold tracking-tight">{currency(unpaidTotal)}</p>

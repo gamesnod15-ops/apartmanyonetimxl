@@ -45,7 +45,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f1f5f9" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f6fb" },
     { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
   ],
 };
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="tr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-dvh bg-slate-100 text-slate-900">
+      <body className="min-h-dvh text-slate-900">
         <StoreProvider>
           <PWARegister />
           <AutoInstallPrompt />

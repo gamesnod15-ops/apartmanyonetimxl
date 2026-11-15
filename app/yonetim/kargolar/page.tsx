@@ -104,7 +104,7 @@ export default function AdminPackagesPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-lg shadow-red-950/30">
+      <section className="flex items-start justify-between gap-3 rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-xl shadow-red-950/30">
         <div>
           <p className="text-xs font-medium text-red-300">Güvenlik</p>
           <h1 className="mt-1 text-xl font-bold">Kargo Yönetimi</h1>
