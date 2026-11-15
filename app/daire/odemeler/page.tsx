@@ -233,7 +233,7 @@ export default function DairePaymentsPage() {
       >
         {selected ? (
           <form onSubmit={submitPayment} className="space-y-4">
-            <div className="rounded-[20px] bg-gradient-to-br from-blue-500 to-blue-700 p-4 text-white shadow-lg shadow-blue-600/25">
+            <div className="rounded-[20px] bg-[#1c2230] p-4 text-white">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-medium uppercase tracking-wider text-blue-100">
                   Apartman Yönetim

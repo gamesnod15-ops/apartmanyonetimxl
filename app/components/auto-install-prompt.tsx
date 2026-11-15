@@ -115,7 +115,7 @@ export function AutoInstallPrompt() {
           <X className="h-4 w-4" />
         </button>
 
-        <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-600/30">
+        <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-blue-600 text-white shadow-lg shadow-slate-900/15">
           <Smartphone className="h-6 w-6" />
         </span>
 

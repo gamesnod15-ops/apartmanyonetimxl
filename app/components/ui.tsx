@@ -395,7 +395,7 @@ export function Stepper({
                 done
                   ? "bg-blue-600 text-white"
                   : active
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                    ? "bg-blue-600 text-white shadow-lg shadow-slate-900/15"
                     : "bg-slate-200 text-slate-400"
               )}
             >

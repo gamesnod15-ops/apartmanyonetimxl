@@ -60,17 +60,17 @@ export default function AdminDashboard() {
     {
       label: "Beklemede",
       count: data.tickets.filter((ticket) => ticket.status === "pending").length,
-      color: "#9db1ff",
+      color: "#9faabd",
     },
     {
       label: "İşleme Alındı",
       count: data.tickets.filter((ticket) => ticket.status === "in_progress").length,
-      color: "#007aff",
+      color: "#2f3b54",
     },
     {
       label: "Çözüldü",
       count: data.tickets.filter((ticket) => ticket.status === "resolved").length,
-      color: "#0a2147",
+      color: "#181b20",
     },
   ];
   const totalTickets = data.tickets.length;
@@ -172,7 +172,7 @@ export default function AdminDashboard() {
           <div className="mt-5 flex flex-wrap gap-2">
             <Link
               href="/yonetim/arizalar"
-              className="flex items-center gap-2 rounded-[12px] bg-blue-600 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-blue-700"
+              className="flex items-center gap-2 rounded-[12px] bg-white px-4 py-2.5 text-xs font-bold text-slate-900 transition hover:bg-slate-100"
             >
               <Wrench className="h-4 w-4" />
               Arızalara Git

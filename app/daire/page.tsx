@@ -67,14 +67,14 @@ export default function DaireDashboard() {
       label: "Arızalarım",
       hint: openTickets.length > 0 ? `${openTickets.length} açık kayıt` : "Açık kayıt yok",
       icon: Wrench,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/odemeler",
       label: "Ödemeler",
       hint: unpaid.length > 0 ? `${currency(unpaidTotal)} bekliyor` : "Borcunuz yok",
       icon: Wallet,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
       alert: unpaid.length,
     },
     {
@@ -85,7 +85,7 @@ export default function DaireDashboard() {
           ? `${waitingPackages.length} kargo güvenlikte`
           : "Bekleyen kargo yok",
       icon: Package,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
       alert: waitingPackages.length,
     },
     {
@@ -93,21 +93,21 @@ export default function DaireDashboard() {
       label: "Duyurular",
       hint: `${data.announcements.length} duyuru`,
       icon: Megaphone,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/toplantilar",
       label: "Toplantılar",
       hint: nextMeeting ? `Sıradaki: ${formatDate(nextMeeting.date)}` : "Planlı toplantı yok",
       icon: CalendarDays,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/anketler",
       label: "Anketler",
       hint: activePolls.length > 0 ? `${activePolls.length} aktif anket` : "Aktif anket yok",
       icon: BarChart3,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
       alert: activePolls.length,
     },
     {
@@ -115,28 +115,28 @@ export default function DaireDashboard() {
       label: "Hak Transferi",
       hint: `${rights} hak kullanılabilir`,
       icon: ArrowLeftRight,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/dairem",
       label: "Dairem",
       hint: apartment ? `${apartment.block} Blok · ${apartment.id}` : "Daire bilgileri",
       icon: House,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/takvim",
       label: "Takvim",
       hint: "Etkinlik ve tarihler",
       icon: CalendarClock,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
     {
       href: "/daire/bildirimler",
       label: "Bildirimler",
       hint: unread > 0 ? `${unread} okunmamış` : "Hepsi okundu",
       icon: Bell,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
       alert: unread,
     },
     {
@@ -144,7 +144,7 @@ export default function DaireDashboard() {
       label: "Ayarlar",
       hint: "Hesap ve tercihler",
       icon: Settings,
-      tone: "bg-blue-500 text-white",
+      tone: "bg-blue-600 text-white",
     },
   ];
 
@@ -192,7 +192,7 @@ export default function DaireDashboard() {
             </div>
             <Link
               href="/daire/arizalar/yeni"
-              className="mt-4 flex items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700 active:scale-[0.98]"
+              className="mt-4 flex items-center justify-center gap-2 rounded-[14px] bg-white px-4 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
             >
               <Plus className="h-4 w-4" strokeWidth={2.5} />
               Arıza Bildir

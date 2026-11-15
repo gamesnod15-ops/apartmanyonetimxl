@@ -81,7 +81,7 @@ export default function LoginPage() {
       <section
         className={cn(
           "relative hidden overflow-hidden p-12 text-white lg:flex lg:flex-col lg:justify-between",
-          "bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800"
+          "bg-[#161a21]"
         )}
       >
         <div className="pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -133,7 +133,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="mb-8 flex items-center gap-3 lg:hidden">
             <span
-              className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-600/30"
+              className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-blue-600 text-white shadow-lg shadow-slate-900/15"
             >
               <Building2 className="h-5 w-5" />
             </span>

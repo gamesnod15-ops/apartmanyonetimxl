@@ -128,7 +128,7 @@ export default function RegisterPage() {
     <div className="min-h-dvh bg-slate-100 px-5 py-8">
       <div className="mx-auto w-full max-w-xl">
         <Link href="/login" className="mb-5 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-slate-900/15">
             <Building2 className="h-5 w-5" />
           </span>
           <span>

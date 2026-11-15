@@ -99,14 +99,14 @@ function SidebarLink({
       className={cn(
         "flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[15px] transition",
         active
-          ? "bg-blue-500/10 font-semibold text-blue-600"
-          : "font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+          ? "bg-white/10 font-semibold text-white"
+          : "font-medium text-slate-400 hover:bg-white/5 hover:text-white"
       )}
     >
       <Icon className="h-[18px] w-[18px]" />
       {item.label}
       {count > 0 ? (
-        <span className="ml-auto rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
+        <span className="ml-auto rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-slate-900">
           {count}
         </span>
       ) : null}
@@ -182,16 +182,16 @@ export function AppShell({
 
   return (
     <div className="min-h-dvh">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col border-r border-slate-900/[0.06] bg-white/85 backdrop-blur-2xl md:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col bg-[#161a21] md:flex">
         <div className="flex items-center gap-3 px-6 py-6">
-          <span className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-md shadow-blue-600/25">
+          <span className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-white/10 text-white ring-1 ring-white/10">
             <Building2 className="h-5 w-5" />
           </span>
           <div>
-            <p className="text-sm font-bold leading-tight tracking-tight text-slate-900">
+            <p className="text-sm font-bold leading-tight tracking-tight text-white">
               Apartman Yönetim
             </p>
-            <p className="text-[11px] font-medium text-blue-600">
+            <p className="text-[11px] font-medium text-slate-400">
               {admin ? "Uygulama Yönetimi" : "Daire Paneli"}
             </p>
           </div>
@@ -206,7 +206,7 @@ export function AppShell({
             />
           ))}
 
-          <p className="px-3 pb-1 pt-6 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <p className="px-3 pb-1 pt-6 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
             Diğer
           </p>
           {quickNav.map((item) => (
@@ -220,16 +220,16 @@ export function AppShell({
         </nav>
 
         <div className="p-3">
-          <div className="flex items-center gap-3 rounded-2xl bg-slate-100/80 p-3">
+          <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-3">
             <Avatar name={user.name} color={user.avatarColor} className="h-9 w-9" />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-bold text-slate-900">{user.name}</p>
-              <p className="truncate text-[10px] text-slate-500">{user.email}</p>
+              <p className="truncate text-xs font-bold text-white">{user.name}</p>
+              <p className="truncate text-[10px] text-slate-400">{user.email}</p>
             </div>
             <Link
               href={settingsHref}
               aria-label="Ayarlar"
-              className="rounded-full p-2 text-slate-400 transition hover:bg-white hover:text-slate-700"
+              className="rounded-full p-2 text-slate-400 transition hover:bg-white/10 hover:text-white"
             >
               <Settings className="h-4 w-4" />
             </Link>
@@ -238,7 +238,7 @@ export function AppShell({
       </aside>
 
       <div className="md:pl-72">
-        <header className="safe-top sticky top-0 z-30 bg-[#f2f2f7]/80 backdrop-blur-xl">
+        <header className="safe-top sticky top-0 z-30 bg-[#e9ebef]/85 backdrop-blur-xl">
           <div className="flex h-14 w-full items-center justify-between gap-3 px-4 md:h-16 md:px-6 lg:px-8">
             <div className="flex min-w-0 items-center gap-3">
               {isRoot ? (
@@ -462,7 +462,7 @@ export function AppShell({
       </div>
 
       <nav
-        className="fixed inset-x-3 z-40 mx-auto max-w-md rounded-[28px] bg-white/80 p-1.5 shadow-[0_8px_32px_rgb(0_0_0/0.14)] ring-1 ring-slate-900/[0.06] backdrop-blur-2xl md:hidden"
+        className="fixed inset-x-3 z-40 mx-auto max-w-md rounded-[28px] bg-[#161a21]/95 p-1.5 shadow-[0_10px_30px_rgb(0_0_0/0.28)] backdrop-blur-xl md:hidden"
         style={{ bottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
       >
         <div className="grid grid-cols-4 gap-0.5">
@@ -476,7 +476,7 @@ export function AppShell({
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-[22px] py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:text-[10px]",
-                  active ? "bg-blue-500/10 text-blue-600" : "text-slate-500"
+                  active ? "bg-white/10 text-white" : "text-slate-400"
                 )}
               >
                 <Icon className="h-[18px] w-[18px] min-[360px]:h-5 min-[360px]:w-5" />

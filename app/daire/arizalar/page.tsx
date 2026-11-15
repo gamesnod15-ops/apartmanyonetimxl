@@ -106,7 +106,7 @@ export default function DaireTicketsPage() {
         </div>
         <Link
           href="/daire/arizalar/yeni"
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[11px] bg-blue-600 px-3.5 text-xs font-semibold text-white transition hover:bg-blue-700 active:scale-[0.98]"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[11px] bg-white px-3.5 text-xs font-semibold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
         >
           <Plus className="h-4 w-4" />
           Yeni Kayıt

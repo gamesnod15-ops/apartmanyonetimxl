@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-slate-100">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30">
+      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-slate-900/15">
         <Building2 className="h-6 w-6" />
       </span>
       <p className="text-sm font-medium text-slate-500">Apartman Yönetim yükleniyor…</p>
