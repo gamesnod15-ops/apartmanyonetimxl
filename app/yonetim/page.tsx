@@ -60,17 +60,17 @@ export default function AdminDashboard() {
     {
       label: "Beklemede",
       count: data.tickets.filter((ticket) => ticket.status === "pending").length,
-      color: "#f59e0b",
+      color: "#9db1ff",
     },
     {
       label: "İşleme Alındı",
       count: data.tickets.filter((ticket) => ticket.status === "in_progress").length,
-      color: "#3b82f6",
+      color: "#007aff",
     },
     {
       label: "Çözüldü",
       count: data.tickets.filter((ticket) => ticket.status === "resolved").length,
-      color: "#10b981",
+      color: "#0a2147",
     },
   ];
   const totalTickets = data.tickets.length;

@@ -106,7 +106,7 @@ export default function DairemPage() {
                       {room.label}
                     </span>
                     {openCount > 0 ? (
-                      <span className="rounded-full bg-red-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      <span className="rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
                         {openCount}
                       </span>
                     ) : (
