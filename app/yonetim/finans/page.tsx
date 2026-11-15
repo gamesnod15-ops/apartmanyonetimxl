@@ -109,7 +109,7 @@ export default function AdminFinancePage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-red p-6">
+      <section className="hero-soft p-6">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs font-medium text-emerald-300">Finans & Aidat</p>
@@ -124,7 +124,7 @@ export default function AdminFinancePage() {
               resetDebtForm();
               setDebtOpen(true);
             }}
-            className="shrink-0 bg-emerald-500 text-white hover:bg-emerald-600"
+            className="shrink-0"
             size="sm"
           >
             <Plus className="h-4 w-4" />
@@ -337,7 +337,6 @@ export default function AdminFinancePage() {
             ]}
             value={paymentFilter}
             onChange={setPaymentFilter}
-            tone="red"
           />
 
           {filteredPayments.length === 0 ? (
@@ -473,7 +472,7 @@ export default function AdminFinancePage() {
                 {error}
               </p>
             ) : null}
-            <Button type="submit" className="w-full bg-emerald-600 text-white hover:bg-emerald-700">
+            <Button type="submit" className="w-full">
               <Wallet className="h-4 w-4" />
               Borcu Tanımla
             </Button>

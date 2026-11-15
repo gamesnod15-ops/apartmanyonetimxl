@@ -117,7 +117,7 @@ export default function DairePackagesPage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-amber p-6">
+      <section className="hero-soft p-6">
         <div className="flex items-center gap-2 text-amber-100">
           <Truck className="h-4 w-4" />
           <p className="text-xs font-medium">Kargo Teslim Yönetimi</p>

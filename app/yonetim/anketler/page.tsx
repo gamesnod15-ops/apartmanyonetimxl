@@ -64,7 +64,7 @@ export default function AdminPollsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 hero-soft hero-red p-6">
+      <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
           <p className="text-xs font-medium text-red-300">Katılım</p>
           <h1 className="mt-1 text-xl font-bold">Anket Yönetimi</h1>
@@ -77,7 +77,7 @@ export default function AdminPollsPage() {
             reset();
             setOpen(true);
           }}
-          variant="red"
+          variant="blue"
           size="sm"
           className="shrink-0"
         >
@@ -241,7 +241,7 @@ export default function AdminPollsPage() {
               {error}
             </p>
           ) : null}
-          <Button type="submit" variant="red" className="w-full">
+          <Button type="submit" variant="blue" className="w-full">
             <Vote className="h-4 w-4" />
             Anketi Başlat
           </Button>

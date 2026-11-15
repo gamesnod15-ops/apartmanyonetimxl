@@ -45,7 +45,7 @@ export default function DaireAnnouncementsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-violet p-6">
+      <section className="hero-soft p-6">
         <p className="text-xs font-medium text-violet-100">Yönetimden</p>
         <h1 className="mt-1 text-xl font-bold">Duyurular</h1>
         <p className="mt-1 text-[11px] text-violet-100">

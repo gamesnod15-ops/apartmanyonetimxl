@@ -29,7 +29,7 @@ export function AccountSettings() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-slate p-6">
+      <section className="hero-soft p-6">
         <p className="flex items-center gap-1.5 text-xs font-medium text-slate-300">
           <Settings className="h-3.5 w-3.5" />
           Hesap Ayarları
@@ -43,7 +43,7 @@ export function AccountSettings() {
       <Card>
         <form onSubmit={submit} className="space-y-4">
           <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-100">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-base font-bold text-white">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-base font-bold text-white">
               {user.name
                 .split(" ")
                 .map((part) => part[0])

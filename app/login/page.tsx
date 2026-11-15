@@ -77,13 +77,11 @@ export default function LoginPage() {
   const isAdmin = tone === "admin";
 
   return (
-    <div className="min-h-dvh bg-slate-100 lg:grid lg:grid-cols-2">
+    <div className="min-h-dvh lg:grid lg:grid-cols-2">
       <section
         className={cn(
           "relative hidden overflow-hidden p-12 text-white lg:flex lg:flex-col lg:justify-between",
-          isAdmin
-            ? "bg-gradient-to-br from-slate-950 via-red-950 to-red-800"
-            : "bg-gradient-to-br from-blue-700 via-blue-800 to-slate-950"
+          "bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800"
         )}
       >
         <div className="pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -135,12 +133,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="mb-8 flex items-center gap-3 lg:hidden">
             <span
-              className={cn(
-                "flex h-11 w-11 items-center justify-center rounded-2xl text-white shadow-lg",
-                isAdmin
-                  ? "bg-gradient-to-br from-red-500 to-red-700 shadow-red-500/30"
-                  : "bg-gradient-to-br from-blue-500 to-blue-700 shadow-blue-500/30"
-              )}
+              className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-600/30"
             >
               <Building2 className="h-5 w-5" />
             </span>
@@ -159,15 +152,15 @@ export default function LoginPage() {
               : "Giriş yapın veya yeni daire kaydınızı oluşturun."}
           </p>
 
-          <div className="mt-6 grid grid-cols-2 gap-1 rounded-2xl bg-white p-1.5 shadow-sm ring-1 ring-slate-200">
+          <div className="mt-6 grid grid-cols-2 gap-0.5 rounded-[11px] bg-slate-900/[0.07] p-0.5">
             <button
               type="button"
               onClick={() => selectTone("resident")}
               className={cn(
-                "rounded-xl px-3 py-2.5 text-xs font-bold transition",
+                "rounded-[9px] px-3 py-2 text-xs font-semibold transition",
                 !isAdmin
-                  ? "bg-blue-600 text-white shadow-sm shadow-blue-600/30"
-                  : "text-slate-500 hover:bg-slate-50"
+                  ? "bg-white text-slate-900 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
+                  : "text-slate-600 hover:text-slate-900"
               )}
             >
               Daire · Sakin
@@ -176,10 +169,10 @@ export default function LoginPage() {
               type="button"
               onClick={() => selectTone("admin")}
               className={cn(
-                "rounded-xl px-3 py-2.5 text-xs font-bold transition",
+                "rounded-[9px] px-3 py-2 text-xs font-semibold transition",
                 isAdmin
-                  ? "bg-red-600 text-white shadow-sm shadow-red-600/30"
-                  : "text-slate-500 hover:bg-slate-50"
+                  ? "bg-white text-slate-900 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
+                  : "text-slate-600 hover:text-slate-900"
               )}
             >
               Uygulama Yönetimi
@@ -188,9 +181,9 @@ export default function LoginPage() {
 
           <form
             onSubmit={onSubmit}
-            className="mt-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
+            className="mt-4 rounded-[22px] bg-white p-5 shadow-soft"
           >
-            <div className="mb-4 rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-100">
+            <div className="mb-4 rounded-2xl bg-slate-900/[0.04] px-4 py-3">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
                 Demo hesap
               </p>
@@ -212,7 +205,7 @@ export default function LoginPage() {
               onChange={(event) => setEmail(event.target.value)}
               required
               autoComplete="email"
-              className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+              className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[15px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
               placeholder="ornek@apartman.com"
             />
 
@@ -226,7 +219,7 @@ export default function LoginPage() {
                 onChange={(event) => setPassword(event.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 pr-11 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 pr-11 text-[15px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
                 placeholder="••••"
               />
               <button
@@ -248,12 +241,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={submitting}
-              className={cn(
-                "mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold text-white transition disabled:opacity-60",
-                isAdmin
-                  ? "bg-red-600 hover:bg-red-700"
-                  : "bg-blue-600 hover:bg-blue-700"
-              )}
+              className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99] disabled:opacity-60"
             >
               Giriş Yap
               <ArrowRight className="h-4 w-4" />
@@ -263,7 +251,7 @@ export default function LoginPage() {
           {!isAdmin ? (
             <Link
               href="/kayit"
-              className="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md"
+              className="mt-3 flex items-center justify-between gap-3 rounded-[22px] bg-white p-4 shadow-soft transition active:scale-[0.99]"
             >
               <span>
                 <span className="block text-xs font-bold text-slate-800">

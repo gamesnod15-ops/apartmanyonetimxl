@@ -67,14 +67,14 @@ export default function DaireDashboard() {
       label: "Arızalarım",
       hint: openTickets.length > 0 ? `${openTickets.length} açık kayıt` : "Açık kayıt yok",
       icon: Wrench,
-      tone: "bg-blue-50 text-blue-600",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/odemeler",
       label: "Ödemeler",
       hint: unpaid.length > 0 ? `${currency(unpaidTotal)} bekliyor` : "Borcunuz yok",
       icon: Wallet,
-      tone: "bg-emerald-50 text-emerald-600",
+      tone: "bg-emerald-500 text-white",
       alert: unpaid.length,
     },
     {
@@ -85,7 +85,7 @@ export default function DaireDashboard() {
           ? `${waitingPackages.length} kargo güvenlikte`
           : "Bekleyen kargo yok",
       icon: Package,
-      tone: "bg-amber-50 text-amber-600",
+      tone: "bg-amber-500 text-white",
       alert: waitingPackages.length,
     },
     {
@@ -93,21 +93,21 @@ export default function DaireDashboard() {
       label: "Duyurular",
       hint: `${data.announcements.length} duyuru`,
       icon: Megaphone,
-      tone: "bg-violet-50 text-violet-600",
+      tone: "bg-violet-500 text-white",
     },
     {
       href: "/daire/toplantilar",
       label: "Toplantılar",
       hint: nextMeeting ? `Sıradaki: ${formatDate(nextMeeting.date)}` : "Planlı toplantı yok",
       icon: CalendarDays,
-      tone: "bg-sky-50 text-sky-600",
+      tone: "bg-sky-500 text-white",
     },
     {
       href: "/daire/anketler",
       label: "Anketler",
       hint: activePolls.length > 0 ? `${activePolls.length} aktif anket` : "Aktif anket yok",
       icon: BarChart3,
-      tone: "bg-rose-50 text-rose-600",
+      tone: "bg-rose-500 text-white",
       alert: activePolls.length,
     },
     {
@@ -115,28 +115,28 @@ export default function DaireDashboard() {
       label: "Hak Transferi",
       hint: `${rights} hak kullanılabilir`,
       icon: ArrowLeftRight,
-      tone: "bg-purple-50 text-purple-600",
+      tone: "bg-purple-500 text-white",
     },
     {
       href: "/daire/dairem",
       label: "Dairem",
       hint: apartment ? `${apartment.block} Blok · ${apartment.id}` : "Daire bilgileri",
       icon: House,
-      tone: "bg-cyan-50 text-cyan-600",
+      tone: "bg-teal-500 text-white",
     },
     {
       href: "/daire/takvim",
       label: "Takvim",
       hint: "Etkinlik ve tarihler",
       icon: CalendarClock,
-      tone: "bg-indigo-50 text-indigo-600",
+      tone: "bg-indigo-500 text-white",
     },
     {
       href: "/daire/bildirimler",
       label: "Bildirimler",
       hint: unread > 0 ? `${unread} okunmamış` : "Hepsi okundu",
       icon: Bell,
-      tone: "bg-pink-50 text-pink-600",
+      tone: "bg-pink-500 text-white",
       alert: unread,
     },
     {
@@ -144,13 +144,13 @@ export default function DaireDashboard() {
       label: "Ayarlar",
       hint: "Hesap ve tercihler",
       icon: Settings,
-      tone: "bg-slate-100 text-slate-600",
+      tone: "bg-slate-500 text-white",
     },
   ];
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden hero-soft hero-blue p-6 md:p-8">
+      <section className="relative overflow-hidden hero-soft p-6 md:p-8">
         <div className="hero-texture pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-sky-300/20 blur-3xl" />
         <div className="relative flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -192,7 +192,7 @@ export default function DaireDashboard() {
             </div>
             <Link
               href="/daire/arizalar/yeni"
-              className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-bold text-blue-700 shadow-lg shadow-blue-950/20 transition hover:bg-blue-50 active:scale-[0.98]"
+              className="mt-4 flex items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700 active:scale-[0.98]"
             >
               <Plus className="h-4 w-4" strokeWidth={2.5} />
               Arıza Bildir
@@ -216,19 +216,19 @@ export default function DaireDashboard() {
               key={tile.href}
               href={tile.href}
               style={{ animationDelay: `${index * 30}ms` }}
-              className="group relative flex min-h-[8.5rem] flex-col justify-between rounded-3xl bg-white p-4 shadow-soft transition duration-200 animate-fade-up hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.98] md:p-5"
+              className="group relative flex min-h-[8.5rem] flex-col justify-between rounded-[22px] bg-white p-4 shadow-soft transition duration-200 animate-fade-up hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.98] md:p-5"
             >
               <div className="flex items-start justify-between">
                 <span
                   className={cn(
-                    "flex h-11 w-11 items-center justify-center rounded-2xl",
+                    "flex h-11 w-11 items-center justify-center rounded-[13px] shadow-sm",
                     tile.tone
                   )}
                 >
                   <tile.icon className="h-5 w-5" />
                 </span>
                 {tile.alert ? (
-                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-slate-900 px-1.5 text-[11px] font-bold text-white">
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-red-500 px-1.5 text-[11px] font-bold text-white">
                     {tile.alert}
                   </span>
                 ) : (

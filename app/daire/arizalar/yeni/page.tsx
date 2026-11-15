@@ -497,7 +497,7 @@ function NewTicketWizard() {
         ) : null}
       </Card>
 
-      <div className="sticky bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex gap-2 rounded-2xl bg-white/80 p-2 shadow-lift ring-1 ring-slate-900/[0.06] backdrop-blur-xl md:bottom-4">
+      <div className="sticky bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex gap-2 rounded-2xl bg-[#f2f2f7]/90 p-2 backdrop-blur-xl md:bottom-4">
         {step > 0 ? (
           <Button variant="outline" className="flex-1" onClick={() => goTo(step - 1)}>
             <ArrowLeft className="h-4 w-4" />

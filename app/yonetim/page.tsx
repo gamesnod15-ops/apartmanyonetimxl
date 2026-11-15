@@ -152,7 +152,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden hero-soft hero-red p-6">
+      <section className="relative overflow-hidden hero-soft p-6">
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-red-500/20 blur-3xl" />
         <div className="relative">
           <p className="text-xs font-medium text-red-300">
@@ -172,7 +172,7 @@ export default function AdminDashboard() {
           <div className="mt-5 flex flex-wrap gap-2">
             <Link
               href="/yonetim/arizalar"
-              className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-xs font-bold text-white shadow-sm shadow-red-600/30 transition hover:bg-red-700"
+              className="flex items-center gap-2 rounded-[12px] bg-blue-600 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-blue-700"
             >
               <Wrench className="h-4 w-4" />
               Arızalara Git
@@ -241,7 +241,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/finans"
-                className="flex items-center gap-1 text-[11px] font-semibold text-red-600"
+                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
               >
                 Detay <ArrowRight className="h-3 w-3" />
               </Link>
@@ -312,7 +312,7 @@ export default function AdminDashboard() {
                 <Progress
                   value={(item.count / maxCategory) * 100}
                   className="h-1.5"
-                  barClassName="bg-red-500"
+                  barClassName="bg-blue-500"
                 />
               </div>
             ))}
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/arizalar"
-                className="flex items-center gap-1 text-[11px] font-semibold text-red-600"
+                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
               >
                 Tümü <ArrowRight className="h-3 w-3" />
               </Link>
@@ -372,7 +372,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/finans"
-                className="flex items-center gap-1 text-[11px] font-semibold text-red-600"
+                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
               >
                 Finans <ArrowRight className="h-3 w-3" />
               </Link>
@@ -441,7 +441,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/kargolar"
-                className="flex items-center gap-1 text-[11px] font-semibold text-red-600"
+                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
               >
                 Tümü <ArrowRight className="h-3 w-3" />
               </Link>
@@ -480,7 +480,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim"
-                className="flex items-center gap-1 text-[11px] font-semibold text-red-600"
+                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
               >
                 <Bell className="h-3 w-3" /> Merkez
               </Link>

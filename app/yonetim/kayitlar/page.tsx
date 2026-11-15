@@ -99,7 +99,7 @@ export default function AdminRegistrationsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="relative overflow-hidden hero-soft hero-red p-6">
+      <section className="relative overflow-hidden hero-soft p-6">
         <div className="relative">
           <p className="flex items-center gap-1.5 text-xs font-medium text-red-300">
             <UserPlus className="h-3.5 w-3.5" />
@@ -129,7 +129,7 @@ export default function AdminRegistrationsPage() {
             className={cn(
               "rounded-xl px-2 py-2.5 text-[11px] font-semibold transition",
               tab === status
-                ? "bg-slate-900 text-white shadow-sm"
+                ? "bg-blue-600 text-white shadow-sm"
                 : "text-slate-500 hover:bg-slate-50"
             )}
           >

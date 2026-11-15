@@ -88,7 +88,7 @@ export default function AdminTicketsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-red p-6">
+      <section className="hero-soft p-6">
         <p className="text-xs font-medium text-red-300">Ticket Yönetimi</p>
         <h1 className="mt-1 text-xl font-bold">Arıza & Talep Yönetimi</h1>
         <p className="mt-1 text-[11px] text-slate-400">
@@ -120,7 +120,7 @@ export default function AdminTicketsPage() {
         />
       </div>
 
-      <Segmented options={filters} value={filter} onChange={setFilter} tone="red" />
+      <Segmented options={filters} value={filter} onChange={setFilter} />
 
       {filtered.length === 0 ? (
         <EmptyState
@@ -343,7 +343,7 @@ export default function AdminTicketsPage() {
                   }}
                 />
                 <Button
-                  variant="red"
+                  variant="blue"
                   size="icon"
                   aria-label="Gönder"
                   onClick={() => {

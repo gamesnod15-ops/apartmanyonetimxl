@@ -74,7 +74,7 @@ export default function AdminAnnouncementsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 hero-soft hero-red p-6">
+      <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
           <p className="text-xs font-medium text-red-300">İletişim</p>
           <h1 className="mt-1 text-xl font-bold">Duyuru Yönetimi</h1>
@@ -87,7 +87,7 @@ export default function AdminAnnouncementsPage() {
             reset();
             setOpen(true);
           }}
-          variant="red"
+          variant="blue"
           size="sm"
           className="shrink-0"
         >
@@ -257,7 +257,7 @@ export default function AdminAnnouncementsPage() {
             </p>
           ) : null}
 
-          <Button type="submit" variant="red" className="w-full">
+          <Button type="submit" variant="blue" className="w-full">
             <Send className="h-4 w-4" />
             Duyuruyu Yayınla
           </Button>

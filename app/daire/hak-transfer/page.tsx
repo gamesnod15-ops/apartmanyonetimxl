@@ -75,7 +75,7 @@ export default function RightsTransferPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden hero-soft hero-violet p-6">
+      <section className="relative overflow-hidden hero-soft p-6">
         <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
         <div className="flex items-center gap-2 text-violet-100">
           <ArrowLeftRight className="h-4 w-4" />
@@ -202,7 +202,7 @@ export default function RightsTransferPage() {
 
             <Button
               type="submit"
-              className="w-full bg-violet-600 text-white hover:bg-violet-700"
+              className="w-full"
               disabled={rights < 1}
             >
               <ArrowRight className="h-4 w-4" />

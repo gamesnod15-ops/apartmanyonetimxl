@@ -113,7 +113,7 @@ const users: User[] = [
     password: "1234",
     phone: "+90 532 000 00 10",
     title: "Site Yöneticisi",
-    avatarColor: "bg-red-500",
+    avatarColor: "bg-blue-600",
   },
   {
     id: "u-tech",
@@ -123,7 +123,7 @@ const users: User[] = [
     password: "1234",
     phone: "+90 532 000 00 11",
     title: "Teknik Sorumlu",
-    avatarColor: "bg-rose-500",
+    avatarColor: "bg-indigo-500",
   },
 ];
 
