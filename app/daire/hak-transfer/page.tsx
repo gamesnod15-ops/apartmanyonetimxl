@@ -75,7 +75,7 @@ export default function RightsTransferPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-900 p-6 text-white shadow-lg shadow-violet-600/20">
+      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-900 p-6 text-white shadow-xl shadow-violet-600/20">
         <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
         <div className="flex items-center gap-2 text-violet-100">
           <ArrowLeftRight className="h-4 w-4" />

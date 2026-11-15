@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import {
+  ArrowLeft,
   ArrowLeftRight,
   BarChart3,
   Bell,
@@ -12,6 +13,7 @@ import {
   CalendarDays,
   ChevronRight,
   Home,
+  House,
   LayoutDashboard,
   LogOut,
   Megaphone,
@@ -49,6 +51,7 @@ const residentNav: NavItem[] = [
   { href: "/daire/kargolar", label: "Kargolar", icon: Package },
   { href: "/daire/toplantilar", label: "Toplantılar", icon: CalendarDays },
   { href: "/daire/anketler", label: "Anketler", icon: BarChart3 },
+  { href: "/daire/dairem", label: "Dairem", icon: House },
 ];
 
 const adminNav: NavItem[] = [
@@ -125,7 +128,7 @@ export function AppShell({
 
   if (!hydrated || !user || user.role !== role) {
     return (
-      <div className="flex min-h-dvh items-center justify-center bg-slate-100">
+      <div className="flex min-h-dvh items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="h-10 w-10 animate-spin rounded-full border-2 border-slate-300 border-t-blue-600" />
           <p className="text-xs font-medium text-slate-500">Yükleniyor…</p>
@@ -140,15 +143,19 @@ export function AppShell({
   const notifications = visibleNotifications(data, user).slice(0, 8);
   const activeItem =
     allNav.find((item) => isActive(pathname, item, root)) ?? nav[0];
+  const isRoot = pathname === root;
+  // Nested pages (e.g. /daire/arizalar/yeni) go back to their section, others to the panel.
+  const backHref =
+    activeItem.href !== root && pathname !== activeItem.href ? activeItem.href : root;
 
   return (
-    <div className="min-h-dvh bg-slate-100">
+    <div className="min-h-dvh">
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-40 hidden w-72 flex-col md:flex",
           admin
             ? "bg-slate-950 text-slate-300"
-            : "border-r border-slate-200 bg-white text-slate-700"
+            : "border-r border-slate-900/[0.06] bg-white/80 text-slate-700 backdrop-blur-xl"
         )}
       >
         <div className="flex items-center gap-3 px-6 py-6">
@@ -195,7 +202,7 @@ export function AppShell({
                   active
                     ? admin
                       ? "bg-red-500/15 text-white ring-1 ring-inset ring-red-500/30"
-                      : "bg-blue-50 text-blue-700 ring-1 ring-inset ring-blue-100"
+                      : "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md shadow-blue-600/25"
                     : admin
                       ? "text-slate-400 hover:bg-white/5 hover:text-white"
                       : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
@@ -206,28 +213,103 @@ export function AppShell({
               </Link>
             );
           })}
+
+          <p
+            className={cn(
+              "px-3 pb-1 pt-5 text-[10px] font-semibold uppercase tracking-wider",
+              admin ? "text-slate-500" : "text-slate-400"
+            )}
+          >
+            Diğer
+          </p>
+          {quickNav.map((item) => {
+            const active = isActive(pathname, item, root);
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition",
+                  active
+                    ? admin
+                      ? "bg-red-500/15 text-white ring-1 ring-inset ring-red-500/30"
+                      : "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md shadow-blue-600/25"
+                    : admin
+                      ? "text-slate-400 hover:bg-white/5 hover:text-white"
+                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                )}
+              >
+                <Icon className="h-4 w-4" />
+                {item.label}
+                {item.href.endsWith("/bildirimler") && unread > 0 ? (
+                  <span className="ml-auto rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                    {unread}
+                  </span>
+                ) : null}
+              </Link>
+            );
+          })}
         </nav>
+
+        <div className="p-3">
+          <div
+            className={cn(
+              "flex items-center gap-3 rounded-2xl p-3",
+              admin ? "bg-white/5" : "bg-slate-50 ring-1 ring-slate-900/[0.04]"
+            )}
+          >
+            <Avatar name={user.name} color={user.avatarColor} className="h-9 w-9" />
+            <div className="min-w-0 flex-1">
+              <p className={cn("truncate text-xs font-bold", admin ? "text-white" : "text-slate-900")}>
+                {user.name}
+              </p>
+              <p className="truncate text-[10px] text-slate-400">{user.email}</p>
+            </div>
+            <Link
+              href={settingsHref}
+              aria-label="Ayarlar"
+              className={cn(
+                "rounded-lg p-1.5 transition",
+                admin ? "text-slate-400 hover:bg-white/10 hover:text-white" : "text-slate-400 hover:bg-white hover:text-slate-700"
+              )}
+            >
+              <Settings className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
       </aside>
 
       <div className="md:pl-72">
-        <header className="safe-top sticky top-0 z-30 border-b border-slate-200 bg-white">
+        <header className="safe-top sticky top-0 z-30 border-b border-slate-900/[0.06] bg-white/75 backdrop-blur-xl">
           <div className="flex h-14 w-full items-center justify-between gap-3 px-4 md:h-16 md:px-6 lg:px-8">
-            <div className="flex items-center gap-3">
-              <span
-                className={cn(
-                  "flex h-9 w-9 items-center justify-center rounded-xl text-white md:hidden",
-                  admin
-                    ? "bg-gradient-to-br from-red-500 to-red-700"
-                    : "bg-gradient-to-br from-blue-500 to-blue-700"
-                )}
-              >
-                <Building2 className="h-4 w-4" />
-              </span>
+            <div className="flex min-w-0 items-center gap-3">
+              {isRoot ? (
+                <span
+                  className={cn(
+                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white shadow-md md:hidden",
+                    admin
+                      ? "bg-gradient-to-br from-red-500 to-red-700 shadow-red-600/25"
+                      : "bg-gradient-to-br from-blue-500 to-blue-700 shadow-blue-600/25"
+                  )}
+                >
+                  <Building2 className="h-4 w-4" />
+                </span>
+              ) : (
+                <Link
+                  href={backHref}
+                  aria-label="Geri"
+                  title={admin ? "Genel bakışa dön" : "Ana panele dön"}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-slate-600 shadow-sm ring-1 ring-slate-900/[0.08] transition hover:bg-slate-50 hover:text-slate-900 active:scale-95"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </Link>
+              )}
               <div>
                 <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">
                   {admin ? "Uygulama Yönetimi" : "Daire"}
                 </p>
-                <h1 className="text-base font-bold leading-tight text-slate-900">
+                <h1 className="truncate text-base font-bold leading-tight tracking-tight text-slate-900">
                   {activeItem.label}
                 </h1>
               </div>
@@ -418,7 +500,7 @@ export function AppShell({
           </div>
         </header>
 
-        <main className="w-full px-4 pb-safe pt-4 md:px-6 md:pb-10 md:pt-6 lg:px-8">
+        <main className="mx-auto w-full max-w-7xl px-4 pb-safe pt-4 md:px-6 md:pb-10 md:pt-6 lg:px-8">
           <div key={pathname} className="animate-fade-up">
             {children}
           </div>
@@ -426,7 +508,7 @@ export function AppShell({
       </div>
 
       <nav
-        className="fixed inset-x-2 z-40 mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white/95 p-1 shadow-2xl shadow-slate-900/10 backdrop-blur-xl sm:inset-x-3 sm:rounded-3xl sm:p-1.5 md:hidden"
+        className="fixed inset-x-2 z-40 mx-auto max-w-lg rounded-2xl border border-white/60 bg-white/80 p-1 shadow-2xl shadow-slate-900/15 ring-1 ring-slate-900/[0.06] backdrop-blur-xl sm:inset-x-3 sm:rounded-3xl sm:p-1.5 md:hidden"
         style={{ bottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
       >
         <div className="grid grid-cols-4 gap-0.5">

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f1f5f9;
+  --background: #f4f6fb;
   --foreground: #0f172a;
   --brand: #2563eb;
   --brand-strong: #1d4ed8;
@@ -27,7 +27,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgb(37 99 235 / 0.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 0%, rgb(124 58 237 / 0.05), transparent 55%),
+    var(--background);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
@@ -38,6 +42,35 @@ body {
 button,
 a {
   cursor: pointer;
+}
+
+::selection {
+  background: rgb(37 99 235 / 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(37 99 235 / 0.55);
+  outline-offset: 2px;
+}
+
+/* Soft, layered elevation used by cards and tiles */
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.04),
+    0 4px 16px -4px rgb(15 23 42 / 0.06);
+}
+
+.shadow-lift {
+  box-shadow:
+    0 2px 4px rgb(15 23 42 / 0.04),
+    0 16px 32px -12px rgb(15 23 42 / 0.16);
+}
+
+/* Subtle dotted texture for gradient hero banners */
+.hero-texture {
+  background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px);
+  background-size: 14px 14px;
+  mask-image: linear-gradient(120deg, black, transparent 70%);
 }
 
 .safe-bottom {

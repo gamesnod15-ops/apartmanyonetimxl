@@ -27,7 +27,7 @@ export default function DairePollsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-3xl bg-gradient-to-br from-rose-500 via-rose-600 to-red-800 p-6 text-white shadow-lg shadow-rose-600/20">
+      <section className="rounded-[28px] bg-gradient-to-br from-rose-500 via-rose-600 to-red-800 p-6 text-white shadow-xl shadow-rose-600/20">
         <div className="flex items-center gap-2 text-rose-100">
           <BarChart3 className="h-4 w-4" />
           <p className="text-xs font-medium">Apartman İçi Anketler</p>

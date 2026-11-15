@@ -99,7 +99,7 @@ export default function AdminRegistrationsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-lg shadow-red-950/30">
+      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-xl shadow-red-950/30">
         <div className="relative">
           <p className="flex items-center gap-1.5 text-xs font-medium text-red-300">
             <UserPlus className="h-3.5 w-3.5" />

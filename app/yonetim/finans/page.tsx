@@ -109,7 +109,7 @@ export default function AdminFinancePage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950 p-6 text-white shadow-lg shadow-emerald-950/20">
+      <section className="rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950 p-6 text-white shadow-xl shadow-emerald-950/20">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs font-medium text-emerald-300">Finans & Aidat</p>

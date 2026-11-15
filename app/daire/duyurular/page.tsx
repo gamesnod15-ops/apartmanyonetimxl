@@ -45,7 +45,7 @@ export default function DaireAnnouncementsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-3xl bg-gradient-to-br from-violet-600 to-indigo-800 p-6 text-white shadow-lg shadow-violet-600/20">
+      <section className="rounded-[28px] bg-gradient-to-br from-violet-600 to-indigo-800 p-6 text-white shadow-xl shadow-violet-600/20">
         <p className="text-xs font-medium text-violet-100">Yönetimden</p>
         <h1 className="mt-1 text-xl font-bold">Duyurular</h1>
         <p className="mt-1 text-[11px] text-violet-100">

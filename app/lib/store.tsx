@@ -472,14 +472,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const logout = () => setUser(null);
 
   const createTicket = (input: NewTicketInput): ActionResult => {
-    if (!user) return { ok: false, error: "ArÄ±za kaydÄ± iÃ§in giriÅŸ gerekli." };
+    if (!user) return { ok: false, error: "Arıza kaydı için giriş gerekli." };
     const apartmentId =
       user.role === "admin" ? input.apartmentId : user.apartmentId;
     if (!apartmentId) {
-      return { ok: false, error: "ArÄ±za kaydÄ± iÃ§in daire seÃ§melisiniz." };
+      return { ok: false, error: "Arıza kaydı için daire seçmelisiniz." };
     }
     if (!data.apartments.some((item) => item.id === apartmentId)) {
-      return { ok: false, error: "Daire bulunamadÄ±." };
+      return { ok: false, error: "Daire bulunamadı." };
     }
     const resident = data.users.find(
       (item) => item.role === "resident" && item.apartmentId === apartmentId
@@ -504,8 +504,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       user.role === "admin"
         ? {
             id: uid("n"),
-            title: "Yeni arÄ±za kaydÄ±",
-            body: `${apartmentId} dairesi iÃ§in "${ticket.title}" kaydÄ± oluÅŸturuldu.`,
+            title: "Yeni arıza kaydı",
+            body: `${apartmentId} dairesi için "${ticket.title}" kaydı oluşturuldu.`,
             type: "ticket",
             at: now,
             read: false,
@@ -514,8 +514,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           }
         : {
             id: uid("n"),
-            title: "Yeni arÄ±za kaydÄ±",
-            body: `${apartmentId} dairesinden "${ticket.title}" arÄ±zasÄ± bildirildi.`,
+            title: "Yeni arıza kaydı",
+            body: `${apartmentId} dairesinden "${ticket.title}" arızası bildirildi.`,
             type: "ticket",
             at: now,
             read: false,
@@ -579,8 +579,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         notifications: [
           {
             id: uid("n"),
-            title: "ArÄ±za kaydÄ±na yeni mesaj",
-            body: `${ticket.title} kaydÄ±na yeni bir mesaj eklendi.`,
+            title: "Arıza kaydına yeni mesaj",
+            body: `${ticket.title} kaydına yeni bir mesaj eklendi.`,
             type: "ticket",
             at: now,
             read: false,
@@ -609,8 +609,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       );
       const labels: Record<TicketStatus, string> = {
         pending: "Beklemede",
-        in_progress: "Ä°ÅŸleme AlÄ±ndÄ±",
-        resolved: "Ã‡Ã¶zÃ¼ldÃ¼",
+        in_progress: "İşleme Alındı",
+        resolved: "Çözüldü",
       };
       return {
         ...prev,
@@ -627,8 +627,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         notifications: [
           {
             id: uid("n"),
-            title: "ArÄ±za durumu gÃ¼ncellendi",
-            body: `"${ticket.title}" kaydÄ±nÄ±z "${labels[status]}" olarak gÃ¼ncellendi.`,
+            title: "Arıza durumu güncellendi",
+            body: `"${ticket.title}" kaydınız "${labels[status]}" olarak güncellendi.`,
             type: "ticket",
             at: now,
             read: false,
@@ -654,7 +654,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
                 ...item,
                 status: "paid",
                 paidAt: now,
-                method: "Kredi KartÄ±",
+                method: "Kredi Kartı",
               }
             : item
         ),
@@ -666,8 +666,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         notifications: [
           {
             id: uid("n"),
-            title: "Ã–demeniz alÄ±ndÄ±",
-            body: `${payment.period} aidat Ã¶demeniz baÅŸarÄ±yla tamamlandÄ±.`,
+            title: "Ödemeniz alındı",
+            body: `${payment.period} aidat ödemeniz başarıyla tamamlandı.`,
             type: "payment",
             at: now,
             read: false,
@@ -676,8 +676,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           },
           {
             id: uid("n"),
-            title: "Ã–deme alÄ±ndÄ±",
-            body: `${payment.apartmentId} dairesi ${payment.period} aidatÄ±nÄ± Ã¶dedi.`,
+            title: "Ödeme alındı",
+            body: `${payment.apartmentId} dairesi ${payment.period} aidatını ödedi.`,
             type: "payment",
             at: now,
             read: false,
@@ -696,15 +696,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     dueDate: string;
   }): Result => {
     if (!user || user.role !== "admin") {
-      return { ok: false, error: "BorÃ§landÄ±rma iÃ§in yÃ¶netici giriÅŸi gerekli." };
+      return { ok: false, error: "Borçlandırma için yönetici girişi gerekli." };
     }
     const apartment = data.apartments.find((item) => item.id === input.apartmentId);
-    if (!apartment) return { ok: false, error: "Daire bulunamadÄ±." };
-    if (!input.period.trim()) return { ok: false, error: "DÃ¶nem bilgisi zorunlu." };
+    if (!apartment) return { ok: false, error: "Daire bulunamadı." };
+    if (!input.period.trim()) return { ok: false, error: "Dönem bilgisi zorunlu." };
     if (!Number.isFinite(input.amount) || input.amount <= 0) {
-      return { ok: false, error: "Tutar 0'dan bÃ¼yÃ¼k olmalÄ±dÄ±r." };
+      return { ok: false, error: "Tutar 0'dan büyük olmalıdır." };
     }
-    if (!input.dueDate) return { ok: false, error: "Son Ã¶deme tarihi zorunlu." };
+    if (!input.dueDate) return { ok: false, error: "Son ödeme tarihi zorunlu." };
 
     const now = new Date().toISOString();
     const payment: Payment = {
@@ -732,7 +732,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         {
           id: uid("n"),
           title: "Yeni aidat borcu",
-          body: `${apartment.id} dairesine ${payment.period} iÃ§in ${payment.amount} TL borÃ§ tanÄ±mlandÄ±.`,
+          body: `${apartment.id} dairesine ${payment.period} için ${payment.amount} TL borç tanımlandı.`,
           type: "payment",
           at: now,
           read: false,
@@ -775,18 +775,18 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     note: string;
   }): Result => {
     if (!user || user.role !== "resident" || !user.apartmentId) {
-      return { ok: false, error: "Hak devri iÃ§in sakin giriÅŸi gerekli." };
+      return { ok: false, error: "Hak devri için sakin girişi gerekli." };
     }
     const from = data.apartments.find((item) => item.id === user.apartmentId);
-    if (!from) return { ok: false, error: "Daire bulunamadÄ±." };
+    if (!from) return { ok: false, error: "Daire bulunamadı." };
     if (input.toApartmentId === from.id) {
-      return { ok: false, error: "HaklarÄ±nÄ±zÄ± kendi dairenize devredemezsiniz." };
+      return { ok: false, error: "Haklarınızı kendi dairenize devredemezsiniz." };
     }
     const to = data.apartments.find((item) => item.id === input.toApartmentId);
-    if (!to) return { ok: false, error: "Hedef daire bulunamadÄ±." };
+    if (!to) return { ok: false, error: "Hedef daire bulunamadı." };
     if (input.count < 1) return { ok: false, error: "En az 1 hak devredilmelidir." };
     if (remainingRights(from) < input.count) {
-      return { ok: false, error: "Yeterli kullanÄ±labilir hakkÄ±nÄ±z yok." };
+      return { ok: false, error: "Yeterli kullanılabilir hakkınız yok." };
     }
 
     const now = new Date().toISOString();
@@ -828,8 +828,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notifications: [
         {
           id: uid("n"),
-          title: "ArÄ±za hakkÄ± devri",
-          body: `${from.id} dairesi size ${input.count} adet arÄ±za hakkÄ± devretti.`,
+          title: "Arıza hakkı devri",
+          body: `${from.id} dairesi size ${input.count} adet arıza hakkı devretti.`,
           type: "system",
           at: now,
           read: false,
@@ -849,10 +849,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     description: string;
   }): ActionResult => {
     if (!user || user.role !== "admin") {
-      return { ok: false, error: "Kargo giriÅŸi iÃ§in yÃ¶netici giriÅŸi gerekli." };
+      return { ok: false, error: "Kargo girişi için yönetici girişi gerekli." };
     }
     const apartment = data.apartments.find((item) => item.id === input.apartmentId);
-    if (!apartment) return { ok: false, error: "Daire bulunamadÄ±." };
+    if (!apartment) return { ok: false, error: "Daire bulunamadı." };
     const code = String(Math.floor(1000 + Math.random() * 9000));
     const now = new Date().toISOString();
     const item: PackageItem = {
@@ -875,8 +875,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notifications: [
         {
           id: uid("n"),
-          title: "Kargonuz gÃ¼venlikte",
-          body: `${item.courier} paketiniz gÃ¼venliÄŸe teslim edildi. Teslim kodu: ${code}`,
+          title: "Kargonuz güvenlikte",
+          body: `${item.courier} paketiniz güvenliğe teslim edildi. Teslim kodu: ${code}`,
           type: "package",
           at: now,
           read: false,
@@ -892,12 +892,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const deliverPackage = (packageId: string, code: string): Result => {
     const item = data.packages.find((entry) => entry.id === packageId);
-    if (!item) return { ok: false, error: "Kargo kaydÄ± bulunamadÄ±." };
+    if (!item) return { ok: false, error: "Kargo kaydı bulunamadı." };
     if (item.status === "delivered") {
-      return { ok: false, error: "Bu kargo zaten teslim edilmiÅŸ." };
+      return { ok: false, error: "Bu kargo zaten teslim edilmiş." };
     }
     if (code.trim() !== item.code) {
-      return { ok: false, error: "Teslim kodu hatalÄ±. GÃ¼venlikten aldÄ±ÄŸÄ±nÄ±z kodu girin." };
+      return { ok: false, error: "Teslim kodu hatalı. Güvenlikten aldığınız kodu girin." };
     }
 
     const now = new Date().toISOString();
@@ -916,7 +916,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         {
           id: uid("n"),
           title: "Kargo teslim edildi",
-          body: `${item.courier} paketi teslim alÄ±ndÄ± olarak iÅŸaretlendi.`,
+          body: `${item.courier} paketi teslim alındı olarak işaretlendi.`,
           type: "package",
           at: now,
           read: false,
@@ -981,7 +981,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notifications: [
         {
           id: uid("n"),
-          title: "Yeni anket aÃ§Ä±ldÄ±",
+          title: "Yeni anket açıldı",
           body: poll.question,
           type: "poll",
           at: now,
@@ -1043,8 +1043,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notifications: [
         {
           id: uid("n"),
-          title: "Aidat hatÄ±rlatmasÄ±",
-          body: `${apartmentId} dairesi iÃ§in gecikmiÅŸ aidat hatÄ±rlatmasÄ± gÃ¶nderildi.`,
+          title: "Aidat hatırlatması",
+          body: `${apartmentId} dairesi için gecikmiş aidat hatırlatması gönderildi.`,
           type: "payment",
           at: now,
           read: false,
@@ -1053,8 +1053,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         },
         {
           id: uid("n"),
-          title: "HatÄ±rlatma gÃ¶nderildi",
-          body: `${apartmentId} dairesine aidat hatÄ±rlatmasÄ± iletildi.`,
+          title: "Hatırlatma gönderildi",
+          body: `${apartmentId} dairesine aidat hatırlatması iletildi.`,
           type: "payment",
           at: now,
           read: false,
@@ -1102,7 +1102,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notifications: [
         {
           id: uid("n"),
-          title: "ToplantÄ± daveti",
+          title: "Toplantı daveti",
           body: meeting.title,
           type: "meeting",
           at: now,
@@ -1116,14 +1116,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const addCalendarEvent = (input: NewCalendarEventInput): ActionResult => {
     if (!user || user.role !== "admin") {
-      return { ok: false, error: "Etkinlik eklemek iÃ§in yÃ¶netici giriÅŸi gerekli." };
+      return { ok: false, error: "Etkinlik eklemek için yönetici girişi gerekli." };
     }
     const title = input.title.trim();
     if (title.length < 3) {
-      return { ok: false, error: "Etkinlik baÅŸlÄ±ÄŸÄ± en az 3 karakter olmalÄ±." };
+      return { ok: false, error: "Etkinlik başlığı en az 3 karakter olmalı." };
     }
     if (!input.start || Number.isNaN(new Date(input.start).getTime())) {
-      return { ok: false, error: "GeÃ§erli bir tarih seÃ§in." };
+      return { ok: false, error: "Geçerli bir tarih seçin." };
     }
 
     const now = new Date().toISOString();
@@ -1179,14 +1179,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     totalRights: number;
   }): Result => {
     if (!user || user.role !== "admin") {
-      return { ok: false, error: "Daire eklemek iÃ§in yÃ¶netici giriÅŸi gerekli." };
+      return { ok: false, error: "Daire eklemek için yönetici girişi gerekli." };
     }
     const block = input.block.trim().toLocaleUpperCase("tr-TR");
     const no = input.no.trim();
     const id = `${block}-${no}`;
-    if (!block || !no) return { ok: false, error: "Blok ve daire numarasÄ± zorunlu." };
+    if (!block || !no) return { ok: false, error: "Blok ve daire numarası zorunlu." };
     if (data.apartments.some((item) => item.id === id)) {
-      return { ok: false, error: `${id} dairesi zaten kayÄ±tlÄ±.` };
+      return { ok: false, error: `${id} dairesi zaten kayıtlı.` };
     }
 
     setData((prev) => ({
@@ -1215,16 +1215,16 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     apartmentId: string;
   }): Result => {
     if (!user || user.role !== "admin") {
-      return { ok: false, error: "Sakin eklemek iÃ§in yÃ¶netici giriÅŸi gerekli." };
+      return { ok: false, error: "Sakin eklemek için yönetici girişi gerekli." };
     }
     const apartment = data.apartments.find((item) => item.id === input.apartmentId);
-    if (!apartment) return { ok: false, error: "Daire bulunamadÄ±." };
+    if (!apartment) return { ok: false, error: "Daire bulunamadı." };
     if (
       data.users.some(
         (item) => normalizeEmail(item.email) === normalizeEmail(input.email)
       )
     ) {
-      return { ok: false, error: "Bu e-posta ile kayÄ±tlÄ± bir kullanÄ±cÄ± var." };
+      return { ok: false, error: "Bu e-posta ile kayıtlı bir kullanıcı var." };
     }
 
     const colors = ["bg-blue-500", "bg-sky-500", "bg-indigo-500", "bg-teal-500"];
