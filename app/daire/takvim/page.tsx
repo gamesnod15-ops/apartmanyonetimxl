@@ -26,7 +26,7 @@ export default function DaireCalendarPage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-[28px] bg-gradient-to-br from-sky-600 via-blue-700 to-blue-900 p-6 text-white shadow-xl shadow-blue-600/20">
+      <section className="hero-soft hero-sky p-6">
         <div className="flex items-center gap-2 text-sky-100">
           <CalendarClock className="h-4 w-4" />
           <p className="text-xs font-medium">Daire Takvimi</p>

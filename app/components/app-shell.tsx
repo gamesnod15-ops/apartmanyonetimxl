@@ -82,6 +82,38 @@ function isActive(pathname: string, item: NavItem, root: string) {
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
+function SidebarLink({
+  item,
+  active,
+  count = 0,
+}: {
+  item: NavItem;
+  active: boolean;
+  count?: number;
+}) {
+  const Icon = item.icon;
+  return (
+    <Link
+      href={item.href}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "flex items-center gap-3 rounded-2xl px-3.5 py-2.5 text-sm transition",
+        active
+          ? "bg-slate-100 font-semibold text-slate-900"
+          : "font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+      )}
+    >
+      <Icon className={cn("h-[18px] w-[18px]", active && "text-slate-900")} />
+      {item.label}
+      {count > 0 ? (
+        <span className="ml-auto rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-bold text-white">
+          {count}
+        </span>
+      ) : null}
+    </Link>
+  );
+}
+
 export function AppShell({
   role,
   children,
@@ -150,129 +182,54 @@ export function AppShell({
 
   return (
     <div className="min-h-dvh">
-      <aside
-        className={cn(
-          "fixed inset-y-0 left-0 z-40 hidden w-72 flex-col md:flex",
-          admin
-            ? "bg-slate-950 text-slate-300"
-            : "border-r border-slate-900/[0.06] bg-white/80 text-slate-700 backdrop-blur-xl"
-        )}
-      >
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col bg-white md:flex">
         <div className="flex items-center gap-3 px-6 py-6">
-          <span
-            className={cn(
-              "flex h-11 w-11 items-center justify-center rounded-2xl text-white shadow-lg",
-              admin
-                ? "bg-gradient-to-br from-red-500 to-red-700 shadow-red-900/40"
-                : "bg-gradient-to-br from-blue-500 to-blue-700 shadow-blue-500/30"
-            )}
-          >
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
             <Building2 className="h-5 w-5" />
           </span>
           <div>
-            <p
-              className={cn(
-                "text-sm font-bold leading-tight",
-                admin ? "text-white" : "text-slate-900"
-              )}
-            >
+            <p className="text-sm font-bold leading-tight tracking-tight text-slate-900">
               Apartman Yönetim
             </p>
-            <p
-              className={cn(
-                "text-[11px]",
-                admin ? "text-red-300" : "text-blue-600"
-              )}
-            >
+            <p className={cn("text-[11px] font-medium", admin ? "text-red-500" : "text-emerald-600")}>
               {admin ? "Uygulama Yönetimi" : "Daire Paneli"}
             </p>
           </div>
         </div>
 
-        <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-2 no-scrollbar">
-          {nav.map((item) => {
-            const active = isActive(pathname, item, root);
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition",
-                  active
-                    ? admin
-                      ? "bg-red-500/15 text-white ring-1 ring-inset ring-red-500/30"
-                      : "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md shadow-blue-600/25"
-                    : admin
-                      ? "text-slate-400 hover:bg-white/5 hover:text-white"
-                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
-                )}
-              >
-                <Icon className="h-4 w-4" />
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav className="flex-1 space-y-0.5 overflow-y-auto px-3 py-2 no-scrollbar">
+          {nav.map((item) => (
+            <SidebarLink
+              key={item.href}
+              item={item}
+              active={isActive(pathname, item, root)}
+            />
+          ))}
 
-          <p
-            className={cn(
-              "px-3 pb-1 pt-5 text-[10px] font-semibold uppercase tracking-wider",
-              admin ? "text-slate-500" : "text-slate-400"
-            )}
-          >
+          <p className="px-3 pb-1 pt-6 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             Diğer
           </p>
-          {quickNav.map((item) => {
-            const active = isActive(pathname, item, root);
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition",
-                  active
-                    ? admin
-                      ? "bg-red-500/15 text-white ring-1 ring-inset ring-red-500/30"
-                      : "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md shadow-blue-600/25"
-                    : admin
-                      ? "text-slate-400 hover:bg-white/5 hover:text-white"
-                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
-                )}
-              >
-                <Icon className="h-4 w-4" />
-                {item.label}
-                {item.href.endsWith("/bildirimler") && unread > 0 ? (
-                  <span className="ml-auto rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
-                    {unread}
-                  </span>
-                ) : null}
-              </Link>
-            );
-          })}
+          {quickNav.map((item) => (
+            <SidebarLink
+              key={item.href}
+              item={item}
+              active={isActive(pathname, item, root)}
+              count={item.href.endsWith("/bildirimler") ? unread : 0}
+            />
+          ))}
         </nav>
 
         <div className="p-3">
-          <div
-            className={cn(
-              "flex items-center gap-3 rounded-2xl p-3",
-              admin ? "bg-white/5" : "bg-slate-50 ring-1 ring-slate-900/[0.04]"
-            )}
-          >
+          <div className="flex items-center gap-3 rounded-2xl bg-slate-100/80 p-3">
             <Avatar name={user.name} color={user.avatarColor} className="h-9 w-9" />
             <div className="min-w-0 flex-1">
-              <p className={cn("truncate text-xs font-bold", admin ? "text-white" : "text-slate-900")}>
-                {user.name}
-              </p>
-              <p className="truncate text-[10px] text-slate-400">{user.email}</p>
+              <p className="truncate text-xs font-bold text-slate-900">{user.name}</p>
+              <p className="truncate text-[10px] text-slate-500">{user.email}</p>
             </div>
             <Link
               href={settingsHref}
               aria-label="Ayarlar"
-              className={cn(
-                "rounded-lg p-1.5 transition",
-                admin ? "text-slate-400 hover:bg-white/10 hover:text-white" : "text-slate-400 hover:bg-white hover:text-slate-700"
-              )}
+              className="rounded-full p-2 text-slate-400 transition hover:bg-white hover:text-slate-700"
             >
               <Settings className="h-4 w-4" />
             </Link>
@@ -281,16 +238,13 @@ export function AppShell({
       </aside>
 
       <div className="md:pl-72">
-        <header className="safe-top sticky top-0 z-30 border-b border-slate-900/[0.06] bg-white/75 backdrop-blur-xl">
+        <header className="safe-top sticky top-0 z-30 bg-[#eff1f4]/80 backdrop-blur-xl">
           <div className="flex h-14 w-full items-center justify-between gap-3 px-4 md:h-16 md:px-6 lg:px-8">
             <div className="flex min-w-0 items-center gap-3">
               {isRoot ? (
                 <span
                   className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white shadow-md md:hidden",
-                    admin
-                      ? "bg-gradient-to-br from-red-500 to-red-700 shadow-red-600/25"
-                      : "bg-gradient-to-br from-blue-500 to-blue-700 shadow-blue-600/25"
+                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white md:hidden"
                   )}
                 >
                   <Building2 className="h-4 w-4" />
@@ -300,7 +254,7 @@ export function AppShell({
                   href={backHref}
                   aria-label="Geri"
                   title={admin ? "Genel bakışa dön" : "Ana panele dön"}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-slate-600 shadow-sm ring-1 ring-slate-900/[0.08] transition hover:bg-slate-50 hover:text-slate-900 active:scale-95"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-slate-600 shadow-soft transition hover:text-slate-900 active:scale-95"
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </Link>
@@ -323,7 +277,7 @@ export function AppShell({
                     setProfileOpen(false);
                     setBellOpen((value) => !value);
                   }}
-                  className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700"
+                  className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 shadow-soft transition hover:text-slate-900"
                   aria-label="Bildirimler"
                 >
                   <Bell className="h-5 w-5" />
@@ -412,7 +366,7 @@ export function AppShell({
                     href={item.href}
                     aria-label={item.label}
                     title={item.label}
-                    className="hidden h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700 md:flex"
+                    className="hidden h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 shadow-soft transition hover:text-slate-900 md:flex"
                   >
                     <Icon className="h-5 w-5" />
                   </Link>
@@ -427,7 +381,7 @@ export function AppShell({
                   setMenuOpen(true);
                 }}
                 aria-label="Menü"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/60 hover:text-slate-700 md:hidden"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 shadow-soft transition hover:text-slate-900 md:hidden"
               >
                 <Menu className="h-5 w-5" />
               </button>
@@ -508,7 +462,7 @@ export function AppShell({
       </div>
 
       <nav
-        className="fixed inset-x-2 z-40 mx-auto max-w-lg rounded-2xl border border-white/60 bg-white/80 p-1 shadow-2xl shadow-slate-900/15 ring-1 ring-slate-900/[0.06] backdrop-blur-xl sm:inset-x-3 sm:rounded-3xl sm:p-1.5 md:hidden"
+        className="fixed inset-x-3 z-40 mx-auto max-w-md rounded-full bg-slate-900 p-1.5 shadow-2xl shadow-slate-900/30 md:hidden"
         style={{ bottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
       >
         <div className="grid grid-cols-4 gap-0.5">
@@ -521,15 +475,11 @@ export function AppShell({
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:py-2 min-[360px]:text-[10px] sm:rounded-2xl",
-                  active
-                    ? admin
-                      ? "bg-red-50 text-red-600"
-                      : "bg-blue-50 text-blue-700"
-                    : "text-slate-400"
+                  "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-full py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:text-[10px]",
+                  active ? "bg-white text-slate-900" : "text-slate-400"
                 )}
               >
-                <Icon className={cn("h-[18px] w-[18px] min-[360px]:h-5 min-[360px]:w-5", active && "stroke-[2.4]")} />
+                <Icon className="h-[18px] w-[18px] min-[360px]:h-5 min-[360px]:w-5" />
                 <span className="max-w-full truncate px-0.5">
                   {item.label.split(" ")[0]}
                 </span>
@@ -547,7 +497,7 @@ export function AppShell({
             onClick={() => setMenuOpen(false)}
             className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
           />
-          <div className="absolute inset-x-0 bottom-0 max-h-[92dvh] overflow-y-auto rounded-t-3xl bg-white p-4 pb-[calc(1.5rem+env(safe-area-inset-bottom))] animate-slide-up sm:rounded-t-[2rem] sm:p-5">
+          <div className="absolute inset-x-0 bottom-0 max-h-[92dvh] overflow-y-auto rounded-t-[28px] bg-white p-4 pb-[calc(1.5rem+env(safe-area-inset-bottom))] animate-slide-up sm:p-5">
             <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-slate-200" />
             <div className="flex items-center justify-between gap-2">
               <div className="flex min-w-0 items-center gap-3">
@@ -590,24 +540,16 @@ export function AppShell({
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "flex min-h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-xl p-2 text-center text-[10px] font-semibold ring-1 transition active:scale-95 min-[360px]:gap-2 min-[360px]:p-3 min-[360px]:text-[11px] sm:rounded-2xl",
+                      "flex min-h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-2xl p-2 text-center text-[10px] font-semibold ring-1 transition active:scale-95 min-[360px]:gap-2 min-[360px]:p-3 min-[360px]:text-[11px] sm:rounded-2xl",
                       active
-                        ? admin
-                          ? "bg-red-50 text-red-700 ring-red-100"
-                          : "bg-blue-50 text-blue-700 ring-blue-100"
+                        ? "bg-slate-900 text-white ring-slate-900"
                         : "bg-slate-50 text-slate-600 ring-slate-100"
                     )}
                   >
                     <Icon
                       className={cn(
                         "h-5 w-5",
-                        active
-                          ? admin
-                            ? "text-red-600"
-                            : "text-blue-600"
-                          : admin
-                            ? "text-red-500"
-                            : "text-blue-600"
+                        active ? "text-white" : "text-slate-500"
                       )}
                     />
                     {item.label}

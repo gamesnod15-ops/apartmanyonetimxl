@@ -81,7 +81,7 @@ export default function AdminMeetingsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-xl shadow-red-950/30">
+      <section className="flex items-start justify-between gap-3 hero-soft hero-red p-6">
         <div>
           <p className="text-xs font-medium text-red-300">Yönetim</p>
           <h1 className="mt-1 text-xl font-bold">Toplantı Yönetimi</h1>

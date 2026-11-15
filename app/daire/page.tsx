@@ -67,14 +67,14 @@ export default function DaireDashboard() {
       label: "Arızalarım",
       hint: openTickets.length > 0 ? `${openTickets.length} açık kayıt` : "Açık kayıt yok",
       icon: Wrench,
-      tone: "from-blue-500 to-blue-700 shadow-blue-600/30",
+      tone: "bg-blue-50 text-blue-600",
     },
     {
       href: "/daire/odemeler",
       label: "Ödemeler",
       hint: unpaid.length > 0 ? `${currency(unpaidTotal)} bekliyor` : "Borcunuz yok",
       icon: Wallet,
-      tone: "from-emerald-500 to-teal-700 shadow-emerald-600/30",
+      tone: "bg-emerald-50 text-emerald-600",
       alert: unpaid.length,
     },
     {
@@ -85,7 +85,7 @@ export default function DaireDashboard() {
           ? `${waitingPackages.length} kargo güvenlikte`
           : "Bekleyen kargo yok",
       icon: Package,
-      tone: "from-amber-400 to-orange-600 shadow-amber-500/30",
+      tone: "bg-amber-50 text-amber-600",
       alert: waitingPackages.length,
     },
     {
@@ -93,21 +93,21 @@ export default function DaireDashboard() {
       label: "Duyurular",
       hint: `${data.announcements.length} duyuru`,
       icon: Megaphone,
-      tone: "from-violet-500 to-indigo-700 shadow-violet-600/30",
+      tone: "bg-violet-50 text-violet-600",
     },
     {
       href: "/daire/toplantilar",
       label: "Toplantılar",
       hint: nextMeeting ? `Sıradaki: ${formatDate(nextMeeting.date)}` : "Planlı toplantı yok",
       icon: CalendarDays,
-      tone: "from-sky-500 to-blue-700 shadow-sky-600/30",
+      tone: "bg-sky-50 text-sky-600",
     },
     {
       href: "/daire/anketler",
       label: "Anketler",
       hint: activePolls.length > 0 ? `${activePolls.length} aktif anket` : "Aktif anket yok",
       icon: BarChart3,
-      tone: "from-rose-500 to-red-700 shadow-rose-600/30",
+      tone: "bg-rose-50 text-rose-600",
       alert: activePolls.length,
     },
     {
@@ -115,28 +115,28 @@ export default function DaireDashboard() {
       label: "Hak Transferi",
       hint: `${rights} hak kullanılabilir`,
       icon: ArrowLeftRight,
-      tone: "from-purple-500 to-violet-700 shadow-purple-600/30",
+      tone: "bg-purple-50 text-purple-600",
     },
     {
       href: "/daire/dairem",
       label: "Dairem",
       hint: apartment ? `${apartment.block} Blok · ${apartment.id}` : "Daire bilgileri",
       icon: House,
-      tone: "from-cyan-500 to-sky-700 shadow-cyan-600/30",
+      tone: "bg-cyan-50 text-cyan-600",
     },
     {
       href: "/daire/takvim",
       label: "Takvim",
       hint: "Etkinlik ve tarihler",
       icon: CalendarClock,
-      tone: "from-indigo-500 to-blue-800 shadow-indigo-600/30",
+      tone: "bg-indigo-50 text-indigo-600",
     },
     {
       href: "/daire/bildirimler",
       label: "Bildirimler",
       hint: unread > 0 ? `${unread} okunmamış` : "Hepsi okundu",
       icon: Bell,
-      tone: "from-pink-500 to-rose-700 shadow-pink-600/30",
+      tone: "bg-pink-50 text-pink-600",
       alert: unread,
     },
     {
@@ -144,13 +144,13 @@ export default function DaireDashboard() {
       label: "Ayarlar",
       hint: "Hesap ve tercihler",
       icon: Settings,
-      tone: "from-slate-500 to-slate-800 shadow-slate-600/30",
+      tone: "bg-slate-100 text-slate-600",
     },
   ];
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 p-6 text-white shadow-xl shadow-blue-700/25 md:p-8">
+      <section className="relative overflow-hidden hero-soft hero-blue p-6 md:p-8">
         <div className="hero-texture pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-sky-300/20 blur-3xl" />
         <div className="relative flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -216,19 +216,19 @@ export default function DaireDashboard() {
               key={tile.href}
               href={tile.href}
               style={{ animationDelay: `${index * 30}ms` }}
-              className="group relative flex min-h-[8.5rem] flex-col justify-between rounded-3xl bg-white p-4 shadow-soft ring-1 ring-slate-900/[0.06] transition duration-200 animate-fade-up hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.98] md:p-5"
+              className="group relative flex min-h-[8.5rem] flex-col justify-between rounded-3xl bg-white p-4 shadow-soft transition duration-200 animate-fade-up hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.98] md:p-5"
             >
               <div className="flex items-start justify-between">
                 <span
                   className={cn(
-                    "flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg",
+                    "flex h-11 w-11 items-center justify-center rounded-2xl",
                     tile.tone
                   )}
                 >
                   <tile.icon className="h-5 w-5" />
                 </span>
                 {tile.alert ? (
-                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-red-500 px-1.5 text-[11px] font-bold text-white ring-4 ring-red-50">
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-slate-900 px-1.5 text-[11px] font-bold text-white">
                     {tile.alert}
                   </span>
                 ) : (

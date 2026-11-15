@@ -221,7 +221,7 @@ export default function AdminUsersPage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-xl shadow-red-950/30">
+      <section className="hero-soft hero-red p-6">
         <p className="text-xs font-medium text-red-300">Kadro & Kayıtlar</p>
         <h1 className="mt-1 text-xl font-bold">Daire Haritası</h1>
         <p className="mt-1 text-[11px] text-slate-400">

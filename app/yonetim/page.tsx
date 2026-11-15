@@ -152,7 +152,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 p-6 text-white shadow-xl shadow-red-950/30">
+      <section className="relative overflow-hidden hero-soft hero-red p-6">
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-red-500/20 blur-3xl" />
         <div className="relative">
           <p className="text-xs font-medium text-red-300">
