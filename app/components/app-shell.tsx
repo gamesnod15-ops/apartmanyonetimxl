@@ -106,7 +106,7 @@ function SidebarLink({
       <Icon className="h-[18px] w-[18px]" />
       {item.label}
       {count > 0 ? (
-        <span className="ml-auto rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+        <span className="ml-auto rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
           {count}
         </span>
       ) : null}
@@ -282,7 +282,7 @@ export function AppShell({
                 >
                   <Bell className="h-5 w-5" />
                   {unread > 0 ? (
-                    <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">
+                    <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[9px] font-bold text-white">
                       {unread}
                     </span>
                   ) : null}

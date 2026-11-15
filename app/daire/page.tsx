@@ -74,7 +74,7 @@ export default function DaireDashboard() {
       label: "Ödemeler",
       hint: unpaid.length > 0 ? `${currency(unpaidTotal)} bekliyor` : "Borcunuz yok",
       icon: Wallet,
-      tone: "bg-emerald-500 text-white",
+      tone: "bg-blue-500 text-white",
       alert: unpaid.length,
     },
     {
@@ -85,7 +85,7 @@ export default function DaireDashboard() {
           ? `${waitingPackages.length} kargo güvenlikte`
           : "Bekleyen kargo yok",
       icon: Package,
-      tone: "bg-amber-500 text-white",
+      tone: "bg-blue-500 text-white",
       alert: waitingPackages.length,
     },
     {
@@ -93,21 +93,21 @@ export default function DaireDashboard() {
       label: "Duyurular",
       hint: `${data.announcements.length} duyuru`,
       icon: Megaphone,
-      tone: "bg-violet-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/toplantilar",
       label: "Toplantılar",
       hint: nextMeeting ? `Sıradaki: ${formatDate(nextMeeting.date)}` : "Planlı toplantı yok",
       icon: CalendarDays,
-      tone: "bg-sky-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/anketler",
       label: "Anketler",
       hint: activePolls.length > 0 ? `${activePolls.length} aktif anket` : "Aktif anket yok",
       icon: BarChart3,
-      tone: "bg-rose-500 text-white",
+      tone: "bg-blue-500 text-white",
       alert: activePolls.length,
     },
     {
@@ -115,28 +115,28 @@ export default function DaireDashboard() {
       label: "Hak Transferi",
       hint: `${rights} hak kullanılabilir`,
       icon: ArrowLeftRight,
-      tone: "bg-purple-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/dairem",
       label: "Dairem",
       hint: apartment ? `${apartment.block} Blok · ${apartment.id}` : "Daire bilgileri",
       icon: House,
-      tone: "bg-teal-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/takvim",
       label: "Takvim",
       hint: "Etkinlik ve tarihler",
       icon: CalendarClock,
-      tone: "bg-indigo-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
     {
       href: "/daire/bildirimler",
       label: "Bildirimler",
       hint: unread > 0 ? `${unread} okunmamış` : "Hepsi okundu",
       icon: Bell,
-      tone: "bg-pink-500 text-white",
+      tone: "bg-blue-500 text-white",
       alert: unread,
     },
     {
@@ -144,7 +144,7 @@ export default function DaireDashboard() {
       label: "Ayarlar",
       hint: "Hesap ve tercihler",
       icon: Settings,
-      tone: "bg-slate-500 text-white",
+      tone: "bg-blue-500 text-white",
     },
   ];
 
@@ -228,7 +228,7 @@ export default function DaireDashboard() {
                   <tile.icon className="h-5 w-5" />
                 </span>
                 {tile.alert ? (
-                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-red-500 px-1.5 text-[11px] font-bold text-white">
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-blue-600 px-1.5 text-[11px] font-bold text-white">
                     {tile.alert}
                   </span>
                 ) : (
