@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6fb;
+  --background: #eff1f4;
   --foreground: #0f172a;
   --brand: #2563eb;
   --brand-strong: #1d4ed8;
@@ -27,11 +27,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(1200px 600px at 100% -10%, rgb(37 99 235 / 0.06), transparent 60%),
-    radial-gradient(900px 500px at -10% 0%, rgb(124 58 237 / 0.05), transparent 55%),
-    var(--background);
-  background-attachment: fixed;
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
@@ -53,25 +49,58 @@ a {
   outline-offset: 2px;
 }
 
-/* Soft, layered elevation used by cards and tiles */
+/* Soft elevation: very light, wide shadows on white surfaces */
 .shadow-soft {
   box-shadow:
-    0 1px 2px rgb(15 23 42 / 0.04),
-    0 4px 16px -4px rgb(15 23 42 / 0.06);
+    0 1px 1px rgb(15 23 42 / 0.03),
+    0 8px 24px -8px rgb(15 23 42 / 0.07);
 }
 
 .shadow-lift {
   box-shadow:
-    0 2px 4px rgb(15 23 42 / 0.04),
-    0 16px 32px -12px rgb(15 23 42 / 0.16);
+    0 2px 4px rgb(15 23 42 / 0.03),
+    0 18px 36px -14px rgb(15 23 42 / 0.14);
 }
 
-/* Subtle dotted texture for gradient hero banners */
-.hero-texture {
-  background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px);
-  background-size: 14px 14px;
-  mask-image: linear-gradient(120deg, black, transparent 70%);
+/*
+ * Soft page banner. Pages render their header banner as <section class="hero-soft hero-<tone>">
+ * with light-on-dark utility classes inside (text-white, bg-white/10 ...). On this light card those
+ * are remapped here so every banner stays consistent without touching each page's inner markup.
+ */
+.hero-soft {
+  --tint: #dbeafe;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  color: #0f172a;
+  background:
+    radial-gradient(420px 220px at 100% 0%, var(--tint), transparent 70%),
+    #ffffff;
+  box-shadow:
+    0 1px 1px rgb(15 23 42 / 0.03),
+    0 8px 24px -8px rgb(15 23 42 / 0.07);
 }
+.hero-blue { --tint: #dbeafe; }
+.hero-sky { --tint: #e0f2fe; }
+.hero-violet { --tint: #ede9fe; }
+.hero-rose { --tint: #ffe4e6; }
+.hero-emerald { --tint: #d1fae5; }
+.hero-amber { --tint: #fef3c7; }
+.hero-cyan { --tint: #cffafe; }
+.hero-red { --tint: #fee2e2; }
+.hero-slate { --tint: #e5e7eb; }
+
+.hero-soft .text-white { color: #0f172a; }
+.hero-soft :is(.bg-red-500, .bg-red-600, .bg-emerald-500, .bg-emerald-600, .bg-violet-600, .bg-blue-600).text-white { color: #fff; }
+.hero-soft :is(.text-blue-100,.text-blue-200,.text-blue-300,.text-sky-100,.text-sky-200,.text-sky-300,.text-violet-100,.text-violet-200,.text-violet-300,.text-rose-100,.text-rose-200,.text-rose-300,.text-emerald-100,.text-emerald-200,.text-emerald-300,.text-amber-100,.text-amber-200,.text-amber-300,.text-cyan-100,.text-cyan-200,.text-cyan-300,.text-red-100,.text-red-200,.text-red-300,.text-slate-100,.text-slate-200,.text-slate-300) { color: #64748b; }
+.hero-soft :is(.bg-white\/5, .bg-white\/10, .bg-white\/15) { background-color: #f3f4f6; }
+.hero-soft :is(.bg-white\/20, .hover\:bg-white\/20:hover) { background-color: #e5e7eb; }
+.hero-soft :is(.ring-white\/10, .ring-white\/15, .ring-white\/20) { --tw-ring-color: rgb(15 23 42 / 0.06); }
+.hero-soft .bg-white { background-color: #15171c; color: #fff !important; }
+.hero-soft a.bg-white:hover, .hero-soft button.bg-white:hover { background-color: #2b2e36; }
+.hero-soft div.bg-white { background-color: #15171c; }
+.hero-soft .pointer-events-none.absolute { display: none; }
+.hero-soft .backdrop-blur { backdrop-filter: none; }
 
 .safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);

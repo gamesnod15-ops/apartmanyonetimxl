@@ -96,7 +96,7 @@ export default function DaireTicketsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="relative flex items-start justify-between gap-3 overflow-hidden rounded-[28px] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 p-5 text-white shadow-xl shadow-blue-700/20">
+      <section className="relative flex items-start justify-between gap-3 overflow-hidden hero-soft hero-blue p-5">
         <div>
           <p className="text-xs font-medium text-blue-100">Teknik Destek</p>
           <h1 className="mt-1 text-xl font-bold">Arıza Kayıtlarım</h1>

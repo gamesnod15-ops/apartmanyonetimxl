@@ -29,7 +29,7 @@ export function AccountSettings() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-[28px] bg-gradient-to-br from-slate-800 to-slate-950 p-6 text-white shadow-xl shadow-slate-900/20">
+      <section className="hero-soft hero-slate p-6">
         <p className="flex items-center gap-1.5 text-xs font-medium text-slate-300">
           <Settings className="h-3.5 w-3.5" />
           Hesap Ayarları

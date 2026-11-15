@@ -44,7 +44,7 @@ export default function DaireMeetingsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-[28px] bg-gradient-to-br from-sky-600 via-sky-700 to-blue-900 p-6 text-white shadow-xl shadow-sky-600/20">
+      <section className="hero-soft hero-sky p-6">
         <div className="flex items-center gap-2 text-sky-100">
           <CalendarDays className="h-4 w-4" />
           <p className="text-xs font-medium">Toplantı & Katılım</p>
