@@ -98,7 +98,7 @@ export default function AdminCalendarPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 hero-soft hero-red p-6">
+      <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
           <p className="flex items-center gap-1.5 text-xs font-medium text-red-300">
             <CalendarClock className="h-3.5 w-3.5" />
@@ -114,7 +114,7 @@ export default function AdminCalendarPage() {
             reset();
             setOpen(true);
           }}
-          variant="red"
+          variant="blue"
           size="sm"
           className="shrink-0"
         >
@@ -230,7 +230,7 @@ export default function AdminCalendarPage() {
             >
               Vazgeç
             </Button>
-            <Button type="submit" variant="red" className="flex-1">
+            <Button type="submit" variant="blue" className="flex-1">
               <Plus className="h-4 w-4" />
               Takvime Ekle
             </Button>

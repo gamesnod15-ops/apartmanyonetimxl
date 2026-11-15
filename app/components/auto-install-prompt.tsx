@@ -103,9 +103,9 @@ export function AutoInstallPrompt() {
         type="button"
         aria-label="Kapat"
         onClick={dismiss}
-        className="absolute inset-0 cursor-default bg-slate-900/50 backdrop-blur-sm"
+        className="absolute inset-0 cursor-default bg-slate-950/35 backdrop-blur-[10px]"
       />
-      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-white p-5 shadow-2xl animate-slide-up">
+      <div className="relative w-full max-w-sm overflow-hidden rounded-[28px] bg-white p-5 shadow-2xl animate-slide-up">
         <button
           type="button"
           onClick={dismiss}
@@ -115,7 +115,7 @@ export function AutoInstallPrompt() {
           <X className="h-4 w-4" />
         </button>
 
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-600/25">
+        <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-600/30">
           <Smartphone className="h-6 w-6" />
         </span>
 
@@ -128,7 +128,7 @@ export function AutoInstallPrompt() {
         </p>
 
         {showHint || !promptEvent ? (
-          <div className="mt-4 flex items-start gap-2 rounded-2xl bg-slate-50 p-3 text-[11px] leading-5 text-slate-600 ring-1 ring-slate-200">
+          <div className="mt-4 flex items-start gap-2 rounded-2xl bg-slate-900/[0.04] p-3 text-[11px] leading-5 text-slate-600">
             <Share className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
             <span>
               iPhone / iPad: Safari&apos;de <strong>Paylaş</strong> simgesine
@@ -143,7 +143,7 @@ export function AutoInstallPrompt() {
             <button
               type="button"
               onClick={install}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
             >
               <Download className="h-4 w-4" />
               Ana ekrana ekle
@@ -152,7 +152,7 @@ export function AutoInstallPrompt() {
             <button
               type="button"
               onClick={dismiss}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
             >
               Anladım
             </button>
@@ -160,7 +160,7 @@ export function AutoInstallPrompt() {
           <button
             type="button"
             onClick={dismiss}
-            className="w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-slate-500 transition hover:bg-slate-50"
+            className="w-full rounded-[14px] px-4 py-2.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-500/10"
           >
             Şimdi değil
           </button>

@@ -25,7 +25,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-3xl bg-white p-5 shadow-soft",
+        "rounded-[22px] bg-white p-5 shadow-soft",
         className
       )}
     >
@@ -85,14 +85,14 @@ type ButtonVariant =
   | "danger";
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "bg-slate-900 text-white hover:bg-slate-700",
-  blue: "bg-slate-900 text-white hover:bg-slate-700 shadow-md shadow-slate-900/10",
-  red: "bg-red-500 text-white hover:bg-red-600 shadow-md shadow-red-500/20",
-  soft: "bg-slate-100 text-slate-700 hover:bg-slate-200",
+  primary: "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-700",
+  blue: "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-700",
+  red: "bg-red-500 text-white hover:bg-red-600",
+  soft: "bg-blue-500/10 text-blue-600 hover:bg-blue-500/15",
   outline:
-    "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
-  ghost: "text-slate-600 hover:bg-slate-100",
-  danger: "bg-red-50 text-red-600 hover:bg-red-100",
+    "bg-slate-900/[0.06] text-blue-600 hover:bg-slate-900/10",
+  ghost: "text-blue-600 hover:bg-blue-500/10",
+  danger: "bg-red-500/10 text-red-600 hover:bg-red-500/15",
 };
 
 type ButtonSize = "sm" | "md" | "lg" | "icon";
@@ -117,7 +117,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-full font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100",
+        "inline-flex items-center justify-center rounded-[14px] font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100",
         buttonVariants[variant],
         buttonSizes[size],
         className
@@ -130,7 +130,7 @@ export function Button({
 }
 
 const fieldClasses =
-  "w-full rounded-2xl border border-transparent bg-slate-100/80 px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:bg-slate-100 focus:border-slate-300 focus:bg-white focus:ring-4 focus:ring-slate-900/5 disabled:opacity-60";
+  "w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[15px] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15 disabled:opacity-60";
 
 export function Input({
   className,
@@ -217,7 +217,7 @@ export function Modal({
         type="button"
         aria-label="Kapat"
         onClick={onClose}
-        className="absolute inset-0 bg-slate-950/40 backdrop-blur-[6px]"
+        className="absolute inset-0 bg-slate-950/35 backdrop-blur-[10px]"
       />
       <div className="relative z-10 max-h-[92dvh] w-full overflow-y-auto rounded-t-[28px] bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-2xl animate-slide-up sm:max-w-lg sm:rounded-3xl sm:p-6 sm:animate-pop">
         <div className="mx-auto -mt-1 mb-3 h-1 w-10 rounded-full bg-slate-200 sm:hidden" />
@@ -283,7 +283,7 @@ export function Progress({
   return (
     <div className={cn("h-2 w-full overflow-hidden rounded-full bg-slate-100", className)}>
       <div
-        className={cn("h-full rounded-full bg-slate-900 transition-all", barClassName)}
+        className={cn("h-full rounded-full bg-blue-600 transition-all", barClassName)}
         style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
       />
     </div>
@@ -324,7 +324,7 @@ export function Segmented<T extends string>({
   tone?: "blue" | "red";
 }) {
   return (
-    <div className="flex gap-1 overflow-x-auto rounded-full bg-white p-1 shadow-soft no-scrollbar">
+    <div className="flex gap-0.5 overflow-x-auto rounded-[11px] bg-slate-900/[0.07] p-0.5 no-scrollbar">
       {options.map((option) => {
         const active = option.value === value;
         return (
@@ -333,12 +333,12 @@ export function Segmented<T extends string>({
             type="button"
             onClick={() => onChange(option.value)}
             className={cn(
-              "flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition",
+              "flex shrink-0 grow items-center justify-center gap-1.5 rounded-[9px] px-3.5 py-1.5 text-xs font-semibold transition",
               active
                 ? tone === "red"
-                  ? "bg-red-500 text-white"
-                  : "bg-slate-900 text-white"
-                : "text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                  ? "bg-white text-red-600 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
+                  : "bg-white text-slate-900 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
+                : "text-slate-600 hover:text-slate-900"
             )}
           >
             {option.label}
@@ -346,7 +346,7 @@ export function Segmented<T extends string>({
               <span
                 className={cn(
                   "rounded-full px-1.5 py-0.5 text-[10px]",
-                  active ? "bg-white/20" : "bg-slate-100 text-slate-500"
+                  active ? "bg-slate-900/[0.08]" : "bg-slate-900/[0.06] text-slate-500"
                 )}
               >
                 {option.count}
@@ -381,7 +381,7 @@ export function Stepper({
                 aria-hidden
                 className={cn(
                   "absolute right-1/2 top-4 h-0.5 w-full -translate-y-1/2 rounded-full transition-colors",
-                  index <= current ? "bg-slate-900" : "bg-slate-200"
+                  index <= current ? "bg-blue-600" : "bg-slate-200"
                 )}
               />
             ) : null}
@@ -393,10 +393,10 @@ export function Stepper({
               className={cn(
                 "relative z-10 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ring-4 ring-white transition disabled:cursor-default",
                 done
-                  ? "bg-slate-900 text-white"
+                  ? "bg-blue-600 text-white"
                   : active
-                    ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20"
-                    : "bg-slate-100 text-slate-400"
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                    : "bg-slate-200 text-slate-400"
               )}
             >
               {done ? <Check className="h-4 w-4" strokeWidth={3} /> : index + 1}
@@ -404,7 +404,7 @@ export function Stepper({
             <span
               className={cn(
                 "mt-1.5 block px-0.5 text-center text-[10px] font-semibold leading-tight",
-                active ? "text-slate-900" : done ? "text-slate-600" : "text-slate-400"
+                active ? "text-blue-600" : done ? "text-slate-600" : "text-slate-400"
               )}
             >
               {step.label}

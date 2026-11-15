@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eff1f4;
+  --background: #f2f2f7;
   --foreground: #0f172a;
-  --brand: #2563eb;
-  --brand-strong: #1d4ed8;
-  --danger: #dc2626;
+  --brand: #007aff;
+  --brand-strong: #0062cc;
+  --danger: #ff3b30;
+}
+
+/*
+ * Apple (iOS) system palette. Overriding the stock Tailwind scales means every existing
+ * `blue-*`, `red-*`, `emerald-*` and `amber-*` utility picks up the iOS system colours.
+ */
+@theme {
+  --color-blue-50: #eef6ff;
+  --color-blue-100: #dcebff;
+  --color-blue-200: #b9d8ff;
+  --color-blue-300: #8abfff;
+  --color-blue-400: #4da3ff;
+  --color-blue-500: #0a84ff;
+  --color-blue-600: #007aff;
+  --color-blue-700: #0062cc;
+  --color-blue-800: #004a99;
+  --color-blue-900: #003166;
+  --color-red-500: #ff3b30;
+  --color-red-600: #e5342b;
+  --color-red-700: #c5221a;
+  --color-emerald-500: #34c759;
+  --color-emerald-600: #248a3d;
+  --color-emerald-700: #1d7332;
+  --color-amber-500: #ff9f0a;
+  --color-amber-600: #c97100;
+  --color-amber-700: #a35c00;
 }
 
 @theme inline {
@@ -29,8 +55,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    var(--font-geist-sans), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-y: none;
 }
@@ -41,12 +68,18 @@ a {
 }
 
 ::selection {
-  background: rgb(37 99 235 / 0.18);
+  background: rgb(0 122 255 / 0.2);
 }
 
 :focus-visible {
-  outline: 2px solid rgb(37 99 235 / 0.55);
+  outline: 2px solid rgb(0 122 255 / 0.6);
   outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
 }
 
 /* Soft elevation: very light, wide shadows on white surfaces */
@@ -63,13 +96,13 @@ a {
 }
 
 /*
- * Soft page banner. Pages render their header banner as <section class="hero-soft hero-<tone>">
+ * Soft page banner. Pages render their header banner as <section class="hero-soft">
  * with light-on-dark utility classes inside (text-white, bg-white/10 ...). On this light card those
  * are remapped here so every banner stays consistent without touching each page's inner markup.
  */
 .hero-soft {
-  --tint: #dbeafe;
-  border-radius: 28px;
+  --tint: #dcebff;
+  border-radius: 26px;
   position: relative;
   overflow: hidden;
   color: #0f172a;
@@ -80,15 +113,6 @@ a {
     0 1px 1px rgb(15 23 42 / 0.03),
     0 8px 24px -8px rgb(15 23 42 / 0.07);
 }
-.hero-blue { --tint: #dbeafe; }
-.hero-sky { --tint: #e0f2fe; }
-.hero-violet { --tint: #ede9fe; }
-.hero-rose { --tint: #ffe4e6; }
-.hero-emerald { --tint: #d1fae5; }
-.hero-amber { --tint: #fef3c7; }
-.hero-cyan { --tint: #cffafe; }
-.hero-red { --tint: #fee2e2; }
-.hero-slate { --tint: #e5e7eb; }
 
 .hero-soft .text-white { color: #0f172a; }
 .hero-soft :is(.bg-red-500, .bg-red-600, .bg-emerald-500, .bg-emerald-600, .bg-violet-600, .bg-blue-600).text-white { color: #fff; }
@@ -96,9 +120,9 @@ a {
 .hero-soft :is(.bg-white\/5, .bg-white\/10, .bg-white\/15) { background-color: #f3f4f6; }
 .hero-soft :is(.bg-white\/20, .hover\:bg-white\/20:hover) { background-color: #e5e7eb; }
 .hero-soft :is(.ring-white\/10, .ring-white\/15, .ring-white\/20) { --tw-ring-color: rgb(15 23 42 / 0.06); }
-.hero-soft .bg-white { background-color: #15171c; color: #fff !important; }
-.hero-soft a.bg-white:hover, .hero-soft button.bg-white:hover { background-color: #2b2e36; }
-.hero-soft div.bg-white { background-color: #15171c; }
+.hero-soft .bg-white { background-color: #007aff; color: #fff !important; }
+.hero-soft a.bg-white:hover, .hero-soft button.bg-white:hover { background-color: #0a6ee0; }
+.hero-soft div.bg-white { background-color: #007aff; }
 .hero-soft .pointer-events-none.absolute { display: none; }
 .hero-soft .backdrop-blur { backdrop-filter: none; }
 

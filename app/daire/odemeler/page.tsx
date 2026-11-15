@@ -105,7 +105,7 @@ export default function DairePaymentsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden hero-soft hero-emerald p-6">
+      <section className="relative overflow-hidden hero-soft p-6">
         <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
         <p className="text-xs font-medium text-emerald-100">Toplam Bekleyen</p>
         <p className="mt-1 text-3xl font-bold tracking-tight">{currency(unpaidTotal)}</p>
@@ -233,19 +233,19 @@ export default function DairePaymentsPage() {
       >
         {selected ? (
           <form onSubmit={submitPayment} className="space-y-4">
-            <div className="rounded-2xl bg-slate-900 p-4 text-white">
+            <div className="rounded-[20px] bg-gradient-to-br from-blue-500 to-blue-700 p-4 text-white shadow-lg shadow-blue-600/25">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium uppercase tracking-wider text-slate-400">
+                <span className="text-[10px] font-medium uppercase tracking-wider text-blue-100">
                   Apartman Yönetim
                 </span>
-                <CreditCard className="h-4 w-4 text-slate-400" />
+                <CreditCard className="h-4 w-4 text-blue-100" />
               </div>
               <p className="mt-4 font-mono text-base tracking-widest">
                 {cardNumber
                   ? cardNumber.padEnd(19, "•")
                   : "•••• •••• •••• ••••"}
               </p>
-              <div className="mt-3 flex items-center justify-between text-[10px] text-slate-400">
+              <div className="mt-3 flex items-center justify-between text-[10px] text-blue-100">
                 <span>{cardName || "KART SAHİBİ"}</span>
                 <span>{expiry || "AA/YY"}</span>
               </div>

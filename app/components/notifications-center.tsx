@@ -57,7 +57,7 @@ export function NotificationsCenter() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-center justify-between gap-3 hero-soft hero-slate p-6">
+      <section className="flex items-center justify-between gap-3 hero-soft p-6">
         <div>
           <p className="text-xs font-medium text-slate-300">Bildirim Merkezi</p>
           <h1 className="mt-1 text-xl font-bold">Bildirimler</h1>

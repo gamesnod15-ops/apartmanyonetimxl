@@ -96,7 +96,7 @@ export default function DaireTicketsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="relative flex items-start justify-between gap-3 overflow-hidden hero-soft hero-blue p-5">
+      <section className="relative flex items-start justify-between gap-3 overflow-hidden hero-soft p-5">
         <div>
           <p className="text-xs font-medium text-blue-100">Teknik Destek</p>
           <h1 className="mt-1 text-xl font-bold">Arıza Kayıtlarım</h1>
@@ -106,7 +106,7 @@ export default function DaireTicketsPage() {
         </div>
         <Link
           href="/daire/arizalar/yeni"
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl bg-white px-3 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50 active:scale-[0.98]"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[11px] bg-blue-600 px-3.5 text-xs font-semibold text-white transition hover:bg-blue-700 active:scale-[0.98]"
         >
           <Plus className="h-4 w-4" />
           Yeni Kayıt

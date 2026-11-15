@@ -97,16 +97,16 @@ function SidebarLink({
       href={item.href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex items-center gap-3 rounded-2xl px-3.5 py-2.5 text-sm transition",
+        "flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[15px] transition",
         active
-          ? "bg-slate-100 font-semibold text-slate-900"
+          ? "bg-blue-500/10 font-semibold text-blue-600"
           : "font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900"
       )}
     >
-      <Icon className={cn("h-[18px] w-[18px]", active && "text-slate-900")} />
+      <Icon className="h-[18px] w-[18px]" />
       {item.label}
       {count > 0 ? (
-        <span className="ml-auto rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-bold text-white">
+        <span className="ml-auto rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
           {count}
         </span>
       ) : null}
@@ -182,16 +182,16 @@ export function AppShell({
 
   return (
     <div className="min-h-dvh">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col bg-white md:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col border-r border-slate-900/[0.06] bg-white/85 backdrop-blur-2xl md:flex">
         <div className="flex items-center gap-3 px-6 py-6">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
+          <span className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-600 text-white shadow-md shadow-blue-600/25">
             <Building2 className="h-5 w-5" />
           </span>
           <div>
             <p className="text-sm font-bold leading-tight tracking-tight text-slate-900">
               Apartman Yönetim
             </p>
-            <p className={cn("text-[11px] font-medium", admin ? "text-red-500" : "text-emerald-600")}>
+            <p className="text-[11px] font-medium text-blue-600">
               {admin ? "Uygulama Yönetimi" : "Daire Paneli"}
             </p>
           </div>
@@ -238,13 +238,13 @@ export function AppShell({
       </aside>
 
       <div className="md:pl-72">
-        <header className="safe-top sticky top-0 z-30 bg-[#eff1f4]/80 backdrop-blur-xl">
+        <header className="safe-top sticky top-0 z-30 bg-[#f2f2f7]/80 backdrop-blur-xl">
           <div className="flex h-14 w-full items-center justify-between gap-3 px-4 md:h-16 md:px-6 lg:px-8">
             <div className="flex min-w-0 items-center gap-3">
               {isRoot ? (
                 <span
                   className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white md:hidden"
+                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] bg-blue-600 text-white md:hidden"
                   )}
                 >
                   <Building2 className="h-4 w-4" />
@@ -462,7 +462,7 @@ export function AppShell({
       </div>
 
       <nav
-        className="fixed inset-x-3 z-40 mx-auto max-w-md rounded-full bg-slate-900 p-1.5 shadow-2xl shadow-slate-900/30 md:hidden"
+        className="fixed inset-x-3 z-40 mx-auto max-w-md rounded-[28px] bg-white/80 p-1.5 shadow-[0_8px_32px_rgb(0_0_0/0.14)] ring-1 ring-slate-900/[0.06] backdrop-blur-2xl md:hidden"
         style={{ bottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
       >
         <div className="grid grid-cols-4 gap-0.5">
@@ -475,8 +475,8 @@ export function AppShell({
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-full py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:text-[10px]",
-                  active ? "bg-white text-slate-900" : "text-slate-400"
+                  "flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-[22px] py-1.5 text-[9px] font-semibold transition active:scale-95 min-[360px]:text-[10px]",
+                  active ? "bg-blue-500/10 text-blue-600" : "text-slate-500"
                 )}
               >
                 <Icon className="h-[18px] w-[18px] min-[360px]:h-5 min-[360px]:w-5" />
@@ -542,7 +542,7 @@ export function AppShell({
                     className={cn(
                       "flex min-h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-2xl p-2 text-center text-[10px] font-semibold ring-1 transition active:scale-95 min-[360px]:gap-2 min-[360px]:p-3 min-[360px]:text-[11px] sm:rounded-2xl",
                       active
-                        ? "bg-slate-900 text-white ring-slate-900"
+                        ? "bg-blue-600 text-white ring-blue-600"
                         : "bg-slate-50 text-slate-600 ring-slate-100"
                     )}
                   >

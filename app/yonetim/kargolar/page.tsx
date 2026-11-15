@@ -104,7 +104,7 @@ export default function AdminPackagesPage() {
 
   return (
     <div className="space-y-4">
-      <section className="flex items-start justify-between gap-3 hero-soft hero-red p-6">
+      <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
           <p className="text-xs font-medium text-red-300">Güvenlik</p>
           <h1 className="mt-1 text-xl font-bold">Kargo Yönetimi</h1>
@@ -118,7 +118,7 @@ export default function AdminPackagesPage() {
             resetAdd();
             setAddOpen(true);
           }}
-          variant="red"
+          variant="blue"
           size="sm"
           className="shrink-0"
         >
@@ -153,7 +153,6 @@ export default function AdminPackagesPage() {
         ]}
         value={filter}
         onChange={setFilter}
-        tone="red"
       />
 
       {filtered.length === 0 ? (
@@ -267,7 +266,7 @@ export default function AdminPackagesPage() {
               <Button variant="soft" className="flex-1" onClick={resetAdd}>
                 Yeni Kargo
               </Button>
-              <Button variant="red" className="flex-1" onClick={() => setAddOpen(false)}>
+              <Button variant="blue" className="flex-1" onClick={() => setAddOpen(false)}>
                 Kapat
               </Button>
             </div>
@@ -311,7 +310,7 @@ export default function AdminPackagesPage() {
                 {error}
               </p>
             ) : null}
-            <Button type="submit" variant="red" className="w-full">
+            <Button type="submit" variant="blue" className="w-full">
               <Package className="h-4 w-4" />
               Kargoyu Kaydet
             </Button>
@@ -338,7 +337,7 @@ export default function AdminPackagesPage() {
             <p className="text-[11px] text-slate-500">
               Sakin bilgilendirildi ve kayıt güncellendi.
             </p>
-            <Button variant="red" className="mt-2 w-full" onClick={() => setDeliverOpen(null)}>
+            <Button variant="blue" className="mt-2 w-full" onClick={() => setDeliverOpen(null)}>
               Kapat
             </Button>
           </div>
@@ -365,7 +364,7 @@ export default function AdminPackagesPage() {
                 {deliverError}
               </p>
             ) : null}
-            <Button type="submit" variant="red" className="w-full">
+            <Button type="submit" variant="blue" className="w-full">
               <KeyRound className="h-4 w-4" />
               Teslimi Onayla
             </Button>

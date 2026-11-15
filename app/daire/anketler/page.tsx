@@ -27,7 +27,7 @@ export default function DairePollsPage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-rose p-6">
+      <section className="hero-soft p-6">
         <div className="flex items-center gap-2 text-rose-100">
           <BarChart3 className="h-4 w-4" />
           <p className="text-xs font-medium">Apartman İçi Anketler</p>

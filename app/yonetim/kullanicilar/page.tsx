@@ -221,7 +221,7 @@ export default function AdminUsersPage() {
 
   return (
     <div className="space-y-4">
-      <section className="hero-soft hero-red p-6">
+      <section className="hero-soft p-6">
         <p className="text-xs font-medium text-red-300">Kadro & Kayıtlar</p>
         <h1 className="mt-1 text-xl font-bold">Daire Haritası</h1>
         <p className="mt-1 text-[11px] text-slate-400">
@@ -243,7 +243,7 @@ export default function AdminUsersPage() {
         </div>
         <div className="mt-3 flex gap-2">
           <Button
-            variant="red"
+            variant="blue"
             size="sm"
             className="flex-1"
             onClick={() => {
@@ -342,7 +342,7 @@ export default function AdminUsersPage() {
                   <Card key={blockName} className="p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
                           <Building2 className="h-4 w-4" />
                         </span>
                         <div>
@@ -528,7 +528,7 @@ export default function AdminUsersPage() {
                 </Button>
                 <Link
                   href="/yonetim/arizalar"
-                  className="inline-flex h-11 flex-1 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-sm shadow-red-600/20 transition hover:bg-red-700"
+                  className="inline-flex h-11 flex-1 items-center justify-center rounded-[14px] bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
                 >
                   Arızalar
                 </Link>
@@ -666,7 +666,7 @@ export default function AdminUsersPage() {
                         className={cn(
                           "flex flex-col items-center gap-1.5 rounded-xl border px-2 py-2.5 text-[10px] font-semibold transition",
                           active
-                            ? "border-slate-800 bg-slate-900 text-white"
+                            ? "border-blue-600 bg-blue-600 text-white"
                             : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                         )}
                       >
@@ -708,7 +708,7 @@ export default function AdminUsersPage() {
               ) : null}
 
               <Button
-                variant="red"
+                variant="blue"
                 className="w-full"
                 disabled={!selectedService || !selectedRoom}
                 onClick={submitTicket}
@@ -788,7 +788,7 @@ export default function AdminUsersPage() {
               {apartmentError}
             </p>
           ) : null}
-          <Button type="submit" variant="red" className="w-full">
+          <Button type="submit" variant="blue" className="w-full">
             <Building2 className="h-4 w-4" />
             Daireyi Kaydet
           </Button>
@@ -822,7 +822,7 @@ export default function AdminUsersPage() {
               <Button variant="soft" className="flex-1" onClick={resetResident}>
                 Yeni Sakin
               </Button>
-              <Button variant="red" className="flex-1" onClick={() => setResidentOpen(false)}>
+              <Button variant="blue" className="flex-1" onClick={() => setResidentOpen(false)}>
                 Kapat
               </Button>
             </div>
@@ -881,7 +881,7 @@ export default function AdminUsersPage() {
                 {residentError}
               </p>
             ) : null}
-            <Button type="submit" variant="red" className="w-full">
+            <Button type="submit" variant="blue" className="w-full">
               <Users className="h-4 w-4" />
               Sakini Kaydet
             </Button>

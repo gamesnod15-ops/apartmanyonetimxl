@@ -26,7 +26,7 @@ export default function DairemPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden hero-soft hero-cyan p-6">
+      <section className="relative overflow-hidden hero-soft p-6">
         <div className="hero-texture pointer-events-none absolute inset-0" />
         <div className="relative">
           <p className="text-xs font-medium text-sky-100">Daire Bilgileri</p>
