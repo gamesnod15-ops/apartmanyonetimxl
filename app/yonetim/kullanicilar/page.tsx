@@ -222,23 +222,23 @@ export default function AdminUsersPage() {
   return (
     <div className="space-y-4">
       <section className="hero-soft p-6">
-        <p className="text-xs font-medium text-red-300">Kadro & Kayıtlar</p>
+        <p className="text-[14px] font-medium text-red-300">Kadro & Kayıtlar</p>
         <h1 className="mt-1 text-xl font-bold">Daire Haritası</h1>
-        <p className="mt-1 text-[11px] text-slate-400">
+        <p className="mt-1 text-[13.5px] text-slate-400">
           Daire kartına dokunun; hizmet ve konum seçerek arıza kaydı açın.
         </p>
         <div className="mt-4 grid grid-cols-3 gap-2 text-center">
           <div className="rounded-xl bg-white/5 py-2 ring-1 ring-white/10">
             <p className="text-lg font-bold">{data.apartments.length}</p>
-            <p className="text-[9px] text-slate-400">Daire</p>
+            <p className="text-[12.5px] text-slate-400">Daire</p>
           </div>
           <div className="rounded-xl bg-white/5 py-2 ring-1 ring-white/10">
             <p className="text-lg font-bold">{residents.length}</p>
-            <p className="text-[9px] text-slate-400">Sakin</p>
+            <p className="text-[12.5px] text-slate-400">Sakin</p>
           </div>
           <div className="rounded-xl bg-white/5 py-2 ring-1 ring-white/10">
             <p className="text-lg font-bold">{admins.length}</p>
-            <p className="text-[9px] text-slate-400">Yönetici</p>
+            <p className="text-[12.5px] text-slate-400">Yönetici</p>
           </div>
         </div>
         <div className="mt-3 flex gap-2">
@@ -274,7 +274,7 @@ export default function AdminUsersPage() {
           type="button"
           onClick={() => setTab("map")}
           className={cn(
-            "flex-1 rounded-lg py-2 text-xs font-semibold transition",
+            "flex-1 rounded-lg py-2 text-[14px] font-semibold transition",
             tab === "map" ? "bg-white text-red-700 shadow-sm" : "text-slate-500"
           )}
         >
@@ -284,7 +284,7 @@ export default function AdminUsersPage() {
           type="button"
           onClick={() => setTab("residents")}
           className={cn(
-            "flex-1 rounded-lg py-2 text-xs font-semibold transition",
+            "flex-1 rounded-lg py-2 text-[14px] font-semibold transition",
             tab === "residents" ? "bg-white text-red-700 shadow-sm" : "text-slate-500"
           )}
         >
@@ -313,7 +313,7 @@ export default function AdminUsersPage() {
           />
         ) : (
           <>
-            <div className="flex flex-wrap items-center gap-3 px-1 text-[10px] font-medium text-slate-500">
+            <div className="flex flex-wrap items-center gap-3 px-1 text-[12.5px] font-medium text-slate-500">
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-red-500" />
                 Arıza var
@@ -346,10 +346,10 @@ export default function AdminUsersPage() {
                           <Building2 className="h-4 w-4" />
                         </span>
                         <div>
-                          <p className="text-sm font-bold text-slate-900">
+                          <p className="text-[16px] font-bold text-slate-900">
                             {blockName} Blok
                           </p>
-                          <p className="text-[10px] text-slate-400">
+                          <p className="text-[12.5px] text-slate-400">
                             {blockApartments.length} daire
                           </p>
                         </div>
@@ -363,10 +363,10 @@ export default function AdminUsersPage() {
                       {floors.map((floor) => (
                         <div key={floor} className="flex gap-2.5">
                           <div className="flex w-9 shrink-0 flex-col items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-100">
-                            <span className="text-[11px] font-bold text-slate-700">
+                            <span className="text-[13.5px] font-bold text-slate-700">
                               {floor}
                             </span>
-                            <span className="text-[7px] font-semibold uppercase tracking-wide text-slate-400">
+                            <span className="text-[12.5px] font-semibold uppercase tracking-wide text-slate-400">
                               Kat
                             </span>
                           </div>
@@ -393,7 +393,7 @@ export default function AdminUsersPage() {
                                     )}
                                   >
                                     <span className="flex items-center justify-between">
-                                      <span className="text-sm font-extrabold tracking-tight text-slate-900">
+                                      <span className="text-[16px] font-extrabold tracking-tight text-slate-900">
                                         {apartment.id}
                                       </span>
                                       <span
@@ -403,23 +403,23 @@ export default function AdminUsersPage() {
                                         )}
                                       />
                                     </span>
-                                    <span className="mt-0.5 truncate text-[10px] font-medium text-slate-500">
+                                    <span className="mt-0.5 truncate text-[12.5px] font-medium text-slate-500">
                                       {apartment.ownerName}
                                     </span>
                                     <span className="mt-1.5 flex items-center gap-1">
                                       {openCount > 0 ? (
-                                        <span className="flex items-center gap-0.5 rounded bg-white/80 px-1.5 py-0.5 text-[9px] font-bold text-red-600 ring-1 ring-red-100">
+                                        <span className="flex items-center gap-0.5 rounded bg-white/80 px-1.5 py-0.5 text-[12.5px] font-bold text-red-600 ring-1 ring-red-100">
                                           <Wrench className="h-2.5 w-2.5" />
                                           {openCount}
                                         </span>
                                       ) : null}
                                       {debt ? (
-                                        <span className="flex items-center gap-0.5 rounded bg-white/80 px-1.5 py-0.5 text-[9px] font-bold text-amber-600 ring-1 ring-amber-100">
+                                        <span className="flex items-center gap-0.5 rounded bg-white/80 px-1.5 py-0.5 text-[12.5px] font-bold text-amber-600 ring-1 ring-amber-100">
                                           <Wallet className="h-2.5 w-2.5" />
                                         </span>
                                       ) : null}
                                       {openCount === 0 && !debt ? (
-                                        <span className="text-[9px] font-medium text-emerald-600">
+                                        <span className="text-[12.5px] font-medium text-emerald-600">
                                           Güncel
                                         </span>
                                       ) : null}
@@ -430,7 +430,7 @@ export default function AdminUsersPage() {
                           </div>
                         </div>
                       ))}
-                      <div className="flex items-center justify-center gap-1.5 rounded-xl border border-dashed border-slate-200 py-2 text-[9px] font-medium text-slate-400">
+                      <div className="flex items-center justify-center gap-1.5 rounded-xl border border-dashed border-slate-200 py-2 text-[12.5px] font-medium text-slate-400">
                         <DoorOpen className="h-3 w-3" />
                         Giriş / Lobi
                       </div>
@@ -457,12 +457,12 @@ export default function AdminUsersPage() {
                 className="h-11 w-11 shrink-0"
               />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-slate-800">{user.name}</p>
-                <p className="mt-0.5 flex items-center gap-1 truncate text-[10px] text-slate-500">
+                <p className="truncate text-[16px] font-semibold text-slate-800">{user.name}</p>
+                <p className="mt-0.5 flex items-center gap-1 truncate text-[12.5px] text-slate-500">
                   <Mail className="h-3 w-3 shrink-0" />
                   {user.email}
                 </p>
-                <p className="mt-0.5 flex items-center gap-1 text-[10px] text-slate-400">
+                <p className="mt-0.5 flex items-center gap-1 text-[12.5px] text-slate-400">
                   <Phone className="h-3 w-3 shrink-0" />
                   {user.phone || "Telefon yok"}
                 </p>
@@ -476,7 +476,7 @@ export default function AdminUsersPage() {
       )}
 
       <Card className="p-4">
-        <p className="mb-3 flex items-center gap-1.5 text-xs font-bold text-slate-700">
+        <p className="mb-3 flex items-center gap-1.5 text-[14px] font-bold text-slate-700">
           <ShieldCheck className="h-4 w-4 text-red-600" />
           Yönetim Ekibi
         </p>
@@ -489,8 +489,8 @@ export default function AdminUsersPage() {
                 className="h-9 w-9 shrink-0"
               />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-xs font-semibold text-slate-800">{user.name}</p>
-                <p className="text-[10px] text-slate-400">{user.title ?? "Yönetici"}</p>
+                <p className="truncate text-[14px] font-semibold text-slate-800">{user.name}</p>
+                <p className="text-[12.5px] text-slate-400">{user.title ?? "Yönetici"}</p>
               </div>
               <Badge className="bg-slate-900 text-white ring-slate-900">Admin</Badge>
             </div>
@@ -517,8 +517,8 @@ export default function AdminUsersPage() {
                 <CheckCircle2 className="h-8 w-8" />
               </span>
               <div>
-                <p className="text-sm font-semibold text-slate-800">{createdTicket}</p>
-                <p className="mt-1 text-[11px] text-slate-500">
+                <p className="text-[16px] font-semibold text-slate-800">{createdTicket}</p>
+                <p className="mt-1 text-[13.5px] text-slate-500">
                   {selected.id} için arıza kaydı açıldı, sakin bilgilendirildi.
                 </p>
               </div>
@@ -528,7 +528,7 @@ export default function AdminUsersPage() {
                 </Button>
                 <Link
                   href="/yonetim/arizalar"
-                  className="inline-flex h-11 flex-1 items-center justify-center rounded-[14px] bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+                  className="inline-flex h-11 flex-1 items-center justify-center rounded-[14px] bg-blue-600 px-4 text-[16px] font-semibold text-white transition hover:bg-blue-700"
                 >
                   Arızalar
                 </Link>
@@ -538,12 +538,12 @@ export default function AdminUsersPage() {
             <div className="space-y-3">
               <div className="grid grid-cols-3 gap-2">
                 <div className="rounded-xl bg-slate-50 p-2.5 text-center ring-1 ring-slate-100">
-                  <p className="text-[9px] uppercase tracking-wide text-slate-400">
+                  <p className="text-[12.5px] uppercase tracking-wide text-slate-400">
                     Bakiye
                   </p>
                   <p
                     className={cn(
-                      "mt-0.5 text-xs font-bold",
+                      "mt-0.5 text-[14px] font-bold",
                       selected.balance < 0 ? "text-red-600" : "text-emerald-600"
                     )}
                   >
@@ -551,18 +551,18 @@ export default function AdminUsersPage() {
                   </p>
                 </div>
                 <div className="rounded-xl bg-slate-50 p-2.5 text-center ring-1 ring-slate-100">
-                  <p className="text-[9px] uppercase tracking-wide text-slate-400">
+                  <p className="text-[12.5px] uppercase tracking-wide text-slate-400">
                     Açık arıza
                   </p>
-                  <p className="mt-0.5 text-xs font-bold text-slate-800">
+                  <p className="mt-0.5 text-[14px] font-bold text-slate-800">
                     {selectedTickets.length}
                   </p>
                 </div>
                 <div className="rounded-xl bg-slate-50 p-2.5 text-center ring-1 ring-slate-100">
-                  <p className="text-[9px] uppercase tracking-wide text-slate-400">
+                  <p className="text-[12.5px] uppercase tracking-wide text-slate-400">
                     Kalan hak
                   </p>
-                  <p className="mt-0.5 text-xs font-bold text-slate-800">
+                  <p className="mt-0.5 text-[14px] font-bold text-slate-800">
                     {remainingRights(selected)}
                   </p>
                 </div>
@@ -570,8 +570,8 @@ export default function AdminUsersPage() {
 
               <div className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2.5 ring-1 ring-slate-100">
                 <div>
-                  <p className="text-[11px] font-semibold text-slate-700">Arıza hakkı</p>
-                  <p className="text-[10px] text-slate-400">
+                  <p className="text-[13.5px] font-semibold text-slate-700">Arıza hakkı</p>
+                  <p className="text-[12.5px] text-slate-400">
                     {selected.rights.used} kullanıldı · {remainingRights(selected)} kaldı
                   </p>
                 </div>
@@ -587,7 +587,7 @@ export default function AdminUsersPage() {
                   >
                     <Minus className="h-3.5 w-3.5" />
                   </button>
-                  <span className="w-6 text-center text-xs font-bold text-slate-800">
+                  <span className="w-6 text-center text-[14px] font-bold text-slate-800">
                     {selected.rights.total}
                   </span>
                   <button
@@ -603,7 +603,7 @@ export default function AdminUsersPage() {
 
               {selectedTickets.length > 0 ? (
                 <div>
-                  <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="mb-1.5 text-[12.5px] font-bold uppercase tracking-wide text-slate-400">
                     Açık arızalar
                   </p>
                   <div className="space-y-1.5">
@@ -612,7 +612,7 @@ export default function AdminUsersPage() {
                         key={ticket.id}
                         className="flex items-center justify-between gap-2 rounded-lg bg-white px-2.5 py-1.5 ring-1 ring-slate-100"
                       >
-                        <span className="truncate text-[10px] font-medium text-slate-600">
+                        <span className="truncate text-[12.5px] font-medium text-slate-600">
                           {ticket.title}
                         </span>
                         <Badge className={cn("shrink-0", ticketStatusMeta[ticket.status].className)}>
@@ -625,7 +625,7 @@ export default function AdminUsersPage() {
               ) : null}
 
               <div>
-                <p className="mb-2 text-[11px] font-bold text-slate-700">
+                <p className="mb-2 text-[13.5px] font-bold text-slate-700">
                   1 · Hizmet türü
                 </p>
                 <div className="grid grid-cols-3 gap-2">
@@ -638,7 +638,7 @@ export default function AdminUsersPage() {
                         type="button"
                         onClick={() => setServiceKey(service.key)}
                         className={cn(
-                          "flex flex-col items-center gap-1.5 rounded-xl border px-2 py-2.5 text-[10px] font-semibold transition",
+                          "flex flex-col items-center gap-1.5 rounded-xl border px-2 py-2.5 text-[12.5px] font-semibold transition",
                           active
                             ? "border-red-300 bg-red-50 text-red-700 ring-1 ring-red-200"
                             : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
@@ -653,7 +653,7 @@ export default function AdminUsersPage() {
               </div>
 
               <div>
-                <p className="mb-2 text-[11px] font-bold text-slate-700">2 · Konum</p>
+                <p className="mb-2 text-[13.5px] font-bold text-slate-700">2 · Konum</p>
                 <div className="grid grid-cols-3 gap-2">
                   {ROOMS.map((room) => {
                     const Icon = room.icon;
@@ -664,7 +664,7 @@ export default function AdminUsersPage() {
                         type="button"
                         onClick={() => setRoomKey(room.key)}
                         className={cn(
-                          "flex flex-col items-center gap-1.5 rounded-xl border px-2 py-2.5 text-[10px] font-semibold transition",
+                          "flex flex-col items-center gap-1.5 rounded-xl border px-2 py-2.5 text-[12.5px] font-semibold transition",
                           active
                             ? "border-blue-600 bg-blue-600 text-white"
                             : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
@@ -679,7 +679,7 @@ export default function AdminUsersPage() {
               </div>
 
               <div className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2.5 ring-1 ring-slate-100">
-                <span className="text-[11px] font-semibold text-slate-700">Öncelik</span>
+                <span className="text-[13.5px] font-semibold text-slate-700">Öncelik</span>
                 <div className="flex gap-1 rounded-lg bg-white p-0.5 ring-1 ring-slate-200">
                   {(["medium", "high"] as PriorityChoice[]).map((choice) => (
                     <button
@@ -687,7 +687,7 @@ export default function AdminUsersPage() {
                       type="button"
                       onClick={() => setPriority(choice)}
                       className={cn(
-                        "rounded-md px-2.5 py-1 text-[10px] font-semibold transition",
+                        "rounded-md px-2.5 py-1 text-[12.5px] font-semibold transition",
                         priority === choice
                           ? choice === "high"
                             ? "bg-red-50 text-red-600"
@@ -702,7 +702,7 @@ export default function AdminUsersPage() {
               </div>
 
               {ticketError ? (
-                <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+                <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                   {ticketError}
                 </p>
               ) : null}
@@ -716,7 +716,7 @@ export default function AdminUsersPage() {
                 <Wrench className="h-4 w-4" />
                 Arıza Kaydı Aç
               </Button>
-              <p className="text-center text-[10px] text-slate-400">
+              <p className="text-center text-[12.5px] text-slate-400">
                 Seçimler yeni bir arıza kaydı oluşturur.
               </p>
             </div>
@@ -784,7 +784,7 @@ export default function AdminUsersPage() {
             </div>
           </div>
           {apartmentError ? (
-            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
               {apartmentError}
             </p>
           ) : null}
@@ -811,10 +811,10 @@ export default function AdminUsersPage() {
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                 <UserPlus className="h-7 w-7" />
               </span>
-              <p className="text-sm font-semibold text-emerald-900">
+              <p className="text-[16px] font-semibold text-emerald-900">
                 {createdName} eklendi
               </p>
-              <p className="text-[11px] text-emerald-700">
+              <p className="text-[13.5px] text-emerald-700">
                 Giriş şifresi: <span className="font-mono font-bold">1234</span>
               </p>
             </div>
@@ -877,7 +877,7 @@ export default function AdminUsersPage() {
               </Select>
             </div>
             {residentError ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {residentError}
               </p>
             ) : null}

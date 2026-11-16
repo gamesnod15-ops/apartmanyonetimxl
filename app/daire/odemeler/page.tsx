@@ -107,9 +107,9 @@ export default function DairePaymentsPage() {
     <div className="space-y-5">
       <section className="relative overflow-hidden hero-soft p-6">
         <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-        <p className="text-xs font-medium text-emerald-100">Toplam Bekleyen</p>
+        <p className="text-[14px] font-medium text-emerald-100">Toplam Bekleyen</p>
         <p className="mt-1 text-3xl font-bold tracking-tight">{currency(unpaidTotal)}</p>
-        <p className="mt-1 text-[11px] text-emerald-100">
+        <p className="mt-1 text-[13.5px] text-emerald-100">
           {unpaid.length} bekleyen ödeme · Toplam ödenen {currency(paidTotal)}
         </p>
         {unpaid.length > 0 ? (
@@ -122,7 +122,7 @@ export default function DairePaymentsPage() {
             En Yakın Ödemeyi Yap
           </Button>
         ) : (
-          <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-[11px] font-semibold ring-1 ring-white/20">
+          <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-[13.5px] font-semibold ring-1 ring-white/20">
             <CheckCircle2 className="h-4 w-4" />
             Tüm ödemeleriniz tamamlandı
           </div>
@@ -131,14 +131,14 @@ export default function DairePaymentsPage() {
 
       <div className="grid grid-cols-2 gap-3">
         <Card className="p-4">
-          <p className="text-[11px] font-medium text-slate-500">Bekleyen</p>
+          <p className="text-[13.5px] font-medium text-slate-500">Bekleyen</p>
           <p className="mt-1 text-lg font-bold text-slate-900">{currency(unpaidTotal)}</p>
-          <p className="text-[10px] text-slate-400">{unpaid.length} adet ödeme</p>
+          <p className="text-[12.5px] text-slate-400">{unpaid.length} adet ödeme</p>
         </Card>
         <Card className="p-4">
-          <p className="text-[11px] font-medium text-slate-500">Ödenen</p>
+          <p className="text-[13.5px] font-medium text-slate-500">Ödenen</p>
           <p className="mt-1 text-lg font-bold text-emerald-600">{currency(paidTotal)}</p>
-          <p className="text-[10px] text-slate-400">{paidPayments.length} adet ödeme</p>
+          <p className="text-[12.5px] text-slate-400">{paidPayments.length} adet ödeme</p>
         </Card>
       </div>
 
@@ -171,21 +171,21 @@ export default function DairePaymentsPage() {
                       <Wallet className="h-4 w-4" />
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-[16px] font-semibold text-slate-800">
                         {payment.period} Aidatı
                       </p>
-                      <p className="mt-0.5 text-[11px] text-slate-500">
+                      <p className="mt-0.5 text-[13.5px] text-slate-500">
                         Son ödeme: {formatDate(payment.dueDate)} · {payment.invoiceNo}
                       </p>
                       {payment.paidAt ? (
-                        <p className="text-[10px] text-emerald-600">
+                        <p className="text-[12.5px] text-emerald-600">
                           Ödendi: {formatDate(payment.paidAt)} · {payment.method}
                         </p>
                       ) : null}
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-base font-bold text-slate-900">
+                    <p className="text-[18px] font-bold text-slate-900">
                       {currency(payment.amount)}
                     </p>
                     <Badge className={cn("mt-1", meta.className)}>
@@ -195,7 +195,7 @@ export default function DairePaymentsPage() {
                   </div>
                 </div>
                 <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
-                  <span className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                  <span className="flex items-center gap-1.5 text-[12.5px] text-slate-400">
                     <Receipt className="h-3.5 w-3.5" />
                     e-Arşiv fatura
                   </span>
@@ -233,19 +233,19 @@ export default function DairePaymentsPage() {
       >
         {selected ? (
           <form onSubmit={submitPayment} className="space-y-4">
-            <div className="rounded-[20px] bg-gradient-to-br from-blue-500 to-blue-700 p-4 text-white shadow-lg shadow-blue-600/25">
+            <div className="rounded-[20px] bg-[#1c2230] p-4 text-white">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium uppercase tracking-wider text-blue-100">
+                <span className="text-[12.5px] font-medium uppercase tracking-wider text-blue-100">
                   Apartman Yönetim
                 </span>
                 <CreditCard className="h-4 w-4 text-blue-100" />
               </div>
-              <p className="mt-4 font-mono text-base tracking-widest">
+              <p className="mt-4 font-mono text-[18px] tracking-widest">
                 {cardNumber
                   ? cardNumber.padEnd(19, "•")
                   : "•••• •••• •••• ••••"}
               </p>
-              <div className="mt-3 flex items-center justify-between text-[10px] text-blue-100">
+              <div className="mt-3 flex items-center justify-between text-[12.5px] text-blue-100">
                 <span>{cardName || "KART SAHİBİ"}</span>
                 <span>{expiry || "AA/YY"}</span>
               </div>
@@ -313,13 +313,13 @@ export default function DairePaymentsPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-3 py-2.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-100">
+            <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-3 py-2.5 text-[12.5px] font-medium text-emerald-700 ring-1 ring-emerald-100">
               <Lock className="h-3.5 w-3.5" />
               256-bit SSL ile şifrelenmiş sanal POS demo ortamı
             </div>
 
             {error ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {error}
               </p>
             ) : null}
@@ -351,10 +351,10 @@ export default function DairePaymentsPage() {
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
             <CheckCircle2 className="h-8 w-8" />
           </span>
-          <p className="text-sm font-semibold text-slate-800">
+          <p className="text-[16px] font-semibold text-slate-800">
             {selected ? `${selected.period} aidatı ödendi` : "Ödeme tamamlandı"}
           </p>
-          <p className="text-[11px] text-slate-500">
+          <p className="text-[13.5px] text-slate-500">
             Makbuzunuz e-Arşiv fatura olarak hesabınıza tanımlandı.
           </p>
           <Button variant="blue" className="mt-2 w-full" onClick={closeModal}>

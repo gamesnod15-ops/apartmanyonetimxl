@@ -100,12 +100,12 @@ export default function AdminCalendarPage() {
     <div className="space-y-4">
       <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="flex items-center gap-1.5 text-xs font-medium text-red-300">
+          <p className="flex items-center gap-1.5 text-[14px] font-medium text-red-300">
             <CalendarClock className="h-3.5 w-3.5" />
             Yönetim Takvimi
           </p>
           <h1 className="mt-1 text-xl font-bold">Takvim</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {upcoming} yaklaşan etkinlik · Toplantı, aidat, anket ve planlı işler
           </p>
         </div>
@@ -218,7 +218,7 @@ export default function AdminCalendarPage() {
           </div>
 
           {error ? (
-            <p className="text-[11px] font-medium text-red-600">{error}</p>
+            <p className="text-[13.5px] font-medium text-red-600">{error}</p>
           ) : null}
 
           <div className="flex gap-2 pt-1">

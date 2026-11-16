@@ -120,10 +120,10 @@ export default function DairePackagesPage() {
       <section className="hero-soft p-6">
         <div className="flex items-center gap-2 text-amber-100">
           <Truck className="h-4 w-4" />
-          <p className="text-xs font-medium">Kargo Teslim Yönetimi</p>
+          <p className="text-[14px] font-medium">Kargo Teslim Yönetimi</p>
         </div>
         <h1 className="mt-2 text-xl font-bold">Kargolarım</h1>
-        <p className="mt-1 text-[11px] text-amber-100">
+        <p className="mt-1 text-[13.5px] text-amber-100">
           {waiting.length} güvenlikte bekleyen · {delivered.length} teslim alınan
         </p>
       </section>
@@ -167,13 +167,13 @@ export default function DairePackagesPage() {
                       )}
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-[16px] font-semibold text-slate-800">
                         {item.courier}
                       </p>
-                      <p className="mt-0.5 text-[11px] text-slate-500">
+                      <p className="mt-0.5 text-[13.5px] text-slate-500">
                         {item.description} · {relativeTime(item.receivedAt)}
                       </p>
-                      <p className="text-[10px] text-slate-400">
+                      <p className="text-[12.5px] text-slate-400">
                         Teslim alan: {item.receivedBy}
                       </p>
                     </div>
@@ -192,7 +192,7 @@ export default function DairePackagesPage() {
                         onClick={() =>
                           setRevealed((prev) => ({ ...prev, [item.id]: !prev[item.id] }))
                         }
-                        className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500"
+                        className="flex items-center gap-1.5 text-[13.5px] font-semibold text-slate-500"
                       >
                         {revealed[item.id] ? (
                           <EyeOff className="h-3.5 w-3.5" />
@@ -217,13 +217,13 @@ export default function DairePackagesPage() {
                     </>
                   ) : (
                     <>
-                      <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-600">
+                      <span className="flex items-center gap-1.5 text-[13.5px] font-medium text-emerald-600">
                         <CheckCircle2 className="h-3.5 w-3.5" />
                         {item.deliveredAt
                           ? `Teslim: ${formatDateTime(item.deliveredAt)}`
                           : "Teslim edildi"}
                       </span>
-                      <span className="text-[10px] text-slate-400">{item.apartmentId}</span>
+                      <span className="text-[12.5px] text-slate-400">{item.apartmentId}</span>
                     </>
                   )}
                 </div>
@@ -247,7 +247,7 @@ export default function DairePackagesPage() {
           <form onSubmit={confirm} className="space-y-4">
             <div className="flex flex-col items-center gap-3 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-100">
               <QrBlock value={selected.code} />
-              <p className="text-center text-[11px] leading-5 text-slate-500">
+              <p className="text-center text-[13.5px] leading-5 text-slate-500">
                 Güvenlik görevlisinden aldığınız 4 haneli teslim kodunu girin veya
                 QR kodu okutun.
               </p>
@@ -267,7 +267,7 @@ export default function DairePackagesPage() {
               />
             </div>
             {error ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {error}
               </p>
             ) : null}
@@ -289,8 +289,8 @@ export default function DairePackagesPage() {
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
             <PackageCheck className="h-8 w-8" />
           </span>
-          <p className="text-sm font-semibold text-slate-800">Afiyet olsun!</p>
-          <p className="text-[11px] text-slate-500">
+          <p className="text-[16px] font-semibold text-slate-800">Afiyet olsun!</p>
+          <p className="text-[13.5px] text-slate-500">
             Kargo kaydı güvenlik ve yönetim tarafında da güncellendi.
           </p>
           <Button variant="blue" className="mt-2 w-full" onClick={closeModal}>

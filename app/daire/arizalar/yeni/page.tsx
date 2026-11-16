@@ -199,7 +199,7 @@ function NewTicketWizard() {
           <h1 className="mt-5 text-lg font-bold tracking-tight text-slate-900">
             Arıza kaydınız alındı
           </h1>
-          <p className="mt-1 max-w-sm text-sm text-slate-500">
+          <p className="mt-1 max-w-sm text-[16px] text-slate-500">
             <span className="font-semibold text-slate-700">{title}</span> için yönetim
             bilgilendirildi. Durumu Arızalarım sayfasından takip edebilirsiniz.
           </p>
@@ -225,16 +225,16 @@ function NewTicketWizard() {
       <Card className="p-4 sm:p-5">
         <div className="mb-4 flex items-center justify-between gap-3">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-600">
+            <p className="text-[13.5px] font-semibold uppercase tracking-wide text-blue-600">
               Adım {step + 1} / {STEPS.length}
             </p>
-            <h1 className="text-base font-bold tracking-tight text-slate-900">
+            <h1 className="text-[18px] font-bold tracking-tight text-slate-900">
               Yeni Arıza Kaydı
             </h1>
           </div>
           <Link
             href="/daire/arizalar"
-            className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+            className="rounded-xl px-3 py-2 text-[14px] font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
           >
             Vazgeç
           </Link>
@@ -274,7 +274,7 @@ function NewTicketWizard() {
                     </span>
                     <span
                       className={cn(
-                        "text-xs font-semibold",
+                        "text-[14px] font-semibold",
                         selected ? "text-blue-700" : "text-slate-700"
                       )}
                     >
@@ -294,12 +294,12 @@ function NewTicketWizard() {
           >
             {roomOpenIssues.length > 0 ? (
               <div className="mb-4 rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-200">
-                <p className="text-[11px] font-semibold text-amber-800">
+                <p className="text-[13.5px] font-semibold text-amber-800">
                   Bu bölümde zaten {roomOpenIssues.length} açık kaydınız var:
                 </p>
                 <ul className="mt-1 space-y-0.5">
                   {roomOpenIssues.map((ticket) => (
-                    <li key={ticket.id} className="truncate text-[11px] text-amber-700">
+                    <li key={ticket.id} className="truncate text-[13.5px] text-amber-700">
                       • {ticket.title} ({ticketStatusMeta[ticket.status].label})
                     </li>
                   ))}
@@ -315,7 +315,7 @@ function NewTicketWizard() {
                     type="button"
                     onClick={() => pickService(item.key)}
                     className={cn(
-                      "flex flex-col items-center gap-2 rounded-2xl px-3 py-4 text-xs font-semibold ring-1 transition active:scale-[0.98]",
+                      "flex flex-col items-center gap-2 rounded-2xl px-3 py-4 text-[14px] font-semibold ring-1 transition active:scale-[0.98]",
                       selected
                         ? "bg-blue-50 text-blue-700 ring-2 ring-blue-500"
                         : "bg-slate-50 text-slate-600 ring-slate-200 hover:bg-white hover:shadow-soft hover:ring-blue-300"
@@ -383,10 +383,10 @@ function NewTicketWizard() {
                             : "bg-white text-slate-600 ring-slate-200 hover:bg-slate-50"
                         )}
                       >
-                        <span className="block text-xs font-bold">
+                        <span className="block text-[14px] font-bold">
                           {priorityMeta[item.key].label}
                         </span>
-                        <span className="mt-0.5 block text-[10px] opacity-75">{item.hint}</span>
+                        <span className="mt-0.5 block text-[12.5px] opacity-75">{item.hint}</span>
                       </button>
                     );
                   })}
@@ -408,7 +408,7 @@ function NewTicketWizard() {
                 <button
                   type="button"
                   onClick={removePhoto}
-                  className="absolute right-2 top-2 flex items-center gap-1 rounded-xl bg-slate-900/70 px-2.5 py-1.5 text-[11px] font-semibold text-white backdrop-blur"
+                  className="absolute right-2 top-2 flex items-center gap-1 rounded-xl bg-slate-900/70 px-2.5 py-1.5 text-[13.5px] font-semibold text-white backdrop-blur"
                 >
                   <X className="h-3.5 w-3.5" />
                   Kaldır
@@ -423,8 +423,8 @@ function NewTicketWizard() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
                   <ImagePlus className="h-6 w-6" />
                 </span>
-                <span className="text-sm font-semibold">Fotoğraf seç veya çek</span>
-                <span className="text-[11px] text-slate-400">JPG, PNG · en fazla 900 KB</span>
+                <span className="text-[16px] font-semibold">Fotoğraf seç veya çek</span>
+                <span className="text-[13.5px] text-slate-400">JPG, PNG · en fazla 900 KB</span>
               </button>
             )}
             <input
@@ -476,7 +476,7 @@ function NewTicketWizard() {
             </dl>
             <div
               className={cn(
-                "mt-4 flex items-start gap-2 rounded-2xl px-3 py-2.5 text-[11px] font-medium ring-1",
+                "mt-4 flex items-start gap-2 rounded-2xl px-3 py-2.5 text-[13.5px] font-medium ring-1",
                 rights > 0
                   ? "bg-blue-50 text-blue-700 ring-blue-100"
                   : "bg-amber-50 text-amber-800 ring-amber-200"
@@ -491,13 +491,13 @@ function NewTicketWizard() {
         ) : null}
 
         {error ? (
-          <p className="mt-4 rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+          <p className="mt-4 rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
             {error}
           </p>
         ) : null}
       </Card>
 
-      <div className="sticky bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex gap-2 rounded-2xl bg-[#f2f2f7]/90 p-2 backdrop-blur-xl md:bottom-4">
+      <div className="sticky bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex gap-2 rounded-2xl bg-[#e9ebef]/90 p-2 backdrop-blur-xl md:bottom-4">
         {step > 0 ? (
           <Button variant="outline" className="flex-1" onClick={() => goTo(step - 1)}>
             <ArrowLeft className="h-4 w-4" />
@@ -538,13 +538,13 @@ function NewTicketWizard() {
       </div>
 
       {step === 3 && !photo ? (
-        <p className="flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-400">
+        <p className="flex items-center justify-center gap-1.5 text-center text-[13.5px] text-slate-400">
           <Camera className="h-3.5 w-3.5" />
           Fotoğraf zorunlu değildir.
         </p>
       ) : null}
       {step === 0 ? (
-        <p className="flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-400">
+        <p className="flex items-center justify-center gap-1.5 text-center text-[13.5px] text-slate-400">
           <Wrench className="h-3.5 w-3.5" />
           {rights} ücretsiz arıza hakkınız var.
         </p>
@@ -565,7 +565,7 @@ function StepIntro({
   return (
     <div>
       <h2 className="text-lg font-bold tracking-tight text-slate-900">{title}</h2>
-      <p className="mb-4 mt-0.5 text-xs leading-5 text-slate-500">{text}</p>
+      <p className="mb-4 mt-0.5 text-[14px] leading-5 text-slate-500">{text}</p>
       {children}
     </div>
   );
@@ -583,17 +583,17 @@ function SummaryRow({
   return (
     <div className="flex items-start gap-3 bg-white px-4 py-3">
       <div className="min-w-0 flex-1 sm:flex sm:gap-3">
-        <dt className="text-[10px] font-semibold uppercase tracking-wide text-slate-400 sm:w-24 sm:shrink-0 sm:pt-0.5 sm:text-[11px]">
+        <dt className="text-[12.5px] font-semibold uppercase tracking-wide text-slate-400 sm:w-24 sm:shrink-0 sm:pt-0.5 sm:text-[13.5px]">
           {label}
         </dt>
-        <dd className="mt-0.5 min-w-0 flex-1 break-words text-sm font-semibold text-slate-800 sm:mt-0">
+        <dd className="mt-0.5 min-w-0 flex-1 break-words text-[16px] font-semibold text-slate-800 sm:mt-0">
           {children}
         </dd>
       </div>
       <button
         type="button"
         onClick={onEdit}
-        className="shrink-0 text-[11px] font-semibold text-blue-600 hover:text-blue-700"
+        className="shrink-0 text-[13.5px] font-semibold text-blue-600 hover:text-blue-700"
       >
         Düzenle
       </button>

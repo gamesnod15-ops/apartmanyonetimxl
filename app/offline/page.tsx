@@ -13,14 +13,14 @@ export default function OfflinePage() {
       </div>
       <div className="space-y-2">
         <h1 className="text-xl font-semibold text-slate-900">Bağlantı yok</h1>
-        <p className="max-w-xs text-sm leading-6 text-slate-500">
+        <p className="max-w-xs text-[16px] leading-6 text-slate-500">
           İnternet bağlantın kesildi. Bağlantı sağlandığında uygulama kaldığın
           yerden devam eder.
         </p>
       </div>
       <Link
         href="/"
-        className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+        className="rounded-xl bg-blue-600 px-5 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:bg-blue-700"
       >
         Tekrar Dene
       </Link>

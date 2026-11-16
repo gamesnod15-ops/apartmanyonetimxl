@@ -89,12 +89,12 @@ export default function AdminTicketsPage() {
   return (
     <div className="space-y-4">
       <section className="hero-soft p-6">
-        <p className="text-xs font-medium text-red-300">Ticket Yönetimi</p>
+        <p className="text-[14px] font-medium text-red-300">Ticket Yönetimi</p>
         <h1 className="mt-1 text-xl font-bold">Arıza & Talep Yönetimi</h1>
-        <p className="mt-1 text-[11px] text-slate-400">
+        <p className="mt-1 text-[13.5px] text-slate-400">
           Tüm dairelerden gelen talepleri tek ekrandan yönetin.
         </p>
-        <div className="mt-4 flex flex-wrap gap-3 text-[11px] text-slate-300">
+        <div className="mt-4 flex flex-wrap gap-3 text-[13.5px] text-slate-300">
           <span className="flex items-center gap-1.5">
             <Clock className="h-3.5 w-3.5 text-amber-400" />
             {data.tickets.filter((ticket) => ticket.status === "pending").length} beklemede
@@ -152,10 +152,10 @@ export default function AdminTicketsPage() {
                     <Wrench className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-slate-800">
+                    <p className="truncate text-[16px] font-semibold text-slate-800">
                       {ticket.title}
                     </p>
-                    <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500">
+                    <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[13.5px] text-slate-500">
                       <span className="flex items-center gap-1 font-medium text-slate-700">
                         <MapPin className="h-3 w-3" />
                         {ticket.apartmentId}
@@ -164,7 +164,7 @@ export default function AdminTicketsPage() {
                       {ticket.category} · {relativeTime(ticket.createdAt)}
                     </p>
                     {ticket.assignedTo ? (
-                      <p className="mt-1 flex items-center gap-1 text-[10px] text-slate-400">
+                      <p className="mt-1 flex items-center gap-1 text-[12.5px] text-slate-400">
                         <UserCheck className="h-3 w-3" />
                         {ticket.assignedTo}
                       </p>
@@ -185,7 +185,7 @@ export default function AdminTicketsPage() {
                     {priorityMeta[ticket.priority].label}
                   </Badge>
                   {ticket.photo ? (
-                    <span className="flex items-center gap-1 text-[9px] text-slate-400">
+                    <span className="flex items-center gap-1 text-[12.5px] text-slate-400">
                       <ImageIcon className="h-3 w-3" /> Fotoğraf
                     </span>
                   ) : null}
@@ -229,7 +229,7 @@ export default function AdminTicketsPage() {
               )}
             </div>
 
-            <p className="rounded-xl bg-slate-50 px-3.5 py-3 text-xs leading-6 text-slate-600 ring-1 ring-slate-100">
+            <p className="rounded-xl bg-slate-50 px-3.5 py-3 text-[14px] leading-6 text-slate-600 ring-1 ring-slate-100">
               {selected.description}
             </p>
 
@@ -292,7 +292,7 @@ export default function AdminTicketsPage() {
                     updateTicketStatus(selected.id, status, selected.assignedTo)
                   }
                   className={cn(
-                    "rounded-xl border px-2 py-2.5 text-[10px] font-semibold transition",
+                    "rounded-xl border px-2 py-2.5 text-[12.5px] font-semibold transition",
                     selected.status === status
                       ? "border-red-200 bg-red-50 text-red-700"
                       : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
@@ -304,21 +304,21 @@ export default function AdminTicketsPage() {
             </div>
 
             <div>
-              <p className="mb-2 text-xs font-bold text-slate-700">Mesajlar</p>
+              <p className="mb-2 text-[14px] font-bold text-slate-700">Mesajlar</p>
               <div className="space-y-2">
                 {selected.messages.length === 0 ? (
-                  <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-[11px] text-slate-400">
+                  <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-[13.5px] text-slate-400">
                     Henüz mesaj yok.
                   </p>
                 ) : (
                   selected.messages.map((item) => (
                     <div
                       key={item.id}
-                      className="rounded-xl bg-slate-50 px-3 py-2.5 text-[11px] leading-5 text-slate-700 ring-1 ring-slate-100"
+                      className="rounded-xl bg-slate-50 px-3 py-2.5 text-[13.5px] leading-5 text-slate-700 ring-1 ring-slate-100"
                     >
                       <div className="mb-1 flex items-center justify-between">
                         <span className="font-semibold">{item.authorName}</span>
-                        <span className="text-[9px] text-slate-400">
+                        <span className="text-[12.5px] text-slate-400">
                           {relativeTime(item.at)}
                         </span>
                       </div>

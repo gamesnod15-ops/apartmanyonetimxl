@@ -46,9 +46,9 @@ export function SectionHeader({
   return (
     <div className="mb-3 flex items-end justify-between gap-3">
       <div>
-        <h2 className="text-[15px] font-bold tracking-tight text-slate-900">{title}</h2>
+        <h2 className="text-[17px] font-bold tracking-tight text-slate-900">{title}</h2>
         {subtitle ? (
-          <p className="mt-0.5 text-xs text-slate-500">{subtitle}</p>
+          <p className="mt-0.5 text-[14px] text-slate-500">{subtitle}</p>
         ) : null}
       </div>
       {action}
@@ -66,7 +66,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold",
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13.5px] font-semibold",
         className
       )}
     >
@@ -98,9 +98,9 @@ const buttonVariants: Record<ButtonVariant, string> = {
 type ButtonSize = "sm" | "md" | "lg" | "icon";
 
 const buttonSizes: Record<ButtonSize, string> = {
-  sm: "h-9 px-3 text-xs gap-1.5",
-  md: "h-11 px-4 text-sm gap-2",
-  lg: "h-12 px-5 text-sm gap-2",
+  sm: "h-9 px-3 text-[14px] gap-1.5",
+  md: "h-11 px-4 text-[16px] gap-2",
+  lg: "h-12 px-5 text-[16px] gap-2",
   icon: "h-10 w-10 justify-center",
 };
 
@@ -130,7 +130,7 @@ export function Button({
 }
 
 const fieldClasses =
-  "w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[15px] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15 disabled:opacity-60";
+  "w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[17px] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15 disabled:opacity-60";
 
 export function Input({
   className,
@@ -172,7 +172,7 @@ export function Label({
   return (
     <label
       htmlFor={htmlFor}
-      className="mb-1.5 flex items-center justify-between text-xs font-semibold text-slate-600"
+      className="mb-1.5 flex items-center justify-between text-[14px] font-semibold text-slate-600"
     >
       <span>{children}</span>
       {hint ? <span className="font-normal text-slate-400">{hint}</span> : null}
@@ -223,9 +223,9 @@ export function Modal({
         <div className="mx-auto -mt-1 mb-3 h-1 w-10 rounded-full bg-slate-200 sm:hidden" />
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-base font-bold tracking-tight text-slate-900">{title}</h3>
+            <h3 className="text-[18px] font-bold tracking-tight text-slate-900">{title}</h3>
             {description ? (
-              <p className="mt-1 text-xs leading-5 text-slate-500">{description}</p>
+              <p className="mt-1 text-[14px] leading-5 text-slate-500">{description}</p>
             ) : null}
           </div>
           <button
@@ -262,9 +262,9 @@ export function EmptyState({
           {icon}
         </div>
       ) : null}
-      <p className="text-sm font-semibold text-slate-700">{title}</p>
+      <p className="text-[16px] font-semibold text-slate-700">{title}</p>
       {description ? (
-        <p className="mt-1 max-w-xs text-xs leading-5 text-slate-500">{description}</p>
+        <p className="mt-1 max-w-xs text-[14px] leading-5 text-slate-500">{description}</p>
       ) : null}
       {action ? <div className="mt-4">{action}</div> : null}
     </div>
@@ -302,7 +302,7 @@ export function Avatar({
   return (
     <span
       className={cn(
-        "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white",
+        "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[14px] font-bold text-white",
         color ?? "bg-slate-500",
         className
       )}
@@ -333,7 +333,7 @@ export function Segmented<T extends string>({
             type="button"
             onClick={() => onChange(option.value)}
             className={cn(
-              "flex shrink-0 grow items-center justify-center gap-1.5 rounded-[9px] px-3.5 py-1.5 text-xs font-semibold transition",
+              "flex shrink-0 grow items-center justify-center gap-1.5 rounded-[9px] px-3.5 py-1.5 text-[14px] font-semibold transition",
               active
                 ? tone === "red"
                   ? "bg-white text-red-600 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
@@ -345,7 +345,7 @@ export function Segmented<T extends string>({
             {typeof option.count === "number" ? (
               <span
                 className={cn(
-                  "rounded-full px-1.5 py-0.5 text-[10px]",
+                  "rounded-full px-1.5 py-0.5 text-[12.5px]",
                   active ? "bg-slate-900/[0.08]" : "bg-slate-900/[0.06] text-slate-500"
                 )}
               >
@@ -391,11 +391,11 @@ export function Stepper({
               onClick={() => clickable && onStepClick?.(index)}
               aria-current={active ? "step" : undefined}
               className={cn(
-                "relative z-10 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ring-4 ring-white transition disabled:cursor-default",
+                "relative z-10 flex h-8 w-8 items-center justify-center rounded-full text-[14px] font-bold ring-4 ring-white transition disabled:cursor-default",
                 done
                   ? "bg-blue-600 text-white"
                   : active
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                    ? "bg-blue-600 text-white shadow-lg shadow-slate-900/15"
                     : "bg-slate-200 text-slate-400"
               )}
             >
@@ -403,7 +403,7 @@ export function Stepper({
             </button>
             <span
               className={cn(
-                "mt-1.5 block px-0.5 text-center text-[10px] font-semibold leading-tight",
+                "mt-1.5 block px-0.5 text-center text-[12.5px] font-semibold leading-tight",
                 active ? "text-blue-600" : done ? "text-slate-600" : "text-slate-400"
               )}
             >

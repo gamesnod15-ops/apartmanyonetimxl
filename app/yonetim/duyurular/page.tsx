@@ -76,9 +76,9 @@ export default function AdminAnnouncementsPage() {
     <div className="space-y-4">
       <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="text-xs font-medium text-red-300">İletişim</p>
+          <p className="text-[14px] font-medium text-red-300">İletişim</p>
           <h1 className="mt-1 text-xl font-bold">Duyuru Yönetimi</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {announcements.length} duyuru · {data.apartments.length} daireye ulaşın
           </p>
         </div>
@@ -128,17 +128,17 @@ export default function AdminAnnouncementsPage() {
                           Önemli
                         </Badge>
                       ) : null}
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[12.5px] text-slate-400">
                         {relativeTime(announcement.createdAt)}
                       </span>
                     </div>
-                    <p className="mt-1.5 text-sm font-semibold text-slate-800">
+                    <p className="mt-1.5 text-[16px] font-semibold text-slate-800">
                       {announcement.title}
                     </p>
-                    <p className="mt-1 line-clamp-2 text-[11px] leading-5 text-slate-500">
+                    <p className="mt-1 line-clamp-2 text-[13.5px] leading-5 text-slate-500">
                       {announcement.body}
                     </p>
-                    <p className="mt-2 text-[10px] text-slate-400">
+                    <p className="mt-2 text-[12.5px] text-slate-400">
                       Hedef: {announcement.blocks.join(", ")} Blok ·{" "}
                       {formatDateTime(announcement.createdAt)}
                     </p>
@@ -208,7 +208,7 @@ export default function AdminAnnouncementsPage() {
                         )
                       }
                       className={cn(
-                        "flex-1 rounded-xl border px-3 py-2.5 text-xs font-semibold transition",
+                        "flex-1 rounded-xl border px-3 py-2.5 text-[14px] font-semibold transition",
                         active
                           ? "border-red-200 bg-red-50 text-red-700"
                           : "border-slate-200 bg-white text-slate-500"
@@ -226,7 +226,7 @@ export default function AdminAnnouncementsPage() {
             type="button"
             onClick={() => setImportant((value) => !value)}
             className={cn(
-              "flex w-full items-center justify-between rounded-xl border px-3.5 py-3 text-xs font-semibold transition",
+              "flex w-full items-center justify-between rounded-xl border px-3.5 py-3 text-[14px] font-semibold transition",
               important
                 ? "border-red-200 bg-red-50 text-red-700"
                 : "border-slate-200 bg-white text-slate-500"
@@ -252,7 +252,7 @@ export default function AdminAnnouncementsPage() {
           </button>
 
           {error ? (
-            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
               {error}
             </p>
           ) : null}

@@ -128,12 +128,12 @@ export default function RegisterPage() {
     <div className="min-h-dvh bg-slate-100 px-5 py-8">
       <div className="mx-auto w-full max-w-xl">
         <Link href="/login" className="mb-5 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-slate-900/15">
             <Building2 className="h-5 w-5" />
           </span>
           <span>
-            <span className="block text-sm font-bold text-slate-900">Apartman Yönetim</span>
-            <span className="block text-[11px] text-slate-500">Daire sakini kaydı</span>
+            <span className="block text-[16px] font-bold text-slate-900">Apartman Yönetim</span>
+            <span className="block text-[13.5px] text-slate-500">Daire sakini kaydı</span>
           </span>
         </Link>
 
@@ -145,18 +145,18 @@ export default function RegisterPage() {
             <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
               Kayıt talebiniz alındı
             </h1>
-            <p className="mt-2 text-sm leading-6 text-slate-500">
+            <p className="mt-2 text-[16px] leading-6 text-slate-500">
               <strong className="text-slate-700">{apartmentId}</strong> dairesi için
               başvurunuz yönetime iletildi. Yönetim onayından sonra giriş yapabilirsiniz.
             </p>
             <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-left ring-1 ring-slate-100">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+              <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
                 Giriş bilgileriniz
               </p>
-              <p className="mt-2 text-xs text-slate-600">
+              <p className="mt-2 text-[14px] text-slate-600">
                 E-posta: <strong className="text-slate-800">{email}</strong>
               </p>
-              <p className="mt-1 text-xs text-slate-600">
+              <p className="mt-1 text-[14px] text-slate-600">
                 Şifre: <strong className="text-slate-800">Belirlediğiniz şifre</strong>
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function RegisterPage() {
                 Giriş sayfasına dön
               </Button>
             </Link>
-            <p className="mt-3 text-[11px] text-slate-400">
+            <p className="mt-3 text-[13.5px] text-slate-400">
               Onay süreci genellikle 1 iş günü içinde tamamlanır.
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function RegisterPage() {
                 <div key={item.title} className="flex flex-1 items-center gap-2">
                   <span
                     className={cn(
-                      "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[11px] font-bold",
+                      "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[13.5px] font-bold",
                       done
                         ? "bg-emerald-100 text-emerald-700"
                         : active
@@ -191,7 +191,7 @@ export default function RegisterPage() {
                   </span>
                   <span
                     className={cn(
-                      "hidden truncate text-[10px] font-semibold sm:block",
+                      "hidden truncate text-[12.5px] font-semibold sm:block",
                       active || done ? "text-slate-700" : "text-slate-400"
                     )}
                   >
@@ -211,13 +211,13 @@ export default function RegisterPage() {
           </div>
 
           <div className="mt-6">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-600">
+            <p className="text-[13.5px] font-semibold uppercase tracking-wide text-blue-600">
               Adım {step} / 3
             </p>
             <h1 className="mt-1 text-xl font-bold tracking-tight text-slate-900">
               {steps[step - 1].title}
             </h1>
-            <p className="mt-1 text-xs leading-5 text-slate-500">
+            <p className="mt-1 text-[14px] leading-5 text-slate-500">
               {steps[step - 1].description}
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function RegisterPage() {
 
                 {block.trim() && no.trim() ? (
                   <div className="flex items-center justify-between gap-2 rounded-xl bg-blue-50 px-3 py-2.5 ring-1 ring-blue-100">
-                    <p className="text-xs font-semibold text-blue-800">
+                    <p className="text-[14px] font-semibold text-blue-800">
                       {apartmentId} · {block.trim().toLocaleUpperCase("tr-TR")} Blok
                     </p>
                     <Badge
@@ -306,7 +306,7 @@ export default function RegisterPage() {
                         type="button"
                         onClick={() => setOccupancyType(option.value)}
                         className={cn(
-                          "rounded-xl px-3 py-2.5 text-xs font-semibold ring-1 transition",
+                          "rounded-xl px-3 py-2.5 text-[14px] font-semibold ring-1 transition",
                           occupancyType === option.value
                             ? "bg-blue-600 text-white ring-blue-600"
                             : "bg-white text-slate-600 ring-slate-200 hover:bg-slate-50"
@@ -318,7 +318,7 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                <p className="rounded-xl bg-slate-50 px-3 py-2.5 text-[11px] leading-5 text-slate-500 ring-1 ring-slate-100">
+                <p className="rounded-xl bg-slate-50 px-3 py-2.5 text-[13.5px] leading-5 text-slate-500 ring-1 ring-slate-100">
                   Bu bilgiler yönetim panelindeki <strong>Kullanıcı &amp; Daire</strong>{" "}
                   ekranında görünür. Mevcut bir daire seçerseniz hesabınız o daireye bağlanır.
                 </p>
@@ -402,7 +402,7 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                <p className="rounded-xl bg-slate-50 px-3 py-2.5 text-[11px] leading-5 text-slate-500 ring-1 ring-slate-100">
+                <p className="rounded-xl bg-slate-50 px-3 py-2.5 text-[13.5px] leading-5 text-slate-500 ring-1 ring-slate-100">
                   İletişim bilgileriniz yönetim tarafından görülebilir ve acil durumlarda
                   kullanılabilir.
                 </p>
@@ -448,7 +448,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div className="space-y-2 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-100">
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
                     Kayıt özeti
                   </p>
                   {[
@@ -462,15 +462,15 @@ export default function RegisterPage() {
                     ["Araç plakası", vehiclePlate],
                   ].map(([label, value]) => (
                     <div key={label} className="flex items-start justify-between gap-3">
-                      <span className="text-[11px] text-slate-500">{label}</span>
-                      <span className="text-right text-[11px] font-semibold text-slate-800">
+                      <span className="text-[13.5px] text-slate-500">{label}</span>
+                      <span className="text-right text-[13.5px] font-semibold text-slate-800">
                         {value || "—"}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <label className="flex items-start gap-2 rounded-xl border border-slate-200 p-3 text-[11px] leading-5 text-slate-500">
+                <label className="flex items-start gap-2 rounded-xl border border-slate-200 p-3 text-[13.5px] leading-5 text-slate-500">
                   <input
                     type="checkbox"
                     checked={consent}
@@ -484,7 +484,7 @@ export default function RegisterPage() {
             ) : null}
 
             {error ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[11px] font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[13.5px] font-medium text-red-600 ring-1 ring-red-100">
                 {error}
               </p>
             ) : null}
@@ -519,7 +519,7 @@ export default function RegisterPage() {
         </div>
         )}
 
-        <p className="mt-4 text-center text-[11px] text-slate-500">
+        <p className="mt-4 text-center text-[13.5px] text-slate-500">
           Zaten hesabınız var mı?{" "}
           <Link href="/login" className="font-semibold text-blue-600 hover:underline">
             Giriş yapın

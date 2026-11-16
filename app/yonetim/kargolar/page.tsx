@@ -106,9 +106,9 @@ export default function AdminPackagesPage() {
     <div className="space-y-4">
       <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="text-xs font-medium text-red-300">Güvenlik</p>
+          <p className="text-[14px] font-medium text-red-300">Güvenlik</p>
           <h1 className="mt-1 text-xl font-bold">Kargo Yönetimi</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {packages.filter((item) => item.status === "security").length} güvenlikte ·{" "}
             {packages.filter((item) => item.status === "delivered").length} teslim edildi
           </p>
@@ -180,21 +180,21 @@ export default function AdminPackagesPage() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="truncate text-sm font-semibold text-slate-800">
+                      <p className="truncate text-[16px] font-semibold text-slate-800">
                         {item.apartmentId} · {item.description}
                       </p>
                       <Badge className={cn("shrink-0", meta.className)}>{meta.label}</Badge>
                     </div>
-                    <p className="mt-1 flex items-center gap-1.5 text-[11px] text-slate-500">
+                    <p className="mt-1 flex items-center gap-1.5 text-[13.5px] text-slate-500">
                       <Truck className="h-3 w-3" />
                       {item.courier}
                     </p>
-                    <p className="mt-0.5 text-[10px] text-slate-400">
+                    <p className="mt-0.5 text-[12.5px] text-slate-400">
                       Teslim alan: {item.receivedBy} · {relativeTime(item.receivedAt)}
                       {item.deliveredAt ? ` · Teslim ${relativeTime(item.deliveredAt)}` : ""}
                     </p>
                     <div className="mt-2 flex items-center gap-2">
-                      <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-mono text-[11px] font-bold tracking-widest text-slate-700">
+                      <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-mono text-[13.5px] font-bold tracking-widest text-slate-700">
                         {item.code}
                       </span>
                       {item.status === "security" ? (
@@ -212,7 +212,7 @@ export default function AdminPackagesPage() {
                           Teslim Et
                         </Button>
                       ) : (
-                        <span className="text-[10px] text-slate-400">
+                        <span className="text-[12.5px] text-slate-400">
                           {item.deliveredAt ? formatDateTime(item.deliveredAt) : ""}
                         </span>
                       )}
@@ -241,13 +241,13 @@ export default function AdminPackagesPage() {
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                 <CheckCircle2 className="h-7 w-7" />
               </span>
-              <p className="text-xs font-medium text-emerald-700">
+              <p className="text-[14px] font-medium text-emerald-700">
                 {created.apartmentId} dairesi için kargo
               </p>
               <p className="font-mono text-3xl font-bold tracking-[0.35em] text-emerald-900">
                 {created.code}
               </p>
-              <p className="text-[10px] text-emerald-600">Teslim kodu</p>
+              <p className="text-[12.5px] text-emerald-600">Teslim kodu</p>
             </div>
             <Button
               variant="outline"
@@ -306,7 +306,7 @@ export default function AdminPackagesPage() {
               />
             </div>
             {error ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {error}
               </p>
             ) : null}
@@ -333,8 +333,8 @@ export default function AdminPackagesPage() {
             <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
               <PackageCheck className="h-8 w-8" />
             </span>
-            <p className="text-sm font-semibold text-slate-800">Kargo teslim edildi</p>
-            <p className="text-[11px] text-slate-500">
+            <p className="text-[16px] font-semibold text-slate-800">Kargo teslim edildi</p>
+            <p className="text-[13.5px] text-slate-500">
               Sakin bilgilendirildi ve kayıt güncellendi.
             </p>
             <Button variant="blue" className="mt-2 w-full" onClick={() => setDeliverOpen(null)}>
@@ -343,7 +343,7 @@ export default function AdminPackagesPage() {
           </div>
         ) : (
           <form onSubmit={submitDeliver} className="space-y-4">
-            <div className="rounded-xl bg-slate-50 px-3.5 py-3 text-[11px] leading-5 text-slate-600 ring-1 ring-slate-100">
+            <div className="rounded-xl bg-slate-50 px-3.5 py-3 text-[13.5px] leading-5 text-slate-600 ring-1 ring-slate-100">
               Teslimden önce daire sakininden aldığınız 4 haneli teslim kodunu girin.
             </div>
             <div>
@@ -360,7 +360,7 @@ export default function AdminPackagesPage() {
               />
             </div>
             {deliverError ? (
-              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {deliverError}
               </p>
             ) : null}

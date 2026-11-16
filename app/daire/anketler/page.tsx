@@ -30,10 +30,10 @@ export default function DairePollsPage() {
       <section className="hero-soft p-6">
         <div className="flex items-center gap-2 text-rose-100">
           <BarChart3 className="h-4 w-4" />
-          <p className="text-xs font-medium">Apartman İçi Anketler</p>
+          <p className="text-[14px] font-medium">Apartman İçi Anketler</p>
         </div>
         <h1 className="mt-2 text-xl font-bold">Anketler</h1>
-        <p className="mt-1 text-[11px] text-rose-100">
+        <p className="mt-1 text-[13.5px] text-rose-100">
           {active.length} aktif anket · Oyunuzu kullanın, sonuçları canlı izleyin.
         </p>
       </section>
@@ -43,7 +43,7 @@ export default function DairePollsPage() {
           type="button"
           onClick={() => setTab("active")}
           className={cn(
-            "flex-1 rounded-lg py-2 text-xs font-semibold transition",
+            "flex-1 rounded-lg py-2 text-[14px] font-semibold transition",
             tab === "active" ? "bg-white text-rose-600 shadow-sm" : "text-slate-500"
           )}
         >
@@ -53,7 +53,7 @@ export default function DairePollsPage() {
           type="button"
           onClick={() => setTab("ended")}
           className={cn(
-            "flex-1 rounded-lg py-2 text-xs font-semibold transition",
+            "flex-1 rounded-lg py-2 text-[14px] font-semibold transition",
             tab === "ended" ? "bg-white text-rose-600 shadow-sm" : "text-slate-500"
           )}
         >
@@ -96,14 +96,14 @@ export default function DairePollsPage() {
                         </Badge>
                       ) : null}
                     </div>
-                    <p className="mt-2 text-sm font-semibold text-slate-800">
+                    <p className="mt-2 text-[16px] font-semibold text-slate-800">
                       {poll.question}
                     </p>
-                    <p className="mt-1 text-[11px] leading-5 text-slate-500">
+                    <p className="mt-1 text-[13.5px] leading-5 text-slate-500">
                       {poll.description}
                     </p>
                   </div>
-                  <div className="flex shrink-0 flex-col items-end gap-1 text-[10px] text-slate-400">
+                  <div className="flex shrink-0 flex-col items-end gap-1 text-[12.5px] text-slate-400">
                     <span className="flex items-center gap-1">
                       <Vote className="h-3 w-3" />
                       {total} oy
@@ -125,7 +125,7 @@ export default function DairePollsPage() {
                           key={option.id}
                           type="button"
                           onClick={() => vote(poll.id, option.id)}
-                          className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-left text-xs font-medium text-slate-700 transition hover:border-rose-300 hover:bg-rose-50/50 hover:text-rose-700"
+                          className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-left text-[14px] font-medium text-slate-700 transition hover:border-rose-300 hover:bg-rose-50/50 hover:text-rose-700"
                         >
                           {option.label}
                           <span className="flex h-5 w-5 items-center justify-center rounded-full border border-slate-300" />
@@ -134,7 +134,7 @@ export default function DairePollsPage() {
                     }
                     return (
                       <div key={option.id}>
-                        <div className="mb-1 flex items-center justify-between text-[11px]">
+                        <div className="mb-1 flex items-center justify-between text-[13.5px]">
                           <span
                             className={cn(
                               "font-medium",
@@ -157,7 +157,7 @@ export default function DairePollsPage() {
                   })}
                 </div>
 
-                <p className="mt-3 text-[10px] text-slate-400">
+                <p className="mt-3 text-[12.5px] text-slate-400">
                   {showResults
                     ? isEnded
                       ? "Anket sonuçlandı, sonuçlar kesinleşti."

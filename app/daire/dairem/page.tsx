@@ -29,9 +29,9 @@ export default function DairemPage() {
       <section className="relative overflow-hidden hero-soft p-6">
         <div className="hero-texture pointer-events-none absolute inset-0" />
         <div className="relative">
-          <p className="text-xs font-medium text-sky-100">Daire Bilgileri</p>
+          <p className="text-[14px] font-medium text-sky-100">Daire Bilgileri</p>
           <h1 className="mt-1 text-xl font-bold tracking-tight">Daire {apartment?.id}</h1>
-          <p className="mt-1 text-[11px] text-sky-100">
+          <p className="mt-1 text-[13.5px] text-sky-100">
             Malik: {apartment?.ownerName ?? "-"}
           </p>
           <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -40,11 +40,11 @@ export default function DairemPage() {
                 key={fact.label}
                 className="rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-white/15 backdrop-blur"
               >
-                <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-sky-100">
+                <p className="flex items-center gap-1.5 text-[12.5px] font-medium uppercase tracking-wide text-sky-100">
                   <fact.icon className="h-3 w-3" />
                   {fact.label}
                 </p>
-                <p className="mt-0.5 text-sm font-bold">{fact.value}</p>
+                <p className="mt-0.5 text-[16px] font-bold">{fact.value}</p>
               </div>
             ))}
           </div>
@@ -99,14 +99,14 @@ export default function DairemPage() {
                   <span className="flex w-full items-end justify-between gap-1">
                     <span
                       className={cn(
-                        "text-xs font-semibold leading-tight",
+                        "text-[14px] font-semibold leading-tight",
                         openCount > 0 ? "text-red-700" : "text-slate-700"
                       )}
                     >
                       {room.label}
                     </span>
                     {openCount > 0 ? (
-                      <span className="rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      <span className="rounded-full bg-blue-600 px-1.5 py-0.5 text-[12.5px] font-bold text-white">
                         {openCount}
                       </span>
                     ) : (
@@ -117,7 +117,7 @@ export default function DairemPage() {
               );
             })}
           </div>
-          <p className="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+          <p className="mt-3 flex items-center gap-2 text-[13.5px] text-slate-500">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
             Kırmızı bölümlerde açık arıza kaydı var.
           </p>
