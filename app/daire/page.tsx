@@ -155,7 +155,7 @@ export default function DaireDashboard() {
         <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-sky-300/20 blur-3xl" />
         <div className="relative flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="h-4 text-xs font-medium text-blue-100">
+            <p className="h-4 text-[14px] font-medium text-blue-100">
               {now
                 ? new Date(now).toLocaleDateString("tr-TR", {
                     weekday: "long",
@@ -167,13 +167,13 @@ export default function DaireDashboard() {
             <h1 className="mt-1 text-2xl font-bold tracking-tight md:text-3xl">
               Merhaba, {user.name.split(" ")[0]} 👋
             </h1>
-            <p className="mt-1 text-sm text-blue-100">
+            <p className="mt-1 text-[16px] text-blue-100">
               Daire {apartment?.id} · {apartment?.block} Blok
             </p>
           </div>
 
           <div className="w-full rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur md:max-w-xs">
-            <div className="flex items-center justify-between text-xs font-medium">
+            <div className="flex items-center justify-between text-[14px] font-medium">
               <span className="flex items-center gap-1.5 text-blue-100">
                 <ShieldCheck className="h-3.5 w-3.5" />
                 Ücretsiz arıza hakkı
@@ -192,7 +192,7 @@ export default function DaireDashboard() {
             </div>
             <Link
               href="/daire/arizalar/yeni"
-              className="mt-4 flex items-center justify-center gap-2 rounded-[14px] bg-white px-4 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
+              className="mt-4 flex items-center justify-center gap-2 rounded-[14px] bg-white px-4 py-3 text-[16px] font-bold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
             >
               <Plus className="h-4 w-4" strokeWidth={2.5} />
               Arıza Bildir
@@ -204,8 +204,8 @@ export default function DaireDashboard() {
       <section>
         <div className="mb-3 flex items-end justify-between">
           <div>
-            <h2 className="text-[15px] font-bold tracking-tight text-slate-900">Menü</h2>
-            <p className="mt-0.5 text-xs text-slate-500">
+            <h2 className="text-[17px] font-bold tracking-tight text-slate-900">Menü</h2>
+            <p className="mt-0.5 text-[14px] text-slate-500">
               İşlem yapmak istediğiniz bölümü seçin
             </p>
           </div>
@@ -228,7 +228,7 @@ export default function DaireDashboard() {
                   <tile.icon className="h-5 w-5" />
                 </span>
                 {tile.alert ? (
-                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-blue-600 px-1.5 text-[11px] font-bold text-white">
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-blue-600 px-1.5 text-[13.5px] font-bold text-white">
                     {tile.alert}
                   </span>
                 ) : (
@@ -236,8 +236,8 @@ export default function DaireDashboard() {
                 )}
               </div>
               <div className="mt-4">
-                <p className="text-sm font-bold tracking-tight text-slate-900">{tile.label}</p>
-                <p className="mt-0.5 truncate text-[11px] font-medium text-slate-500">
+                <p className="text-[16px] font-bold tracking-tight text-slate-900">{tile.label}</p>
+                <p className="mt-0.5 truncate text-[13.5px] font-medium text-slate-500">
                   {tile.hint}
                 </p>
               </div>

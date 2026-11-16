@@ -83,9 +83,9 @@ export default function AdminMeetingsPage() {
     <div className="space-y-4">
       <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="text-xs font-medium text-red-300">Yönetim</p>
+          <p className="text-[14px] font-medium text-red-300">Yönetim</p>
           <h1 className="mt-1 text-xl font-bold">Toplantı Yönetimi</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {meetings.length} toplantı planlandı
           </p>
         </div>
@@ -124,12 +124,12 @@ export default function AdminMeetingsPage() {
               <Card key={meeting.id} className="p-4">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-slate-800">{meeting.title}</p>
-                    <p className="mt-1 flex items-center gap-1.5 text-[11px] text-slate-500">
+                    <p className="text-[16px] font-semibold text-slate-800">{meeting.title}</p>
+                    <p className="mt-1 flex items-center gap-1.5 text-[13.5px] text-slate-500">
                       <CalendarDays className="h-3.5 w-3.5" />
                       {formatDateTime(meeting.date)} · {relativeTime(meeting.date)}
                     </p>
-                    <p className="mt-0.5 flex items-center gap-1.5 text-[11px] text-slate-500">
+                    <p className="mt-0.5 flex items-center gap-1.5 text-[13.5px] text-slate-500">
                       <MapPin className="h-3.5 w-3.5" />
                       {meeting.location}
                     </p>
@@ -147,10 +147,10 @@ export default function AdminMeetingsPage() {
                 </div>
 
                 <div className="mt-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-100">
-                  <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="mb-1.5 text-[12.5px] font-bold uppercase tracking-wide text-slate-400">
                     Gündem
                   </p>
-                  <ol className="space-y-1 text-[11px] text-slate-600">
+                  <ol className="space-y-1 text-[13.5px] text-slate-600">
                     {meeting.agenda.map((item, index) => (
                       <li key={index} className="flex gap-2">
                         <span className="font-bold text-slate-400">{index + 1}.</span>
@@ -166,8 +166,8 @@ export default function AdminMeetingsPage() {
                       key={status}
                       className="rounded-xl bg-white px-2 py-2 ring-1 ring-slate-100"
                     >
-                      <p className="text-sm font-bold text-slate-800">{counts[status]}</p>
-                      <p className="text-[9px] text-slate-400">
+                      <p className="text-[16px] font-bold text-slate-800">{counts[status]}</p>
+                      <p className="text-[12.5px] text-slate-400">
                         {attendanceMeta[status].label}
                       </p>
                     </div>
@@ -180,7 +180,7 @@ export default function AdminMeetingsPage() {
                       <span
                         key={entry.user!.id}
                         className={cn(
-                          "rounded-full px-2.5 py-1 text-[9px] font-medium ring-1",
+                          "rounded-full px-2.5 py-1 text-[12.5px] font-medium ring-1",
                           attendanceMeta[entry.status].className
                         )}
                       >
@@ -194,7 +194,7 @@ export default function AdminMeetingsPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="mt-3 text-center text-[10px] text-slate-400">
+                  <p className="mt-3 text-center text-[12.5px] text-slate-400">
                     Henüz katılım bildirimi yok.
                   </p>
                 )}
@@ -278,7 +278,7 @@ export default function AdminMeetingsPage() {
             </Button>
           </div>
           {error ? (
-            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
               {error}
             </p>
           ) : null}
@@ -286,7 +286,7 @@ export default function AdminMeetingsPage() {
             <Vote className="h-4 w-4" />
             Toplantı Oluştur
           </Button>
-          <p className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400">
+          <p className="flex items-center justify-center gap-1.5 text-[12.5px] text-slate-400">
             <Users className="h-3 w-3" />
             Katılım bildirimleri toplantı kartında görünür.
           </p>

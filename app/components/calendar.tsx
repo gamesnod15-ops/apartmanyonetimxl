@@ -146,10 +146,10 @@ export function CalendarView({
       <Card className="p-4">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <p className="text-sm font-bold capitalize tracking-tight text-slate-900">
+            <p className="text-[16px] font-bold capitalize tracking-tight text-slate-900">
               {cursor.toLocaleDateString("tr-TR", { month: "long", year: "numeric" })}
             </p>
-            <p className="mt-0.5 text-[11px] text-slate-500">
+            <p className="mt-0.5 text-[13.5px] text-slate-500">
               {events.filter((event) => {
                 const date = new Date(event.start);
                 return date.getFullYear() === year && date.getMonth() === month;
@@ -161,7 +161,7 @@ export function CalendarView({
             <button
               type="button"
               onClick={goToday}
-              className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 transition hover:bg-slate-50"
+              className="rounded-lg px-2.5 py-1.5 text-[13.5px] font-semibold text-slate-600 ring-1 ring-slate-200 transition hover:bg-slate-50"
             >
               Bugün
             </button>
@@ -188,7 +188,7 @@ export function CalendarView({
           {WEEKDAYS.map((day) => (
             <div
               key={day}
-              className="py-1 text-center text-[10px] font-semibold uppercase tracking-wide text-slate-400"
+              className="py-1 text-center text-[12.5px] font-semibold uppercase tracking-wide text-slate-400"
             >
               {day}
             </div>
@@ -216,7 +216,7 @@ export function CalendarView({
               >
                 <span
                   className={cn(
-                    "inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-semibold sm:h-6 sm:w-6 sm:text-[11px]",
+                    "inline-flex h-5 w-5 items-center justify-center rounded-full text-[12.5px] font-semibold sm:h-6 sm:w-6 sm:text-[13.5px]",
                     isToday
                       ? "bg-blue-600 text-white"
                       : isSelected
@@ -239,7 +239,7 @@ export function CalendarView({
                     <span
                       key={event.id}
                       className={cn(
-                        "truncate rounded px-1 py-0.5 text-[9px] font-medium",
+                        "truncate rounded px-1 py-0.5 text-[12.5px] font-medium",
                         metaFor(event).chip
                       )}
                     >
@@ -247,7 +247,7 @@ export function CalendarView({
                     </span>
                   ))}
                   {dayEvents.length > 2 ? (
-                    <span className="px-1 text-[9px] font-medium text-slate-400">
+                    <span className="px-1 text-[12.5px] font-medium text-slate-400">
                       +{dayEvents.length - 2} daha
                     </span>
                   ) : null}
@@ -294,10 +294,10 @@ export function CalendarView({
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="text-xs font-semibold text-slate-800">{event.title}</p>
+                    <p className="text-[14px] font-semibold text-slate-800">{event.title}</p>
                     <Badge className={cn("shrink-0", meta.chip)}>{meta.label}</Badge>
                   </div>
-                  <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-slate-500">
+                  <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-slate-500">
                     <span className="inline-flex items-center gap-1">
                       <Clock3 className="h-3 w-3" />
                       {formatTime(event)}
@@ -310,7 +310,7 @@ export function CalendarView({
                     ) : null}
                   </div>
                   {event.detail ? (
-                    <p className="mt-1 text-[11px] leading-4 text-slate-500">
+                    <p className="mt-1 text-[13.5px] leading-4 text-slate-500">
                       {event.detail}
                     </p>
                   ) : null}
@@ -329,7 +329,7 @@ export function CalendarView({
             );
           })}
           {selectedEvents.length === 0 ? (
-            <p className="py-6 text-center text-xs text-slate-400">
+            <p className="py-6 text-center text-[14px] text-slate-400">
               Bu gün için etkinlik yok.
             </p>
           ) : null}

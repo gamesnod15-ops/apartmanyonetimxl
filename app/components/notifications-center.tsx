@@ -59,9 +59,9 @@ export function NotificationsCenter() {
     <div className="space-y-4">
       <section className="flex items-center justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="text-xs font-medium text-slate-300">Bildirim Merkezi</p>
+          <p className="text-[14px] font-medium text-slate-300">Bildirim Merkezi</p>
           <h1 className="mt-1 text-xl font-bold">Bildirimler</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {unread.length} okunmamış · {notifications.length} toplam
           </p>
         </div>
@@ -106,17 +106,17 @@ export function NotificationsCenter() {
               <NotificationIcon type={notification.type} />
               <span className="min-w-0 flex-1">
                 <span className="flex items-center gap-2">
-                  <span className="truncate text-sm font-semibold text-slate-800">
+                  <span className="truncate text-[16px] font-semibold text-slate-800">
                     {notification.title}
                   </span>
                   {!notification.read ? (
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
                   ) : null}
                 </span>
-                <span className="mt-1 block text-[11px] leading-5 text-slate-500">
+                <span className="mt-1 block text-[13.5px] leading-5 text-slate-500">
                   {notification.body}
                 </span>
-                <span className="mt-1 block text-[10px] text-slate-400">
+                <span className="mt-1 block text-[12.5px] text-slate-400">
                   {relativeTime(notification.at)}
                 </span>
               </span>

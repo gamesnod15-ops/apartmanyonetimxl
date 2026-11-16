@@ -66,9 +66,9 @@ export default function AdminPollsPage() {
     <div className="space-y-4">
       <section className="flex items-start justify-between gap-3 hero-soft p-6">
         <div>
-          <p className="text-xs font-medium text-red-300">Katılım</p>
+          <p className="text-[14px] font-medium text-red-300">Katılım</p>
           <h1 className="mt-1 text-xl font-bold">Anket Yönetimi</h1>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[13.5px] text-slate-400">
             {polls.length} anket · {residentCount} sakin oy kullanabilir
           </p>
         </div>
@@ -102,9 +102,9 @@ export default function AdminPollsPage() {
               <Card key={poll.id} className="p-4">
                 <div className="mb-3 flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-slate-800">{poll.question}</p>
+                    <p className="text-[16px] font-semibold text-slate-800">{poll.question}</p>
                     {poll.description ? (
-                      <p className="mt-0.5 text-[11px] text-slate-500">{poll.description}</p>
+                      <p className="mt-0.5 text-[13.5px] text-slate-500">{poll.description}</p>
                     ) : null}
                   </div>
                   <Badge
@@ -124,7 +124,7 @@ export default function AdminPollsPage() {
                     const percent = pollPercent(poll, option.id);
                     return (
                       <div key={option.id}>
-                        <div className="flex items-center justify-between text-[11px]">
+                        <div className="flex items-center justify-between text-[13.5px]">
                           <span className="font-medium text-slate-600">{option.label}</span>
                           <span className="font-bold text-slate-800">
                             %{percent}
@@ -144,7 +144,7 @@ export default function AdminPollsPage() {
                   })}
                 </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] text-slate-400">
+                <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-[12.5px] text-slate-400">
                   <span className="flex items-center gap-1.5">
                     <BarChart3 className="h-3.5 w-3.5" />
                     {totalVotes} oy · {voterCount}/{residentCount} katılım
@@ -237,7 +237,7 @@ export default function AdminPollsPage() {
             />
           </div>
           {error ? (
-            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+            <p className="rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
               {error}
             </p>
           ) : null}

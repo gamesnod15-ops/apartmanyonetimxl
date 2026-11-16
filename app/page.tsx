@@ -23,7 +23,7 @@ export default function Home() {
       <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-slate-900/15">
         <Building2 className="h-6 w-6" />
       </span>
-      <p className="text-sm font-medium text-slate-500">Apartman Yönetim yükleniyor…</p>
+      <p className="text-[16px] font-medium text-slate-500">Apartman Yönetim yükleniyor…</p>
     </div>
   );
 }

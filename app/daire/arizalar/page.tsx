@@ -98,15 +98,15 @@ export default function DaireTicketsPage() {
     <div className="space-y-4">
       <section className="relative flex items-start justify-between gap-3 overflow-hidden hero-soft p-5">
         <div>
-          <p className="text-xs font-medium text-blue-100">Teknik Destek</p>
+          <p className="text-[14px] font-medium text-blue-100">Teknik Destek</p>
           <h1 className="mt-1 text-xl font-bold">Arıza Kayıtlarım</h1>
-          <p className="mt-1 text-[11px] text-blue-100">
+          <p className="mt-1 text-[13.5px] text-blue-100">
             {rights} kullanılabilir ücretsiz hak · {myTickets.length} kayıt
           </p>
         </div>
         <Link
           href="/daire/arizalar/yeni"
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[11px] bg-white px-3.5 text-xs font-semibold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[11px] bg-white px-3.5 text-[14px] font-semibold text-slate-900 transition hover:bg-slate-100 active:scale-[0.98]"
         >
           <Plus className="h-4 w-4" />
           Yeni Kayıt
@@ -149,10 +149,10 @@ export default function DaireTicketsPage() {
                     <Wrench className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-slate-800">
+                    <p className="truncate text-[16px] font-semibold text-slate-800">
                       {ticket.title}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-slate-500">
+                    <p className="mt-0.5 text-[13.5px] text-slate-500">
                       {ticket.location ? `${ticket.location} · ` : ""}
                       {ticket.category} · {relativeTime(ticket.createdAt)}
                     </p>
@@ -168,10 +168,10 @@ export default function DaireTicketsPage() {
                   {ticketStatusMeta[ticket.status].label}
                 </Badge>
               </div>
-              <p className="mt-2 line-clamp-2 pl-13 text-[11px] leading-5 text-slate-500">
+              <p className="mt-2 line-clamp-2 pl-13 text-[13.5px] leading-5 text-slate-500">
                 {ticket.description}
               </p>
-              <div className="mt-2.5 flex items-center gap-3 pl-13 text-[10px] text-slate-400">
+              <div className="mt-2.5 flex items-center gap-3 pl-13 text-[12.5px] text-slate-400">
                 <span>{ticket.messages.length} mesaj</span>
                 {ticket.assignedTo ? <span>Atanan: {ticket.assignedTo}</span> : null}
                 {ticket.photo ? (
@@ -213,7 +213,7 @@ export default function DaireTicketsPage() {
               ) : null}
             </div>
 
-            <p className="rounded-xl bg-slate-50 px-3.5 py-3 text-xs leading-6 text-slate-600 ring-1 ring-slate-100">
+            <p className="rounded-xl bg-slate-50 px-3.5 py-3 text-[14px] leading-6 text-slate-600 ring-1 ring-slate-100">
               {selected.description}
             </p>
 
@@ -258,13 +258,13 @@ export default function DaireTicketsPage() {
                     <div className="pb-1">
                       <p
                         className={cn(
-                          "text-xs font-semibold",
+                          "text-[14px] font-semibold",
                           done ? "text-slate-800" : "text-slate-400"
                         )}
                       >
                         {step.label}
                       </p>
-                      <p className="text-[10px] text-slate-400">{step.description}</p>
+                      <p className="text-[12.5px] text-slate-400">{step.description}</p>
                     </div>
                   </div>
                 );
@@ -272,10 +272,10 @@ export default function DaireTicketsPage() {
             </div>
 
             <div>
-              <p className="mb-2 text-xs font-bold text-slate-700">Mesajlar</p>
+              <p className="mb-2 text-[14px] font-bold text-slate-700">Mesajlar</p>
               <div className="space-y-2">
                 {selected.messages.length === 0 ? (
-                  <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-[11px] text-slate-400">
+                  <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-[13.5px] text-slate-400">
                     Henüz mesaj yok. Teknik ekibe not bırakabilirsiniz.
                   </p>
                 ) : (
@@ -283,7 +283,7 @@ export default function DaireTicketsPage() {
                     <div
                       key={item.id}
                       className={cn(
-                        "rounded-xl px-3 py-2.5 text-[11px] leading-5",
+                        "rounded-xl px-3 py-2.5 text-[13.5px] leading-5",
                         item.authorId === user.id
                           ? "bg-blue-50 text-blue-800 ring-1 ring-blue-100"
                           : "bg-slate-50 text-slate-700 ring-1 ring-slate-100"
@@ -291,7 +291,7 @@ export default function DaireTicketsPage() {
                     >
                       <div className="mb-1 flex items-center justify-between">
                         <span className="font-semibold">{item.authorName}</span>
-                        <span className="text-[9px] text-slate-400">
+                        <span className="text-[12.5px] text-slate-400">
                           {relativeTime(item.at)}
                         </span>
                       </div>

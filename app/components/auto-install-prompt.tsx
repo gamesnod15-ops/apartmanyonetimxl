@@ -119,16 +119,16 @@ export function AutoInstallPrompt() {
           <Smartphone className="h-6 w-6" />
         </span>
 
-        <h2 className="mt-4 text-base font-bold text-slate-900">
+        <h2 className="mt-4 text-[18px] font-bold text-slate-900">
           Ana ekrana ekle
         </h2>
-        <p className="mt-1 text-xs leading-5 text-slate-500">
+        <p className="mt-1 text-[14px] leading-5 text-slate-500">
           Apartman Yönetim&apos;i telefonunuza uygulama gibi ekleyin; daha hızlı
           açılır ve bildirimleri kaçırmazsınız.
         </p>
 
         {showHint || !promptEvent ? (
-          <div className="mt-4 flex items-start gap-2 rounded-2xl bg-slate-900/[0.04] p-3 text-[11px] leading-5 text-slate-600">
+          <div className="mt-4 flex items-start gap-2 rounded-2xl bg-slate-900/[0.04] p-3 text-[13.5px] leading-5 text-slate-600">
             <Share className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
             <span>
               iPhone / iPad: Safari&apos;de <strong>Paylaş</strong> simgesine
@@ -143,7 +143,7 @@ export function AutoInstallPrompt() {
             <button
               type="button"
               onClick={install}
-              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
+              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[17px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
             >
               <Download className="h-4 w-4" />
               Ana ekrana ekle
@@ -152,7 +152,7 @@ export function AutoInstallPrompt() {
             <button
               type="button"
               onClick={dismiss}
-              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
+              className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 px-4 py-3.5 text-[17px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99]"
             >
               Anladım
             </button>
@@ -160,7 +160,7 @@ export function AutoInstallPrompt() {
           <button
             type="button"
             onClick={dismiss}
-            className="w-full rounded-[14px] px-4 py-2.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-500/10"
+            className="w-full rounded-[14px] px-4 py-2.5 text-[16px] font-semibold text-blue-600 transition hover:bg-blue-500/10"
           >
             Şimdi değil
           </button>

@@ -46,9 +46,9 @@ export default function DaireAnnouncementsPage() {
   return (
     <div className="space-y-4">
       <section className="hero-soft p-6">
-        <p className="text-xs font-medium text-violet-100">Yönetimden</p>
+        <p className="text-[14px] font-medium text-violet-100">Yönetimden</p>
         <h1 className="mt-1 text-xl font-bold">Duyurular</h1>
-        <p className="mt-1 text-[11px] text-violet-100">
+        <p className="mt-1 text-[13.5px] text-violet-100">
           Apartman ve site ile ilgili tüm güncel bilgilendirmeler.
         </p>
       </section>
@@ -87,10 +87,10 @@ export default function DaireAnnouncementsPage() {
                             </Badge>
                           ) : null}
                         </div>
-                        <p className="mt-1.5 text-sm font-semibold text-slate-800">
+                        <p className="mt-1.5 text-[16px] font-semibold text-slate-800">
                           {announcement.title}
                         </p>
-                        <p className="mt-0.5 text-[10px] text-slate-400">
+                        <p className="mt-0.5 text-[12.5px] text-slate-400">
                           {formatDateTime(announcement.createdAt)} ·{" "}
                           {announcement.blocks.join(", ")} Blok
                         </p>
@@ -105,14 +105,14 @@ export default function DaireAnnouncementsPage() {
                   </div>
                   <p
                     className={cn(
-                      "mt-2 pl-13 text-[11px] leading-5 text-slate-500",
+                      "mt-2 pl-13 text-[13.5px] leading-5 text-slate-500",
                       !open && "line-clamp-2"
                     )}
                   >
                     {announcement.body}
                   </p>
                   {!open ? (
-                    <p className="mt-1 pl-13 text-[10px] font-medium text-violet-600">
+                    <p className="mt-1 pl-13 text-[12.5px] font-medium text-violet-600">
                       Devamını oku · {relativeTime(announcement.createdAt)}
                     </p>
                   ) : null}

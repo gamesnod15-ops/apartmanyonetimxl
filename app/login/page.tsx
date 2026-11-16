@@ -92,27 +92,27 @@ export default function LoginPage() {
             <Building2 className="h-6 w-6" />
           </span>
           <div>
-            <p className="text-sm font-bold">Apartman Yönetim</p>
-            <p className="text-[11px] text-white/70">Akıllı site ve apartman yönetimi</p>
+            <p className="text-[16px] font-bold">Apartman Yönetim</p>
+            <p className="text-[13.5px] text-white/70">Akıllı site ve apartman yönetimi</p>
           </div>
         </div>
 
         <div className="relative max-w-md">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-[11px] font-semibold ring-1 ring-white/20 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-[13.5px] font-semibold ring-1 ring-white/20 backdrop-blur">
             <ShieldCheck className="h-3.5 w-3.5" />
             PWA · Mobilde ana ekrana eklenebilir
           </span>
           <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight">
             Binanızın tüm süreçleri, tek bir uygulamada.
           </h1>
-          <p className="mt-3 text-sm leading-6 text-white/70">
+          <p className="mt-3 text-[16px] leading-6 text-white/70">
             Aidat takibi, arıza yönetimi, kargo teslimi, duyurular ve anketler.
             Sakinler ve yönetim aynı platformda buluşuyor.
           </p>
 
           <ul className="mt-8 space-y-3">
             {features.map((feature) => (
-              <li key={feature.label} className="flex items-center gap-3 text-sm text-white/85">
+              <li key={feature.label} className="flex items-center gap-3 text-[16px] text-white/85">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
                   <feature.icon className="h-4 w-4" />
                 </span>
@@ -122,7 +122,7 @@ export default function LoginPage() {
           </ul>
         </div>
 
-        <div className="relative flex items-center gap-4 text-[11px] text-white/60">
+        <div className="relative flex items-center gap-4 text-[13.5px] text-white/60">
           <span>20 daire · 2 blok</span>
           <span className="h-1 w-1 rounded-full bg-white/40" />
           <span>Veriler demo amaçlıdır</span>
@@ -138,15 +138,15 @@ export default function LoginPage() {
               <Building2 className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-sm font-bold text-slate-900">Apartman Yönetim</p>
-              <p className="text-[11px] text-slate-500">Mobil uyumlu PWA</p>
+              <p className="text-[16px] font-bold text-slate-900">Apartman Yönetim</p>
+              <p className="text-[13.5px] text-slate-500">Mobil uyumlu PWA</p>
             </div>
           </div>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">
             Hoş geldiniz
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-[16px] text-slate-500">
             {isAdmin
               ? "Yönetim paneline erişmek için giriş yapın."
               : "Giriş yapın veya yeni daire kaydınızı oluşturun."}
@@ -157,7 +157,7 @@ export default function LoginPage() {
               type="button"
               onClick={() => selectTone("resident")}
               className={cn(
-                "rounded-[9px] px-3 py-2 text-xs font-semibold transition",
+                "rounded-[9px] px-3 py-2 text-[14px] font-semibold transition",
                 !isAdmin
                   ? "bg-white text-slate-900 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
                   : "text-slate-600 hover:text-slate-900"
@@ -169,7 +169,7 @@ export default function LoginPage() {
               type="button"
               onClick={() => selectTone("admin")}
               className={cn(
-                "rounded-[9px] px-3 py-2 text-xs font-semibold transition",
+                "rounded-[9px] px-3 py-2 text-[14px] font-semibold transition",
                 isAdmin
                   ? "bg-white text-slate-900 shadow-[0_1px_4px_rgb(0_0_0/0.14)]"
                   : "text-slate-600 hover:text-slate-900"
@@ -184,18 +184,18 @@ export default function LoginPage() {
             className="mt-4 rounded-[22px] bg-white p-5 shadow-soft"
           >
             <div className="mb-4 rounded-2xl bg-slate-900/[0.04] px-4 py-3">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+              <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
                 Demo hesap
               </p>
-              <p className="mt-1 text-sm font-semibold text-slate-800">
+              <p className="mt-1 text-[16px] font-semibold text-slate-800">
                 {demoAccounts[tone].name}
               </p>
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[13.5px] text-slate-500">
                 {demoAccounts[tone].email} · şifre 1234
               </p>
             </div>
 
-            <label className="mb-1.5 block text-xs font-semibold text-slate-600">
+            <label className="mb-1.5 block text-[14px] font-semibold text-slate-600">
               E-posta
             </label>
             <input
@@ -205,11 +205,11 @@ export default function LoginPage() {
               onChange={(event) => setEmail(event.target.value)}
               required
               autoComplete="email"
-              className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[15px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
+              className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 text-[17px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
               placeholder="ornek@apartman.com"
             />
 
-            <label className="mb-1.5 mt-4 block text-xs font-semibold text-slate-600">
+            <label className="mb-1.5 mt-4 block text-[14px] font-semibold text-slate-600">
               Şifre
             </label>
             <div className="relative">
@@ -219,7 +219,7 @@ export default function LoginPage() {
                 onChange={(event) => setPassword(event.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 pr-11 text-[15px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
+                className="w-full rounded-xl border border-transparent bg-slate-900/[0.05] px-4 py-3 pr-11 text-[17px] outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/15"
                 placeholder="••••"
               />
               <button
@@ -233,7 +233,7 @@ export default function LoginPage() {
             </div>
 
             {error ? (
-              <p className="mt-4 rounded-xl bg-red-50 px-3 py-2.5 text-xs font-medium text-red-600 ring-1 ring-red-100">
+              <p className="mt-4 rounded-xl bg-red-50 px-3 py-2.5 text-[14px] font-medium text-red-600 ring-1 ring-red-100">
                 {error}
               </p>
             ) : null}
@@ -241,7 +241,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-[15px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99] disabled:opacity-60"
+              className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-[17px] font-semibold text-white transition hover:bg-blue-700 active:scale-[0.99] disabled:opacity-60"
             >
               Giriş Yap
               <ArrowRight className="h-4 w-4" />
@@ -254,10 +254,10 @@ export default function LoginPage() {
               className="mt-3 flex items-center justify-between gap-3 rounded-[22px] bg-white p-4 shadow-soft transition active:scale-[0.99]"
             >
               <span>
-                <span className="block text-xs font-bold text-slate-800">
+                <span className="block text-[14px] font-bold text-slate-800">
                   Daireniz için kayıt oluşturun
                 </span>
-                <span className="mt-0.5 block text-[11px] text-slate-500">
+                <span className="mt-0.5 block text-[13.5px] text-slate-500">
                   Blok, daire, sakin ve iletişim bilgilerinizi 3 adımda girin.
                 </span>
               </span>
@@ -267,7 +267,7 @@ export default function LoginPage() {
             </Link>
           ) : null}
 
-          <p className="mt-4 text-center text-[11px] leading-5 text-slate-400">
+          <p className="mt-4 text-center text-[13.5px] leading-5 text-slate-400">
             Teknik ekip demo hesabı: teknik@apartman.com · 1234
           </p>
         </div>

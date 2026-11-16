@@ -155,7 +155,7 @@ export default function AdminDashboard() {
       <section className="relative overflow-hidden hero-soft p-6">
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-red-500/20 blur-3xl" />
         <div className="relative">
-          <p className="text-xs font-medium text-red-300">
+          <p className="text-[14px] font-medium text-red-300">
             {new Date().toLocaleDateString("tr-TR", {
               weekday: "long",
               day: "numeric",
@@ -165,35 +165,35 @@ export default function AdminDashboard() {
           <h1 className="mt-1 text-2xl font-bold tracking-tight">
             Yönetim Paneli
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-[16px] text-slate-400">
             {user.name} · {user.title ?? "Yönetici"}
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
             <Link
               href="/yonetim/arizalar"
-              className="flex items-center gap-2 rounded-[12px] bg-white px-4 py-2.5 text-xs font-bold text-slate-900 transition hover:bg-slate-100"
+              className="flex items-center gap-2 rounded-[12px] bg-white px-4 py-2.5 text-[14px] font-bold text-slate-900 transition hover:bg-slate-100"
             >
               <Wrench className="h-4 w-4" />
               Arızalara Git
             </Link>
             <Link
               href="/yonetim/finans"
-              className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-xs font-bold text-white ring-1 ring-inset ring-white/15 transition hover:bg-white/20"
+              className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-[14px] font-bold text-white ring-1 ring-inset ring-white/15 transition hover:bg-white/20"
             >
               <Wallet className="h-4 w-4" />
               Finans
             </Link>
             <Link
               href="/yonetim/duyurular"
-              className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-xs font-bold text-white ring-1 ring-inset ring-white/15 transition hover:bg-white/20"
+              className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-[14px] font-bold text-white ring-1 ring-inset ring-white/15 transition hover:bg-white/20"
             >
               <Megaphone className="h-4 w-4" />
               Duyuru Yayınla
             </Link>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-4 text-[11px] text-slate-400">
+          <div className="mt-5 flex flex-wrap gap-4 text-[13.5px] text-slate-400">
             <span className="flex items-center gap-1.5">
               <Building2 className="h-3.5 w-3.5" /> {data.apartments.length} daire
             </span>
@@ -227,8 +227,8 @@ export default function AdminDashboard() {
             <p className="mt-3 text-xl font-bold leading-tight text-slate-900">
               {stat.value}
             </p>
-            <p className="text-[11px] font-medium text-slate-500">{stat.label}</p>
-            <p className="mt-0.5 truncate text-[10px] text-slate-400">{stat.hint}</p>
+            <p className="text-[13.5px] font-medium text-slate-500">{stat.label}</p>
+            <p className="mt-0.5 truncate text-[12.5px] text-slate-400">{stat.hint}</p>
           </Link>
         ))}
       </section>
@@ -241,7 +241,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/finans"
-                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
+                className="flex items-center gap-1 text-[13.5px] font-semibold text-blue-600"
               >
                 Detay <ArrowRight className="h-3 w-3" />
               </Link>
@@ -251,23 +251,23 @@ export default function AdminDashboard() {
             <div className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-full" style={{ background: donutGradient }}>
               <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full bg-white">
                 <span className="text-lg font-bold text-slate-900">%{collection.rate}</span>
-                <span className="text-[9px] text-slate-400">tahsilat</span>
+                <span className="text-[12.5px] text-slate-400">tahsilat</span>
               </div>
             </div>
             <div className="flex-1 space-y-2">
-              <div className="flex items-center justify-between text-[11px]">
+              <div className="flex items-center justify-between text-[13.5px]">
                 <span className="text-slate-500">Toplam tahakkuk</span>
                 <span className="font-semibold text-slate-800">
                   {currency(collection.total)}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-[11px]">
+              <div className="flex items-center justify-between text-[13.5px]">
                 <span className="text-slate-500">Tahsil edilen</span>
                 <span className="font-semibold text-emerald-600">
                   {currency(collection.paid)}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-[11px]">
+              <div className="flex items-center justify-between text-[13.5px]">
                 <span className="text-slate-500">Bekleyen</span>
                 <span className="font-semibold text-red-600">
                   {currency(collection.outstanding)}
@@ -284,12 +284,12 @@ export default function AdminDashboard() {
             <div className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-full" style={{ background: donutGradient }}>
               <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full bg-white">
                 <span className="text-lg font-bold text-slate-900">{totalTickets}</span>
-                <span className="text-[9px] text-slate-400">arıza</span>
+                <span className="text-[12.5px] text-slate-400">arıza</span>
               </div>
             </div>
             <div className="flex-1 space-y-2.5">
               {segments.map((segment) => (
-                <div key={segment.label} className="flex items-center justify-between text-[11px]">
+                <div key={segment.label} className="flex items-center justify-between text-[13.5px]">
                   <span className="flex items-center gap-2 text-slate-500">
                     <span
                       className="h-2 w-2 rounded-full"
@@ -305,7 +305,7 @@ export default function AdminDashboard() {
           <div className="mt-4 space-y-2">
             {categoryCounts.slice(0, 4).map((item) => (
               <div key={item.category}>
-                <div className="mb-1 flex items-center justify-between text-[10px] text-slate-500">
+                <div className="mb-1 flex items-center justify-between text-[12.5px] text-slate-500">
                   <span>{item.category}</span>
                   <span className="font-semibold">{item.count}</span>
                 </div>
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/arizalar"
-                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
+                className="flex items-center gap-1 text-[13.5px] font-semibold text-blue-600"
               >
                 Tümü <ArrowRight className="h-3 w-3" />
               </Link>
@@ -344,10 +344,10 @@ export default function AdminDashboard() {
                   <Wrench className="h-4 w-4" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-xs font-semibold text-slate-800">
+                  <p className="truncate text-[14px] font-semibold text-slate-800">
                     {ticket.title}
                   </p>
-                  <p className="mt-0.5 text-[10px] text-slate-400">
+                  <p className="mt-0.5 text-[12.5px] text-slate-400">
                     {ticket.apartmentId} · {ticket.category} ·{" "}
                     {relativeTime(ticket.updatedAt)}
                   </p>
@@ -356,7 +356,7 @@ export default function AdminDashboard() {
                   <Badge className={ticketStatusMeta[ticket.status].className}>
                     {ticketStatusMeta[ticket.status].label}
                   </Badge>
-                  <span className={cn("text-[9px] font-semibold", priorityMeta[ticket.priority].className, "rounded-full px-1.5 py-0.5")}>
+                  <span className={cn("text-[12.5px] font-semibold", priorityMeta[ticket.priority].className, "rounded-full px-1.5 py-0.5")}>
                     {priorityMeta[ticket.priority].label}
                   </span>
                 </div>
@@ -372,7 +372,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/finans"
-                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
+                className="flex items-center gap-1 text-[13.5px] font-semibold text-blue-600"
               >
                 Finans <ArrowRight className="h-3 w-3" />
               </Link>
@@ -382,7 +382,7 @@ export default function AdminDashboard() {
             {unpaidApartments.length === 0 ? (
               <div className="flex flex-col items-center gap-2 py-4 text-center">
                 <CheckCircle2 className="h-7 w-7 text-emerald-500" />
-                <p className="text-xs font-semibold text-slate-700">
+                <p className="text-[14px] font-semibold text-slate-700">
                   Bekleyen ödeme yok
                 </p>
               </div>
@@ -398,10 +398,10 @@ export default function AdminDashboard() {
                     className="flex items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2.5 ring-1 ring-slate-100"
                   >
                     <div className="min-w-0">
-                      <p className="text-xs font-semibold text-slate-800">
+                      <p className="text-[14px] font-semibold text-slate-800">
                         {item.apartmentId}
                       </p>
-                      <p className="truncate text-[10px] text-slate-400">
+                      <p className="truncate text-[12.5px] text-slate-400">
                         {apartment?.ownerName} · {currency(item.total)}
                       </p>
                     </div>
@@ -441,7 +441,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim/kargolar"
-                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
+                className="flex items-center gap-1 text-[13.5px] font-semibold text-blue-600"
               >
                 Tümü <ArrowRight className="h-3 w-3" />
               </Link>
@@ -454,10 +454,10 @@ export default function AdminDashboard() {
                   <Package className="h-4 w-4" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-semibold text-slate-800">
+                  <p className="text-[14px] font-semibold text-slate-800">
                     {item.apartmentId} · {item.courier}
                   </p>
-                  <p className="text-[10px] text-slate-400">
+                  <p className="text-[12.5px] text-slate-400">
                     {item.description} · {relativeTime(item.receivedAt)}
                   </p>
                 </div>
@@ -467,7 +467,7 @@ export default function AdminDashboard() {
               </div>
             ))}
             {waitingPackages.length === 0 ? (
-              <p className="p-6 text-center text-xs text-slate-400">
+              <p className="p-6 text-center text-[14px] text-slate-400">
                 Bekleyen kargo yok.
               </p>
             ) : null}
@@ -480,7 +480,7 @@ export default function AdminDashboard() {
             action={
               <Link
                 href="/yonetim"
-                className="flex items-center gap-1 text-[11px] font-semibold text-blue-600"
+                className="flex items-center gap-1 text-[13.5px] font-semibold text-blue-600"
               >
                 <Bell className="h-3 w-3" /> Merkez
               </Link>
@@ -493,20 +493,20 @@ export default function AdminDashboard() {
                   <Bell className="h-3.5 w-3.5" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-semibold text-slate-800">
+                  <p className="text-[14px] font-semibold text-slate-800">
                     {notification.title}
                   </p>
-                  <p className="mt-0.5 line-clamp-1 text-[10px] text-slate-500">
+                  <p className="mt-0.5 line-clamp-1 text-[12.5px] text-slate-500">
                     {notification.body}
                   </p>
                 </div>
-                <span className="text-[9px] text-slate-400">
+                <span className="text-[12.5px] text-slate-400">
                   {relativeTime(notification.at)}
                 </span>
               </div>
             ))}
             {notifications.length === 0 ? (
-              <p className="p-6 text-center text-xs text-slate-400">
+              <p className="p-6 text-center text-[14px] text-slate-400">
                 Bildirim yok.
               </p>
             ) : null}
@@ -531,10 +531,10 @@ export default function AdminDashboard() {
                   <CalendarDays className="h-4 w-4" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-xs font-semibold text-slate-800">
+                  <p className="truncate text-[14px] font-semibold text-slate-800">
                     {meeting.title}
                   </p>
-                  <p className="text-[10px] text-slate-400">
+                  <p className="text-[12.5px] text-slate-400">
                     {formatDateTime(meeting.date)} · {meeting.location}
                   </p>
                 </div>
